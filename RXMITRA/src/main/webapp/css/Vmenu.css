@@ -1,0 +1,213 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+@charset "UTF-8";
+/* Base Styles */
+#vrtmenu,
+#vrtmenu ul,
+#vrtmenu li,
+#vrtmenu a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family:'Lucida Grande', Geneva, Candara, Tahoma, sans-serif;
+  font-size: 12px;
+  position: relative;
+}
+#vrtmenu {
+  width: 170px;
+  border: 0px solid #bbb;
+  background-color: #effbfc;
+  /* box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19); */
+  
+  padding-bottom:12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+#vrtmenu .head
+{
+    color:#5074b8;
+    text-align: center;
+    font-size: 24px;
+    padding-top:12px;
+    padding-bottom: 10px;
+    background-color: #effbfc;
+}
+#vrtmenu a {
+  line-height: 1.3;
+}
+
+
+
+#vrtmenu > ul > li > a {
+  background: #effbfc;
+ 
+    font-weight:normal;
+    font-size: medium;
+    color:#484452;
+  text-transform: uppercase;
+}
+#vrtmenu > ul > li > a > span {
+  display: block;
+  padding: 8px 6px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#vrtmenu > ul > li > a:hover {
+  text-decoration: none;
+  color:#A662AA;
+}
+
+#vrtmenu > ul > li.has-sub > a span:before {
+  margin-right: 8px;
+  content: '\25BA';
+  font-size: 12px;
+ 
+}
+#vrtmenu > ul > li.has-sub.active > a span:before {
+  margin-right: 8px; content: '\25BC';
+  color:#A662AA;
+}
+/* Sub menu */
+#vrtmenu ul ul {
+  display: none;
+  background: #effbfc;
+  
+}
+#vrtmenu ul ul li {
+  padding: 0;
+  border-top: none;
+  background: #effbfc;
+  
+}
+
+#vrtmenu ul ul a {
+  padding: 6px 8px 8px 25px;
+  display: block;
+  color: #484452;/*purple color #A662AA*/
+  font-size: 13px;
+  font-weight: normal;
+}
+#vrtmenu ul ul a:before {
+  content: "\25BA";
+  position: absolute;
+  left: 10px;
+  color: #484452;
+  font-size: 10px;
+}
+#vrtmenu ul ul a:hover {
+  background-color: #effbfc;
+  color:#A662AA;
+}
+
+
+/* Main menu settings */
+#centeredmenu {
+   clear:both;
+   float:left;
+   margin:0;
+   padding:0;
+   border-bottom:1px solid #000; /* black line below menu */
+   width:100%;
+   font-family:Verdana, Geneva, sans-serif; /* Menu font */
+   font-size:90%; /* Menu text size */
+   z-index:1000; /* This makes the dropdown menus appear above the page content below */
+   position:relative;
+}
+
+/* Top menu items */
+#centeredmenu ul {
+   margin:0;
+   padding:0;
+   list-style:none;
+   float:right;
+   position:relative;
+   right:50%;
+}
+#centeredmenu ul li {
+   margin:0 0 0 1px;
+   padding:0;
+   float:left;
+   position:relative;
+   left:50%;
+   top:1px;
+}
+#centeredmenu ul li a {
+   display:block;
+   margin:0;
+   padding:.6em .5em .4em;
+   font-size:1em;
+   line-height:1em;
+   background:#ddd;
+   text-decoration:none;
+   color:#444;
+   font-weight:bold;
+   border-bottom:1px solid #000;
+}
+#centeredmenu ul li.active a {
+   color:#fff;
+   background:#000;
+}
+#centeredmenu ul li a:hover {
+   background:#36f; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #03f;
+}
+#centeredmenu ul li:hover a,
+#centeredmenu ul li.hover a { /* This line is required for IE 6 and below */
+   background:#36f; /* Top menu items background colour */
+   color:#fff;
+   border-bottom:1px solid #03f;
+}
+
+/* Submenu items */
+#centeredmenu ul ul {
+   display:none; /* Sub menus are hiden by default */
+   position:absolute;
+   top:2em;
+   left:0;
+   right:auto; /*resets the right:50% on the parent ul */
+   width:10em; /* width of the drop-down menus */
+}
+#centeredmenu ul ul li {
+   left:auto;  /*resets the left:50% on the parent li */
+   margin:0; /* Reset the 1px margin from the top menu */
+   clear:left;
+   width:100%;
+}
+#centeredmenu ul ul li a,
+#centeredmenu ul li.active li a,
+#centeredmenu ul li:hover ul li a,
+#centeredmenu ul li.hover ul li a { /* This line is required for IE 6 and below */
+   font-size:.8em;
+   font-weight:normal; /* resets the bold set for the top level menu items */
+   background:#eee;
+   color:#444;
+   line-height:1.4em; /* overwrite line-height value from top menu */
+   border-bottom:1px solid #ddd; /* sub menu item horizontal lines */
+}
+#centeredmenu ul ul li a:hover,
+#centeredmenu ul li.active ul li a:hover,
+#centeredmenu ul li:hover ul li a:hover,
+#centeredmenu ul li.hover ul li a:hover { /* This line is required for IE 6 and below */
+   background:#36f; /* Sub menu items background colour */
+   color:#fff;
+}
+
+/* Flip the last submenu so it stays within the page */
+#centeredmenu ul ul.last {
+   left:auto; /* reset left:0; value */
+   right:0; /* Set right value instead */
+}
+
+/* Make the sub menus appear on hover */
+#centeredmenu ul li:hover ul,
+#centeredmenu ul li.hover ul { /* This line is required for IE 6 and below */
+   display:block; /* Show the sub menus */
+}

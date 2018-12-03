@@ -1,0 +1,109 @@
+.main-center {
+    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 10px 40px;
+    background: #febf10;
+    color: #FFF;
+    text-shadow: none;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    margin-bottom: 4%;
+}
+
+.input-group-addon {
+    width: 1px;
+    padding: 0 1.2em;
+    text-align: center;
+    border: 1px solid #6ab42f;
+    border-right-width: 0;
+    background: #fff;
+}
+
+span.input-group-addon i {
+    color: #6ab42f;
+    font-size: 17px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.8em 0.8em;
+    background-image: none;
+    border: 1px solid #6ab42f;
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+    color:#000;
+}
+
+
+#button {
+    border: 1px solid #6ab42f;
+    margin-top: 28px;
+    padding: 6px 12px;
+    color: #666;
+    text-shadow: 0 1px #222;
+    cursor: pointer;
+    -moz-border-radius: 3px 3px;
+    -webkit-border-radius: 3px 3px;
+    border-radius: 3px 3px;
+    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;
+    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;
+    box-shadow: 0 1px #6ab42f inset, 0 1px #6ab42f;
+    background: #f5f5f5;
+    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #6ab42f 0%, #6ab42f 100%);
+    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
+}
+
+.bd{
+
+    min-height: 600px;
+}
+
+.panel-heading {
+    padding:10px;
+    border-bottom: 1px solid transparent;
+    font-weight: bolder;
+    font-size: 16px;
+    color: #ffffff;
+    background: #6ab42f;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    color: #fffff;
+    background-color: #6ab42f;
+}
+
+.btn-success {
+    color: #ffffff;
+    background-color: #f57f20;
+    border-color: #80da5d;
+}
+
+
+.panel-body {
+     padding:0px;
+     
+}
+
+
+.input-group .form-control {
+    width: 100%;
+    background-color: #fff;
+}
+.color{
+	 padding: 0 4px;
+    height: 46px;
+	width: 100%;
+    background-color: #fff;
+	 color:#000;
+	 border: 1px solid #6ab42f;
+}
