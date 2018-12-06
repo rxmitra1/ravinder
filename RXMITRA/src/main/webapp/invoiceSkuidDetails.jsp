@@ -44,7 +44,7 @@
 
 						<div class="panel panel-orange" style="padding: 2px 13px;">
 							<div class="">
-                              <form action="./viewVendorInvoiceBySkuid1" method="get">
+                              <form action="./viewVendorInvoiceBySkuid1" method="post">
 								
 								 <div colspan="12" style="padding: 5px;background: #5aa320;color:#fff;text-align: center;font-size: 20px;border-bottom: 2px solid #febf10;">
 	                                 <tr>

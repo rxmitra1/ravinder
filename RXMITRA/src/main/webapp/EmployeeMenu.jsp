@@ -126,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<ul id="menu-academico-sub">
 							
 							<li id="menu-academico-boletim"><a
-							href='./ReceivedRequest.jsp'>RECEIVED REQUEST</a></li>
+							href='./getReceivedRequestData'>RECEIVED REQUEST</a></li>
 							</ul>
 				</li>
 

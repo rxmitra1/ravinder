@@ -261,7 +261,7 @@ public class AddInvoiceController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/viewVendorInvoiceBySkuid1", method = RequestMethod.GET)
+	@RequestMapping(value = "/viewVendorInvoiceBySkuid1", method = RequestMethod.POST)
 	public ModelAndView viewVendorInvoiceBySkuid1(String skuid, String productName, String manufacturer, Integer pageid,
 			Model model,HttpSession session) {
 		ModelAndView mav = null;
@@ -280,7 +280,7 @@ public class AddInvoiceController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/salesViewVendorInvoiceBySkuid", method = RequestMethod.GET)
+	@RequestMapping(value = "/salesViewVendorInvoiceBySkuid", method = RequestMethod.POST)
 	public ModelAndView salesViewVendorInvoiceBySkuid(String skuid, String productName, String manufacturer,
 			Integer pageid, Model model, HttpSession session) {
 		ModelAndView mav = null;
@@ -293,12 +293,22 @@ public class AddInvoiceController {
 		}
 		if(skuid!="" || manufacturer!="" || productName!="") {
 			List<AddInvoice> list = service.viewVendorInvoiceBySkuid1(userId,skuid, productName, manufacturer, pageid, total);
-			mav = new ModelAndView("invoiceSkuidDetailsinSales", "invoiceSkuidList", list);
+			if(list.size()>0) {
+				mav = new ModelAndView("invoiceSkuidDetailsinSales", "invoiceSkuidList", list);
+			}else {
+				mav = new ModelAndView("emptyInvoiceSkuidDetailsinSales",  "message", "No Records Found...");
+			}
+			
+			
 
 			
 		}else {
 			List<AddInvoice> list = service.viewVendorInvoiceByAllInPublish(userId,pageid, total);
-			mav = new ModelAndView("invoiceSkuidDetailsinSales", "invoiceSkuidList", list);
+			if(list.size()>0) {
+				mav = new ModelAndView("invoiceSkuidDetailsinSales", "invoiceSkuidList", list);
+			}else {
+				mav = new ModelAndView("emptyInvoiceSkuidDetailsinSales", "message", "No Records Found...");
+			}
 		}
 		
 		return mav;
@@ -368,7 +378,7 @@ public class AddInvoiceController {
 			model.addAttribute("VendorInvoiceList", list);
 			mav = new ModelAndView("setSalesPrice1");
 		} else {
-			mav = new ModelAndView("DisplayVendorInvoice1", "message", "No Records Found...");
+			mav = new ModelAndView("emptySetSalesPrice1", "message", "No Records Found...");
 		}
 		}else {
 			List<AddInvoice> list = service.viewSetSalesPriceAll();
@@ -377,7 +387,7 @@ public class AddInvoiceController {
 				model.addAttribute("VendorInvoiceList", list);
 				mav = new ModelAndView("setSalesPrice1");
 			} else {
-				mav = new ModelAndView("DisplayVendorInvoice1", "message", "No Records Found...");
+				mav = new ModelAndView("emptySetSalesPrice1", "message", "No Records Found...");
 			}
 
 		}
@@ -444,7 +454,7 @@ public class AddInvoiceController {
 	}
 	
 	
-	@RequestMapping(value = "/getProductDetailsInSearchPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/getProductDetailsInSearchPage", method = RequestMethod.POST)
 	public ModelAndView getProductDetailsInSearchPage(String productName,HttpServletRequest request) {
 		
 		ModelAndView mav=null;

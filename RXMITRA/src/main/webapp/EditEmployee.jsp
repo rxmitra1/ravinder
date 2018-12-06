@@ -74,11 +74,11 @@ label {
 
 							
 								<div class="col-md-12">
-								<form action="./viewEmployeeInEditPage" method="get">
+								<form action="./viewEmployeeInEditPage" method="post">
 									<p>
 										<br>
 									</p>
-									<div class="form-group col-lg-3">
+									<div class="form-group col-lg-2">
 										<label>Employee Id :</label> <input type="text"
 											name="empId" class="form-control" id="empId" value=""
 											placeholder="Enter Employee Id">
@@ -89,6 +89,18 @@ label {
 											name="empName" class="form-control" id="empName" value=""
 											placeholder="Enter Employee Name"]>
 									</div>
+									<div class="form-group col-lg-2">
+										<label>Mobile No :</label> <input type="text"
+											name="mobileNo" class="form-control" id="mobileNo" value=""
+											placeholder="Enter Employee Name"]>
+									</div>
+									
+									<div class="form-group col-lg-3">
+										<label>Email Id :</label> <input type="text"
+											name="emailId" class="form-control" id="emailId" value=""
+											placeholder="Enter Employee Name"]>
+									</div>
+									
 
 									<!-- <div class="form-group col-lg-3">
 										<label>Pincode :</label> <input type="pincode" name="pincode"

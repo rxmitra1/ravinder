@@ -72,12 +72,12 @@ label {
 							</div>
 							<div class="clearfix"></div>
 
-							<form action="./viewEmployeeInEditPage" method="get">
+							<form action="./viewEmployeeInEditPage" method="post">
 								<div class="col-md-12">
 									<p>
 										<br>
 									</p>
-									<div class="form-group col-lg-3">
+									<div class="form-group col-lg-2">
 										<label>Employee Id :</label> <input type="employeeId"
 											name="empId" class="form-control" id="empId"
 											value="${employeeDetails.empId }"
@@ -90,7 +90,17 @@ label {
 											value="${employeeDetails.empName }"
 											placeholder="Enter Employee Name"]>
 									</div>
-
+                                      <div class="form-group col-lg-2">
+										<label>Mobile No :</label> <input type="text"
+											name="mobileNo" class="form-control" id="mobileNo" value="${employeeDetails.mobileNo }"
+											placeholder="Enter Employee Name">
+									</div>
+									
+									<div class="form-group col-lg-3">
+										<label>Email Id :</label> <input type="text"
+											name="emailId" class="form-control" id="emailId" value="${employeeDetails.emailId }"
+											placeholder="Enter Employee Name"]>
+									</div>
 									<!-- <div class="form-group col-lg-3">
 										<label>Pincode :</label> <input type="pincode" name="pincode"
 											class="form-control" id="" value=""
@@ -161,7 +171,19 @@ label {
 												<td data-title="shopid" class="numeric"><input
 													type="text" class="form-control" name="password"
 													value="${employeeDetails.password }" /></td>
-												<td data-title="active" class="numeric">${employeeDetails.status }</td>
+													
+												
+												<td data-title="active" class="numeric">  
+                        
+                                                      <select class="form-control">
+						                                  <option value="volvo">Active</option>
+						                                  <option value="saab">InActive</option>
+						                                 
+						                              </select>
+                                               </td>
+												
+												
+												
 												<td data-title="Update" class="numeric"><input
 													type="submit" value="Update"
 													class="btn btn-success btn-block"></input></td>

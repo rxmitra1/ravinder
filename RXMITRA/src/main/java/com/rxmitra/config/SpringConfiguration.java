@@ -44,8 +44,11 @@ import com.rxmitra.bean.DeliverAddress;
 import com.rxmitra.bean.EmpLogin;
 import com.rxmitra.bean.Employee;
 import com.rxmitra.bean.Excel;
+import com.rxmitra.bean.Prescription;
+import com.rxmitra.bean.PrescriptionManagement;
 import com.rxmitra.bean.Product;
 import com.rxmitra.bean.Publish;
+import com.rxmitra.bean.ReceivedRequest;
 import com.rxmitra.bean.UserLogin;
 import com.rxmitra.bean.UserRegistration;
 import com.rxmitra.bean.Vendor;
@@ -88,7 +91,7 @@ public class SpringConfiguration implements WebMvcConfigurer{
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setAnnotatedPackages("com.rxmitra.bean.*");
-		sessionFactory.setAnnotatedClasses(Vendor.class,Product.class,VendorProduct.class,Excel.class,AddInvoice.class,UserRegistration.class,UserLogin.class,Publish.class,DeliverAddress.class,Employee.class,EmpLogin.class );
+		sessionFactory.setAnnotatedClasses(Vendor.class,Product.class,VendorProduct.class,Excel.class,AddInvoice.class,UserRegistration.class,UserLogin.class,Publish.class,DeliverAddress.class,Employee.class,EmpLogin.class,Prescription.class,PrescriptionManagement.class,ReceivedRequest.class );
 		//sessionFactory.setAnnotatedClasses(Product.class);
 		sessionFactory.setHibernateProperties(getProperties());
 

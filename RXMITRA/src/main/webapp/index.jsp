@@ -80,7 +80,7 @@
         
 	   <div class="col-lg-1"></div>
 	   <div class="col-lg-4 col-xs-12" id="reg">
-	   <form class="example" action="./getProductDetailsInSearchPage" method="get">
+	   <form class="example" action="./getProductDetailsInSearchPage" method="post">
 	   <input type="text" name="productName" id="field1" placeholder="Enter Your Medicine Name"  required>
 	   <button type="submit"><i class="fa fa-search"></i></button>
 	   </form>

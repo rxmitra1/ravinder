@@ -95,7 +95,7 @@ public class EmployeeController {
 	 * }
 	 */
 
-	@RequestMapping(path = "/viewEmployeeInEditPage", method = RequestMethod.GET)
+	@RequestMapping(path = "/viewEmployeeInEditPage", method = RequestMethod.POST)
 	public ModelAndView viewEmployeeInEditPage(String empId, String empName,String pincode) {
 		ModelAndView mav = null;
 		//int empId1 = Integer.parseInt(empId);

@@ -125,100 +125,10 @@ function updatebox()
 								</form>
 
 	
-						<div class="panel panel-orange" style="padding: 2px 13px;">
-						
-							<div class="">
-							
-							
-                            <form method="get" action="./addPublish" onsubmit="return validateForm()">
-                             <div align="center">
-						 <font style='color: blue; font-weight: 600; font-size: medium;'>${ publishSuccess}</font>
-						 </div>
-                            
-								<table class="table table-bordered">
-								
-                           
-                       
-									<tr>
-										<th colspan="12"
-											style="padding: 5px; background: #5aa320; color: #fff; text-align: center; font-size: 20px;">PUBLISH
-											PRODUCTS</th>
-									</tr>
-
-									<tr>
-										
-										<td style="font-weight: 500;">SKUID</td>
-										<td style="font-weight: 500;">MANUFACTURER</td>
-										<td style="font-weight: 500;">PRODUCT NAME</td>
-										<td style="font-weight: 500;">WEIGHT</td>
-										<td style="font-weight: 500;">PACKAGE TYPE</td>
-
-                                            <td  style="font-weight: 500;">PURCHASE PRICE</td>
-											<td  style="font-weight: 500;">DISCOUNT PRICE</td>
-                                            <td  style="font-weight: 500;">ACTUAL PRICE</td>
-
-										<td style="font-weight: 500;">MRP</td>
-										<td style="font-weight: 500;">SALES DISCOUNT</td>
-										<td style="font-weight: 500;">SELLING PRICE</td>
-										<td style="font-weight: 500;">Check Here</td>
-                                       
-									</tr>
-
-								
-								
-
-									<c:forEach items="${invoiceSkuidList}" var="invoiceSkuidList">
-                                       
-										<tr>
-											
-											<td><c:out value="${invoiceSkuidList.skuid}"></c:out></td>
-											<td><c:out value="${invoiceSkuidList.manufacturer}"></c:out></td>
-											<td><c:out value="${invoiceSkuidList.productName}"></c:out></td>
-											<td><c:out value="${invoiceSkuidList.weight}"></c:out></td>
-											<td><c:out value="${invoiceSkuidList.packageType}"></c:out></td>
-                                            <td><c:out value="${invoiceSkuidList.purchasePrice}"></c:out></td>
-                                            <td><c:out value="${invoiceSkuidList.discountPrice}"></c:out></td>
-											<td><c:out value="${invoiceSkuidList.actualPrice}"></c:out></td>
-											
-											<td><c:out value="${invoiceSkuidList.mrp}"></c:out></td>
-											<td><c:out value="${invoiceSkuidList.salesDiscount}"></c:out></td>
-											<td><c:out value="${invoiceSkuidList.sellingPrice}"></c:out></td>
-											<td>
-
-
-										
-
-                                                  <input class="myCheck" id="myCheck"  type="checkbox" name="addInvoiceId" value="${invoiceSkuidList.addInvoiceId}"  style=" width:18px; height: 18px;"/>  
-													
-												
-											</td>
-											
-										</tr>
-									</c:forEach>
-
-								</table>
-								<input type="submit" value="Publish" id="text" style="width: 100px;float: right;"
-								class="btn btn-block btn-primary" name="other_text" disabled="disabled"  /> 
-								</form>
-								<div class="row">
-                                <div class="col-md-11">
-                                </div>
-								<div class="col-md-1">
-								
-								</td>
-								</div>
-								</div>
-								
-								Pages <a href="./viewVendorInvoiceBySkuid1?pageid=1">1</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=2">2</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=3">3</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=4">4</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=5">5</a>
-                                   
-								<div class="clearfix"></div>
-
-							</div>
-						</div>
+				               <div class="col-md-12">
+		                     <h3
+		                      align="center" style="color: purple;">${message}</h3>
+		                    </div>
 					</div>
 				</div>
 			</div>

@@ -126,6 +126,10 @@
 								</form>
 								</div>
 								
+								
+								
+								
+								
 								 <div class="col-lg-12" id="form7">
 								 <div align="center">
 								
@@ -349,11 +353,21 @@
 							</form>
 							
 							
-							Pages <a href="/RXMITRA/setSalesPrice?pageid=1">1</a> <a
+							Pages  <form action="./setSalesPrice?update=yes" method="post">
+        				  <input type="hidden" name="pageid" value="1">
+        				  
+        				  <button type="submit" class="btn btn-link">1</button>
+        				  </form>
+							
+							
+							
+							
+							
+							<!-- <a href="/RXMITRA/setSalesPrice?pageid=1">1</a> <a
 									href="/RXMITRA/setSalesPrice?pageid=2">2</a> <a
 									href="/RXMITRA/setSalesPrice?pageid=3">3</a> <a
 									href="/RXMITRA/setSalesPrice?pageid=4">4</a> <a
-									href="/RXMITRA/setSalesPrice?pageid=5">5</a>
+									href="/RXMITRA/setSalesPrice?pageid=5">5</a> -->
 							
 																<div class="row">
                                 <div class="col-md-11">
@@ -368,8 +382,8 @@
 								
 								
 								</div> 
-
-		
+								
+                             
 
 							</div>
 							<div class="clearfix"></div>

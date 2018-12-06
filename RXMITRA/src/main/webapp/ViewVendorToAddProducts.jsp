@@ -267,10 +267,10 @@
 												<div class="tooltip1">
 													VIEW ADDED PRODUCTS <span class="tooltiptext1">
 														
-															<div class="col-md-3 to">
+															<div class="col-md-2 to">
 																<span>Name</span>
 															</div>
-															<div class="col-md-3 to">
+															<div class="col-md-2 to">
 																<span>Spical Name</span>
 															</div>
 															<div class="col-md-2 to">
@@ -289,12 +289,12 @@
 														<c:forEach items="${vendorProducts }"
 												var="vendorProducts">
 										
-												<div class="col-md-3 to">
+												<div class="col-md-2 to">
 													<span>
 														<c:out value="${vendorProducts.companyName}"></c:out>
 													</span>
 												</div>
-												<div class="col-md-3 to">
+												<div class="col-md-2 to">
 													<span> <c:out value="${vendorProducts.specialName}"></c:out>
 													</span>
 												</div>
