@@ -50,9 +50,9 @@ public class VendorService {
 
 	}
 
-	public List<VendorProduct> displayProducts() {
+	public List<VendorProduct> displayProducts(Integer refId) {
 		// product.setSEQ_PRODUCT_ID(12);
-		List<VendorProduct> displayProducts = dao.displayProducts();
+		List<VendorProduct> displayProducts = dao.displayProducts(refId);
 		return displayProducts;
 	}
 

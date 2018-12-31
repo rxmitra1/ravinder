@@ -288,6 +288,16 @@ int k=1;
 											style=" width: 100px; float: right;"
 											class="btn btn-block btn-primary" name="other_text" disabled="disabled" />
 											
+											
+											<c:forEach items="${count }" var="count">
+											
+											<form action="./setSalesPrice" method="post">
+        				                          <input type="hidden" name="page" value="${count}">
+        				                          <button type="submit" class="btn btn-link"><c:out value="${count}"/></button>
+        				                  </form>
+											
+											
+											</c:forEach>
 										<%-- Pages <a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=1">1</a>
 									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=2">2</a>
 									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=3">3</a>

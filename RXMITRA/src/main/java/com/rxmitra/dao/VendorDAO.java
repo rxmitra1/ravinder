@@ -34,7 +34,7 @@ public interface VendorDAO {
 	public Vendor getVendor(String vendorname,String refId);
 	public Vendor getVendor(Vendor vendor,Integer vid);
 	public int addVendorProducts(ArrayList<VendorProduct> vendorProductList);
-	public List<VendorProduct> displayProducts();
+	public List<VendorProduct> displayProducts(Integer refId);
 	public List<VendorProduct> displayVendorProducts(int pageid,int limit);
 	public List<VendorProduct> displayVendorProducts(String vendorname,String refId,int pageid,int limit);
 

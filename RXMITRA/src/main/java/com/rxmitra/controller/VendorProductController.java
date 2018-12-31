@@ -29,10 +29,11 @@ public class VendorProductController {
 
 	@RequestMapping(value = "/vendorProductFields", method = RequestMethod.GET)
 	public ModelAndView addVendorProductGet(Integer vendorid, VendorProduct vendorProduct,
-			Vendor vendor, Model model) {
-
+			Vendor vendor, Model model,HttpSession hs) {
+		String  refId = (String) hs.getAttribute("referenceId");
+        int userId = Integer.parseInt(refId);
 		Vendor vendor2 = service.getVendor(vendor, vendorid);
-		List<VendorProduct> list = service.displayProducts();
+		List<VendorProduct> list = service.displayProducts(userId);
 		model.addAttribute("vendorDetails", vendor2);
 		model.addAttribute("vendorProducts", list);
 		//model.addAttribute("category", category);
@@ -45,7 +46,12 @@ public class VendorProductController {
 			VendorProduct vendorProduct, Vendor vendor, Model model) {
 		ModelAndView mav = null;
 		HttpSession hs = request.getSession();
-
+        String  refId = (String) hs.getAttribute("referenceId");
+        int userId = Integer.parseInt(refId);
+        System.out.println(userId);
+        
+        
+        
 		ArrayList<VendorProduct> alp = new ArrayList<VendorProduct>();
 		ArrayList<VendorProduct> alp1 = new ArrayList<VendorProduct>();
 
@@ -54,7 +60,7 @@ public class VendorProductController {
 		vendorProduct.setCategory(category);
 		vendorProduct.setWeight(request.getParameter("weight") + "" + request.getParameter("weightmass"));
 		String submit = request.getParameter("submit");
-		vendorProduct.setVendorId(vendorid.toString());
+		vendorProduct.setVendorId(refId);
 		// String vendorid = request.getParameter("vendorid");
 
 		// boolean b = false;
@@ -73,7 +79,7 @@ public class VendorProductController {
 		}
 		if (submit.equals("ADD PRODUCT")) {
 			Vendor vendor2 = service.getVendor(vendor, vendorid);
-			List<VendorProduct> list = service.displayProducts();
+			List<VendorProduct> list = service.displayProducts(userId);
 
 			model.addAttribute("vendorProducts", list);
 			model.addAttribute("vendorDetails", vendor2);
@@ -90,7 +96,7 @@ public class VendorProductController {
 				model.addAttribute("message1", "VendorProducts Inserted Successfully....");
 
 				Vendor vendor2 = service.getVendor(vendor, vendorid);
-				List<VendorProduct> list = service.displayProducts();
+				List<VendorProduct> list = service.displayProducts(userId);
 
 				model.addAttribute("vendorProducts", list);
 				model.addAttribute("vendorDetails", vendor2);

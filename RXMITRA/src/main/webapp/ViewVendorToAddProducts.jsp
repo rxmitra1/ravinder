@@ -646,24 +646,26 @@
 
 				</div>
 			</div>
+							<div class="clearfix"></div>
+			
 		</div>
-		<div class="clearfix"></div>
-	</div>
+		
+
 
 	<div class="copyrights">
-		<p>
-			© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
-				href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
-		</p>
-	</div>
-	</div>
-	<!--COPY rights end here-->
+				<p>
+					© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
+						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
+				</p>
+			</div>
+		</div>
+		<!--COPY rights end here-->
 
 
 
-	<!--slider menu-->
+		<!--slider menu-->
 
-	<div class="clearfix"></div>
+		<div class="clearfix"></div>
 	</div>
 	<!--slide bar menu end here-->
 	<script>

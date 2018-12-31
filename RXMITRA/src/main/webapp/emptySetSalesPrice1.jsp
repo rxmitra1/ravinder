@@ -102,6 +102,8 @@
 										<label for="pincode">SKU ID :</label> <input type="text"
 											class="form-control" name="skuid" id="skuid"
 											placeholder="Enter Your SKU ID" />
+											 <input type="hidden"
+											class="form-control" name="pageid" id="pageid"/>
 									</div>
 									<div class="form-group col-md-3 col-sm-3">
 										<label for="pincode">MANUFACTURER:</label> <input type="text"

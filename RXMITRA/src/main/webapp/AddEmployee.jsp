@@ -27,6 +27,7 @@ label {
     font-size: 23px;
     color: #5aa320;
     text-decoration: underline;
+        text-align: center;
     }
 </style>
 </head>

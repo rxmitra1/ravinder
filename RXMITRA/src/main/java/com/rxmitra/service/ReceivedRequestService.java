@@ -22,12 +22,44 @@ public class ReceivedRequestService {
 
 		return list;
 	}
+	public ReceivedRequest getReceivedRequestData(String requestId) {
 
-	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, Prescription prescription) {
+		ReceivedRequest receivedRequest = reqdao.getReceivedRequestData(requestId);
+
+		return receivedRequest;
+	}
+	
+	public Long getReceivedRequestCount() {
+
+		Long preMngmtId = reqdao.getReceivedRequestCount();
+
+			return preMngmtId;
+		}
+	public Long getReceivedRequestCount(String fromDate,String toDate,String pincode,String requestId) {
+
+		Long preMngmtId = reqdao.getReceivedRequestCount(fromDate, toDate, pincode, requestId);
+
+			return preMngmtId;
+		}
+	
+	public Integer lastPreMngmtId() {
+
+	Integer preMngmtId = reqdao.lastPreMngmtId();
+
+		return preMngmtId;
+	}
+
+	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, List<Prescription> prescription) {
 
 		String message = reqdao.savePrescriptionAndDoctorData(preMngmt, prescription);
 
 		return message;
 	}
 
+	public List<ReceivedRequest> viewReceivedRequestsByDates(String fromDate,String toDate,String pincode,String requestId) {
+
+		List<ReceivedRequest> list = reqdao.viewReceivedRequestsByDates(fromDate,toDate,pincode,requestId);
+
+		return list;
+	}
 }

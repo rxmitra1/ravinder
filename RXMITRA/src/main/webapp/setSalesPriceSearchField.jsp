@@ -49,7 +49,7 @@
 									String shopid = (String) request.getParameter("shopid");
 								%>
  
-								<form action="./setSalesPrice?update=yes" method="post">
+								<form action="./setSalesPrice" method="post">
 								
 								<div colspan="12" style="padding: 5px;background: #5aa320;color:#fff;text-align: center;font-size: 20px;border-bottom: 2px solid #febf10;">
 	                                 <tr>
@@ -61,6 +61,9 @@
 										<label for="pincode">SKU ID :</label> <input type="text"
 											class="form-control" name="skuid" id="skuid"
 											placeholder="Enter Your SKU ID" />
+											<input type="hidden"
+											class="form-control" name="pageid" id="pageid" value="1"
+											/>
 									</div>
 									<div class="form-group col-md-4 col-sm-4">
 										<label for="pincode">MANUFACTURER:</label> <input type="text"

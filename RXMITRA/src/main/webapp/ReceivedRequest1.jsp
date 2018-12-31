@@ -199,7 +199,6 @@ label {
 												<th class="numeric">Phone No</th>
 												<th class="numeric">Pincode</th>
 												<th class="numeric">Order Status</th>
-												<th class="numeric">Order Id</th>
 												<th class="numeric">Image Prescription</th>
 
 
@@ -210,8 +209,18 @@ label {
 												var="receivedRequestData">
 
 												<tr>
-													<td data-title="Request Id" class="numeric"><a
-														href="#demo${receivedRequestData.requestId }" 	data-toggle="collapse" id="one">${receivedRequestData.requestId }</a>
+													<td data-title="Request Id" class="numeric">
+													<form action="./ReceivedRequestPrescription" method="post">
+														<input type="hidden" name="requestId" value="${receivedRequestData.requestId }">
+
+														<button type="submit" class="btn btn-link" style="color: #429400;
+                                                                font-size: 21px; line-height: 0px">
+															<c:out value="${receivedRequestData.requestId }" />
+														</button>
+													</form>
+													
+													<%-- <a
+														href="./ReceivedRequestPrescription"  id="one">${receivedRequestData.requestId }</a --%>
 														
 										 <!--============================ Doctor and Medicine details fields start ================-->
 														
@@ -312,14 +321,10 @@ label {
 													<td data-title="Email Id" class="numeric">${receivedRequestData.emailId }</td>
 													<td data-title="Phone No" class="numeric">${receivedRequestData.mobile }</td>
 													<td data-title="Pincode" class="numeric">${receivedRequestData.pincode }</td>
-													<td data-title="Order Status" class="numeric"><select
-														class="form-control">
-															<option value="volvo">${receivedRequestData.status }</option>
-															<option value="saab">Order process</option>
-															<option value="opel">Delivery</option>
-															<option value="audi">Rejected</option>
-													</select></td>
-													<td data-title="Order Id" class="numeric">${receivedRequestData.requestId }</td>
+													<td data-title="Order Status" class="numeric">
+															${receivedRequestData.status }
+															
+													</td>
 
 
 
@@ -371,7 +376,7 @@ label {
 														
 														<!-- =========================Image Popup end ==============================--></td>
 												</tr>
-											
+												
 												
 							 <form action="./savePrescriptionAndDoctorData" method="post">
 												
@@ -500,7 +505,22 @@ label {
 								</div>
 
 
+                                <table>
+										<tr>
+											<td>Pages</td>
+											<c:forEach items="${count }" var="count">
+												<td>
+													<form action="./getReceivedRequestData" method="get">
+														<input type="hidden" name="pageid" value="${count}">
 
+														<button type="submit" class="btn btn-link">
+															<c:out value="${count}" />
+														</button>
+													</form>
+												</td>
+											</c:forEach>
+										</tr>
+									</table>
 
 
 

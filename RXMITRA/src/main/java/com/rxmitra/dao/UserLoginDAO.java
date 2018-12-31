@@ -34,7 +34,7 @@ public class UserLoginDAO {
 		String message = "";
 		HashMap<String, String> hashMap = new HashMap<String, String>();
 
-		String sql = "from com.rxmitra.bean.UserLogin l where l.username='" + userLogin.getUsername() + "'";
+		String sql = "from com.rxmitra.bean.UserLogin l where l.username='" + userLogin.getUsername() +"'or l.mobileNo='" + userLogin.getUsername() + "'";
 		Query query = template.getSessionFactory().openSession().createQuery(sql);
 		UserLogin login = (UserLogin) query.uniqueResult();
 

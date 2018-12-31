@@ -75,8 +75,22 @@ label {
 	text-decoration: underline;
 }
 </style>
+<!-- <script>
+$(document).ready(function() { 
+    $('#orderStatus').change(function() {
+      $('#orderStatus1').val($('#orderStatus').val());
+    });
+});
+</script> -->
 
-
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#orderStatus").keyup(function () {
+                var value = $(this).val();
+                $("#orderStatus1").val(value);
+            });
+        });
+</script>
 
 	<script>
 		var counter = 1;
@@ -91,7 +105,7 @@ label {
 			else {
 
 				var newdiv = document.createElement('div');
-				newdiv.innerHTML = '<div class="col-md-12" style="padding: 0 0; margin: 9px 0%;"><div class="col-md-2"><input type="text" name="medicineName" class="form-control" id="" value="" placeholder="Your Medicine Name"></div><div class="form-group col-lg-2"><input type="text" name="quantity" class="form-control" id="" value="" placeholder="Your Quantity"></div><div class="form-group col-lg-2"><input type="text" name="mrp" class="form-control" id="" value="" placeholder="Your MRP"></div><div class="form-group col-lg-2"><input type="text" name="discountPrice" class="form-control" id="" value="" placeholder="Your Discount Price"></div><div class="form-group col-lg-2"><input type="text" name="finalPrice" class="form-control" id="" value="" placeholder="Your Final Price"></div>';
+				newdiv.innerHTML = '<div class="col-md-12" style="padding: 0 0; margin: 9px 0%;"><div class="col-md-2"><input type="text" name="medicineName" class="form-control" id="" value="" placeholder="Your Medicine Name"></div><div class="form-group col-lg-2"><input type="text" name="quantity" class="form-control" id="" value="" placeholder="Your Quantity"></div><div class="form-group col-lg-2"><input type="text" name="mrp" class="form-control" id="" value="" placeholder="Your MRP"></div><div class="form-group col-lg-2"><input type="text" name="discountPrice" class="form-control" id="" value="" placeholder="Your Discount Price"></div>';
 				document.getElementById(divName).appendChild(newdiv);
 				counter++;
 			}
@@ -181,6 +195,7 @@ label {
 								</p>
 
 
+									<form action="./savePrescriptionAndDoctorData" method="post">
 
 
 								<div id="no-more-tables">
@@ -199,15 +214,13 @@ label {
 												<th class="numeric">Phone No</th>
 												<th class="numeric">Pincode</th>
 												<th class="numeric">Order Status</th>
-												<th class="numeric">Order Id</th>
 												<th class="numeric">Image Prescription</th>
 
 
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${receivedRequestData }"
-												var="receivedRequestData">
+										
 
 												<tr>
 													<td data-title="Request Id" class="numeric"><a
@@ -312,14 +325,13 @@ label {
 													<td data-title="Email Id" class="numeric">${receivedRequestData.emailId }</td>
 													<td data-title="Phone No" class="numeric">${receivedRequestData.mobile }</td>
 													<td data-title="Pincode" class="numeric">${receivedRequestData.pincode }</td>
-													<td data-title="Order Status" class="numeric"><select
+													<td data-title="Order Status" class="numeric"><select id="orderStatus" name="status"
 														class="form-control">
-															<option value="volvo">${receivedRequestData.status }</option>
-															<option value="saab">Order process</option>
-															<option value="opel">Delivery</option>
-															<option value="audi">Rejected</option>
+															<option  value="Pending">Pending</option>
+															<option value="Order Process">Order process</option>
+															<option value="Delivery">Delivery</option>
+															<option value="Rejected">Rejected</option>
 													</select></td>
-													<td data-title="Order Id" class="numeric">${receivedRequestData.requestId }</td>
 
 
 
@@ -349,7 +361,7 @@ label {
 
 																			<img
 																				src="data:image/jpg;base64,${receivedRequestData.encodedImage }"
-																				class="img-responsive">
+																				class="img-responsive"/>
 																		</div>
 
 
@@ -359,6 +371,7 @@ label {
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-danger"
 																			data-dismiss="modal">Close</button>
+																			
 																	</div>
 
 																</div>
@@ -371,12 +384,23 @@ label {
 														
 														<!-- =========================Image Popup end ==============================--></td>
 												</tr>
-											
 												
-							 <form action="./savePrescriptionAndDoctorData" method="post">
+												
+							 
+												
+												
+												
+												
+											
+
+										</tbody>
+									</table>
+									          <div align="center">
+													<font color="blue" >${success }</font>
+											  </div>
 												
 
-										      <div id="demo${receivedRequestData.requestId }" class="collapse">
+										      <div id="demo">
 
 
 											<div class="col-md-12">
@@ -389,16 +413,16 @@ label {
 													<div class="form-group col-lg-3">
 														<label>Refered By :</label> <input type="text"
 															name="referredBy" class="form-control"
-															placeholder="Enter Your Refered By" />
+															placeholder="Enter Your Refered By" value="${preMngmt.referredBy }" />
 															 <input type="hidden"
 															name="requestId" class="form-control" value="${receivedRequestData.requestId }"/>
-															<input type="hidden"
-															name="status" class="form-control" value="${receivedRequestData.status }"/> 
+															<!-- <input type="hidden"
+															name="status" id="orderStatus1" class="form-control" value=""/>  -->
 													</div>
 
 													<div class="form-group col-lg-3">
 														<label>Doctor :</label> <input type="text"
-															name="doctorName" class="form-control" id="" value=""
+															name="doctorName" class="form-control" id="" value="${preMngmt.doctorName }"
 															placeholder="Enter Your Doctor" />
 													</div>
 
@@ -406,8 +430,15 @@ label {
 														<label>Address</label>
 														<textarea class="form-control" rows="2" name="address"
 															required="required"
-															placeholder="Enter Your Address ........"></textarea>
+															placeholder="Enter Your Address ........" >${preMngmt.address }</textarea>
 													</div>
+												<div style="float: right;" class="form-group col-lg-2" >
+													
+													<a href=""data-toggle="modal"
+														data-target="#myModal1${receivedRequestData.requestId }"><img 
+																				src="data:image/jpg;base64,${receivedRequestData.encodedImage }"
+																				class="img-responsive" width="140px" height="60px"/></a>
+																				</div>
 											</div>
 
 											<div class="clearfix"></div>
@@ -421,29 +452,29 @@ label {
 
 														<div class="form-group col-lg-2">
 															<input type="text" name="medicineName"
-																class="form-control" id="" value=""
+																class="form-control" id="" value="${prescription.medicineName }"
 																placeholder="Your Medicine Name" />
 														</div>
 
 														<div class="form-group col-lg-2">
 															<input type="text" name="quantity" class="form-control"
-																id="" value="" placeholder="Your Quantity" />
+																id="" value="${prescription.quantity }" placeholder="Your Quantity"  />
 														</div>
 
 														<div class="form-group col-lg-2">
 															<input type="text" name="mrp" class="form-control" id=""
-																value="" placeholder="Your MRP" />
+																value="${prescription.mrp }" placeholder="Your MRP" />
 														</div>
 														<div class="form-group col-lg-2">
 															<input type="text" name="discountPrice"
-																class="form-control" id="" value=""
+																class="form-control" id="" value="${prescription.discountPrice}"
 																placeholder="Your Discount Price" />
 														</div>
-														<div class="form-group col-lg-2">
+														<%-- <div class="form-group col-lg-2">
 															<input type="text" name="finalPrice" class="form-control"
-																id="" value="" placeholder="Your Final Price" />
+																id="" value="${prescription.finalPrice }" placeholder="Your Final Price" />
 														</div>
-
+ --%>
 														<div class="form-group col-lg-2">
 															<button type="button" id="more_fields" name="submit" value="Add Quantity"
 																onclick="addInput('dynamicInput');"
@@ -454,29 +485,28 @@ label {
 													</div>
 											</div>
 											<div class="col-md-12">
-												<div class="col-md-5"></div>
+												<div class="col-md-4"></div>
 												<div class="col-md-2">
 													<div class="">
-														<br> <input type="submit" name="submit" value="Submit"
+													<br> <a href="./getReceivedRequestData" class="btn btn-danger btn-block">
+														Back</a>
+													</div>
+												</div>
+												
+												<div class="col-md-2">
+													<div class="">
+													<br> 
+														<input type="submit" name="submit" value="Submit"
 															class="btn btn-success btn-block"></input>
 													</div>
 												</div>
-												<div class="col-md-5"></div>
+												<div class="col-md-4"></div>
 											</div>
 											
 										</div>
 												
-								</form>
-												
-												
-												
-												
-											</c:forEach>
-
-										</tbody>
-									</table>
 								</div>
-                                      
+                                  </form>    
 
 								<!--========  row section ============ -->
 								

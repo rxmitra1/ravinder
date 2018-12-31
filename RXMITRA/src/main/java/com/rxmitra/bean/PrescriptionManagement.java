@@ -18,9 +18,11 @@ public class PrescriptionManagement {
 	private Integer prescriptionMngmtId;
 	@Column(name="REQUEST_ID")
 	private String requestId;
+	@Column(name="ORDER_ID")
+	private String orderId;
 	@Column(name="PRESCRIPTION_MADE_BY")
 	private String prescriptionMadeBy;
-	@Column(name="STATE")
+	@Column(name="STATUS")
 	private String status;
 	@Column(name="DOCTOR_NAME")
 	private String doctorName;
@@ -28,6 +30,8 @@ public class PrescriptionManagement {
 	private String referredBy;
 	@Column(name="ADDRESS")
 	private String address;
+	@Column(name="DATE")
+	private String prescriptionDate;
 	
 	public Integer getPrescriptionMngmtId() {
 		return prescriptionMngmtId;
@@ -40,6 +44,14 @@ public class PrescriptionManagement {
 	}
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
+	}
+	
+	
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 	public String getPrescriptionMadeBy() {
 		return prescriptionMadeBy;
@@ -71,6 +83,13 @@ public class PrescriptionManagement {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	public String getPrescriptionDate() {
+		return prescriptionDate;
+	}
+	public void setPrescriptionDate(String prescriptionDate) {
+		this.prescriptionDate = prescriptionDate;
 	}
 	@Override
 	public String toString() {

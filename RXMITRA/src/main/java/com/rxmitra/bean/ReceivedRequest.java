@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="received_request_table",schema="rxmitra2")
@@ -39,6 +40,9 @@ public class ReceivedRequest {
 	private String date;
 	@Column(name="PHOTO")
 	private byte[] photo;
+	
+	@Transient
+    private String encodedImage;
 	
 	@Column(name="STATUS")
 	private String status;
@@ -127,6 +131,14 @@ public class ReceivedRequest {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	
+	public String getEncodedImage() {
+		return encodedImage;
+	}
+	public void setEncodedImage(String encodedImage) {
+		this.encodedImage = encodedImage;
 	}
 	@Override
 	public String toString() {

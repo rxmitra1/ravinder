@@ -24,6 +24,9 @@ public class UserLogin {
 	@Column(name="USERNAME")
 	private String username;
 	
+	@Column(name="MOBILENO")
+	private String mobileNo;
+	
 	@Column(name="PASSWORD")
 	private String password;
 	
@@ -51,6 +54,15 @@ public class UserLogin {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+
+	public String getMobileNo() {
+		return mobileNo;
+	}
+
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
 	}
 
 	public String getPassword() {

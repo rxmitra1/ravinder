@@ -21,6 +21,13 @@ public class Prescription {
 	private String medicineName;
 	@Column(name="QUANTITY")
 	private String quantity;
+	@Column(name="MRP")
+	private String mrp;
+	@Column(name="DISCOUNT_PRICE")
+	private String discountPrice;
+	@Column(name="FINAL_PRICE")
+	private String finalPrice;
+	
 	
 	
 	public Integer getPrescriptionId() {
@@ -47,11 +54,32 @@ public class Prescription {
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
+	
+	public String getMrp() {
+		return mrp;
+	}
+	public void setMrp(String mrp) {
+		this.mrp = mrp;
+	}
+	public String getDiscountPrice() {
+		return discountPrice;
+	}
+	public void setDiscountPrice(String discountPrice) {
+		this.discountPrice = discountPrice;
+	}
+	public String getFinalPrice() {
+		return finalPrice;
+	}
+	public void setFinalPrice(String finalPrice) {
+		this.finalPrice = finalPrice;
+	}
 	@Override
 	public String toString() {
 		return "Prescription [prescriptionId=" + prescriptionId + ", prescriptionMngmtId=" + prescriptionMngmtId
-				+ ", medicineName=" + medicineName + ", quantity=" + quantity + "]";
+				+ ", medicineName=" + medicineName + ", quantity=" + quantity + ", mrp=" + mrp + ", discountPrice="
+				+ discountPrice + ", finalPrice=" + finalPrice + "]";
 	}
+	
 	
 	
 	

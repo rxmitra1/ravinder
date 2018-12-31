@@ -26,8 +26,8 @@ public class AddInvoiceService {
 	}
 
 	// pagination
-	public List<AddInvoice> viewVendorInvoiceDetails(Integer invoiceNo, int pageid, int limit) {
-		List<AddInvoice> list = dao.viewVendorInvoiceDetails(invoiceNo, pageid, limit);
+	public List<AddInvoice> viewVendorInvoiceDetails(String userId,String invoiceNo, int pageid, int limit) {
+		List<AddInvoice> list = dao.viewVendorInvoiceDetails(userId,invoiceNo, pageid, limit);
 		return list;
 	}
 
@@ -35,15 +35,18 @@ public class AddInvoiceService {
 		String message = dao.updateInvoiceByInvoiceNo(addInvoice);
 		return message;
 	}
+
 	public String deleteInvoiceByInvoiceNo(Integer invoiceNo) {
 		String message = dao.deleteInvoiceByInvoiceNo(invoiceNo);
 		return message;
 	}
-	
-	/*public String deleteInvoiceBySkuid(String invoiceSkuid, String productName, String manufacturer) {
-		String message = dao.deleteInvoiceBySkuid(invoiceSkuid, productName, manufacturer);
-		return message;
-	}*/
+
+	/*
+	 * public String deleteInvoiceBySkuid(String invoiceSkuid, String productName,
+	 * String manufacturer) { String message =
+	 * dao.deleteInvoiceBySkuid(invoiceSkuid, productName, manufacturer); return
+	 * message; }
+	 */
 
 	public List<AddInvoice> viewVendorInvoiceBySkuid(String invoiceSkuid, String productName, String manufacturer) {
 		List<AddInvoice> list = dao.viewVendorInvoiceBySkuid(invoiceSkuid, productName, manufacturer);
@@ -56,16 +59,18 @@ public class AddInvoiceService {
 		return list;
 	}
 
-	public List<AddInvoice> viewVendorInvoiceBySkuid1(String userId,String invoiceSkuid, String productName, String manufacturer,Integer pageid, Integer limit) {
-		List<AddInvoice> list = dao.viewVendorInvoiceBySkuid1(userId,invoiceSkuid,productName,manufacturer, pageid, limit);
+	public List<AddInvoice> viewVendorInvoiceBySkuid1(String userId, String invoiceSkuid, String productName,
+			String manufacturer, Integer pageid, Integer limit) {
+		List<AddInvoice> list = dao.viewVendorInvoiceBySkuid1(userId, invoiceSkuid, productName, manufacturer, pageid,
+				limit);
 		return list;
 	}
-	
-	public List<AddInvoice> viewVendorInvoiceByAllInPublish(String userId,Integer pageid, Integer limit) {
+
+	public List<AddInvoice> viewVendorInvoiceByAllInPublish(String userId, Integer pageid, Integer limit) {
 		List<AddInvoice> list = dao.viewVendorInvoiceByAllInPublish(userId, pageid, limit);
 		return list;
 	}
-	
+
 	public AddInvoice viewVendorInvoiceByInvoiceId(String invoiceId) {
 		int i = Integer.parseInt(invoiceId);
 		AddInvoice invoiceId2 = dao.viewVendorInvoiceByInvoiceId(i);
@@ -74,35 +79,71 @@ public class AddInvoiceService {
 	}
 
 	public String addPublish(List<Publish> publish) {
-       String message = dao.addPublish(publish);
+		String message = dao.addPublish(publish);
 		return message;
 	}
 
-	public void updateInvoicePublish(List<Integer> invoiceIdList){
+	public void updateInvoicePublish(List<Integer> invoiceIdList) {
 		dao.updateInvoicePublish(invoiceIdList);
 	}
-	
+
 	// pagination
-		public List<AddInvoice> setSalesPrice(String userId,String skuid,String manufacturer,String productName) {
-			List<AddInvoice> list = dao.setSalesPrice(userId,skuid,manufacturer,productName);
-			return list;
-		}
-		
-		public List<AddInvoice> viewSetSalesPriceAll() {
-		List<AddInvoice> list = dao.viewSetSalesPriceAll();
-			return list;
-		}
-		public String updateSetSalesBySkuid(List<AddInvoice> addInvoice) {
-			String message = dao.updateSetSalesBySkuid(addInvoice);
-			return message;
-		}
-		
-		public List<String> searchProductsInIndexPage(String productName){
-			List<String> list = dao.searchProductsInIndexPage(productName);
-			return list;
-		}
-		public List<AddInvoice> getProductDetailsInSearchPage(String productName){
-			List<AddInvoice> list = dao.getProductDetailsInSearchPage(productName);
-			return list;
-		}
+	public List<AddInvoice> setSalesPrice(String userId, String skuid, String manufacturer, String productName,
+			int pageid, int total) {
+		List<AddInvoice> list = dao.setSalesPrice(userId, skuid, manufacturer, productName, pageid, total);
+		return list;
+	}
+
+	public List<AddInvoice> setSalesPrice1(String userId, String skuid, String manufacturer, String productName) {
+		List<AddInvoice> list = dao.setSalesPrice1(userId, skuid, manufacturer, productName);
+		return list;
+	}
+
+	
+	//Pagination start
+	
+	public Long countTotalForPaginationInvoiceByVendor(Integer vendorId) {
+		Long count = dao.countTotalForPaginationInvoiceByVendor(vendorId);
+		return count;
+	}
+	public Long countTotalForPaginationUpdateInvoiceAll(String userId) {
+		Long count = dao.countTotalForPaginationUpdateInvoiceAll(userId);
+		return count;
+	}
+	public Long countTotalForPaginationUpdateInvoice(String userId,String invoiceNo) {
+		Long count = dao.countTotalForPaginationUpdateInvoice(userId,invoiceNo);
+		return count;
+	}
+	
+	public Long countTotalForPagination(String userId) {
+		Long count = dao.countTotalForPagination(userId);
+		return count;
+	}
+	public Long countTotalForPaginationInPublish(String userId) {
+		Long count = dao.countTotalForPaginationInPublish(userId);
+		return count;
+	}
+	
+	
+	//Pagination End
+	
+	public List<AddInvoice> viewSetSalesPriceAll(String userId,int pageid,int total) {
+		List<AddInvoice> list = dao.viewSetSalesPriceAll(userId,pageid,total);
+		return list;
+	}
+
+	public String updateSetSalesBySkuid(List<AddInvoice> addInvoice) {
+		String message = dao.updateSetSalesBySkuid(addInvoice);
+		return message;
+	}
+
+	public List<String> searchProductsInIndexPage(String productName) {
+		List<String> list = dao.searchProductsInIndexPage(productName);
+		return list;
+	}
+
+	public List<AddInvoice> getProductDetailsInSearchPage(String productName) {
+		List<AddInvoice> list = dao.getProductDetailsInSearchPage(productName);
+		return list;
+	}
 }

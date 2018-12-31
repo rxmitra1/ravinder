@@ -34,7 +34,7 @@ function updatebox()
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<<!-- script type="text/javascript">
+<!-- script type="text/javascript">
     $(document).ready(function() {
         $("button").click(function(){
             var favorite = [];
@@ -61,18 +61,7 @@ function updatebox()
 		}
 	%>
 
-	<%-- <%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
 
-		}
-	%> 
- --%>
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -96,7 +85,7 @@ function updatebox()
 									<div class="form-group col-md-3 col-sm-3">
 										<label for="pincode">SKU ID :</label> <input type="text"
 											class="form-control" name="skuid" id="skuid"
-											placeholder="Enter Your SKU ID" />
+											placeholder="Enter Your SKU ID" value="${skuid }"/>
 											<input
 											type="hidden" class="form-control" name="pageid" id="pageid"
 											value="1" required />
@@ -104,12 +93,12 @@ function updatebox()
 									<div class="form-group col-md-3 col-sm-3">
 										<label for="pincode">MANUFACTURER:</label> <input type="text"
 											class="form-control" name="manufacturer" id="manufacturer"
-											placeholder="Enter Your manufacturer" />
+											placeholder="Enter Your manufacturer" ${manufacturer } />
 									</div>
 									<div class="form-group col-md-3 col-sm-3">
 										<label for="pincode">PRODUCT NAME :</label> <input type="text"
 											class="form-control" name="productName" id="productName"
-											placeholder="Enter Your Product Name" />
+											placeholder="Enter Your Product Name" value="${productName }"/>
 									</div>
 									
 

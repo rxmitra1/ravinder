@@ -144,16 +144,26 @@
 													maxlength="30" />
 													 <input type="hidden" name="vendorid"
 													required value="${VendorInvoiceList.vendorid }"
-													maxlength="30" /></td>
+													maxlength="30" />
 													<input type="hidden" name="salesDiscount"
 													required value="${VendorInvoiceList.salesDiscount }"
-													maxlength="30" /></td>
+													maxlength="30" />
 													<input type="hidden" name="sellingPrice"
 													required value="${VendorInvoiceList.sellingPrice }"
-													maxlength="30" /></td>
+													maxlength="30" />
 													<input type="hidden" name="published"
 													required value="${VendorInvoiceList.published }"
-													maxlength="30" /></td>
+													maxlength="30" />
+													<input type="hidden" name="ageLimit"
+													required value="${VendorInvoiceList.agelimit }"
+													maxlength="30" />
+													<input type="hidden" name="productSubCategory"
+													required value="${VendorInvoiceList.productSubCategory }"
+													maxlength="30" />
+													<input type="hidden" name="productCategory"
+													required value="${VendorInvoiceList.productCategory }"
+													maxlength="30" />
+													</td>
 												
 												
 												
@@ -203,11 +213,23 @@
 										</c:forEach>
 
 									</table>
-									<%-- Pages <a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=1">1</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=2">2</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=3">3</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=4">4</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=5">5</a>  --%>
+									<table>
+									<tr>
+										<td>Pages</td>
+										<c:forEach items="${count }" var="count">
+											<td>
+												<form action="./viewVendorInvoiceDetails?update=yes" method="post">
+													<input type="hidden" name="pageid" value="${count}">
+
+														<button type="submit" class="btn btn-link">
+															<c:out value="${count}" />
+														</button>
+												</form>
+											</td>
+										</c:forEach>
+									</tr>
+								</table>
+									
 
 								</div>
 								<tr>

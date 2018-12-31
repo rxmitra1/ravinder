@@ -142,6 +142,25 @@
 										
 
 									</table>
+									
+									<table>
+									<tr>
+										<td>Pages</td>
+										<c:forEach items="${count }" var="count">
+											<td>
+												<form action="./viewVendorInvoice" method="get">
+													<input type="hidden" name="pageid" value="${count}">
+													<input type="hidden" name="vid" value="${vid}">
+													<input type="hidden" name="vendorname" value="${vendorname}">
+
+														<button type="submit" class="btn btn-link">
+															<c:out value="${count}" />
+														</button>
+												</form>
+											</td>
+										</c:forEach>
+									</tr>
+								</table>
                                         <%
 											} else {
 										%>
@@ -150,11 +169,7 @@
 										<%
 											}
 										%>
-									Pages <a href='./viewVendorInvoice?vid=${vid}&pageid=1'>1</a> <a
-										href='./viewVendorInvoice?vid=${vid}&pageid=2'>2</a> <a
-										href='./viewVendorInvoice?vid=${vid}&pageid=3'>3</a> <a
-										href='./viewVendorInvoice?vid=${vid}&pageid=4'>4</a> <a
-										href='./viewVendorInvoice?vid=${vid}&pageid=5'>5</a>
+									
 								</div>
 
 
