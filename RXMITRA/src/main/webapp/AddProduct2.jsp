@@ -29,7 +29,7 @@
 							<div class="">
 								<%
 									String employeeid = (String) session.getAttribute("referenceid");
-									//String shopid = new ShopDetails().getEmployeeShopDetails(employeeid).getSHOP_ID();
+									
 								%>
 								
 								
