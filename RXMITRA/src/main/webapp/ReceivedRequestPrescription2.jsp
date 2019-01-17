@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	isErrorPage="true" pageEncoding="ISO-8859-1" isELIgnored="false"%>
 
@@ -12,17 +13,14 @@
 <title>RX Mitra | Received Request</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-<!-- <link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	<link href="./css/style.css" rel="stylesheet" type="text/css" />
 	<style>
 .table-striped>tbody>tr:nth-of-type(odd) {
@@ -78,6 +76,16 @@ label {
 }
 </style>
 
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#orderStatus").keyup(function () {
+                var value = $(this).val();
+                $("#orderStatus1").val(value);
+            });
+        });
+</script>
+
 	<script>
 		var counter = 1;
 		var limit = 6;
@@ -112,7 +120,7 @@ label {
 		}
 	%>
 	<section style="background-color:#febf10; height:3px;"></section>
-	<jsp:include page="./Employee_top.jsp" /> 
+	<jsp:include page="./Employee_top.jsp" />
 
 	<div class="page-container">
 
@@ -120,10 +128,6 @@ label {
 			<jsp:include page="./EmployeeMenu.jsp">
 				<jsp:param value="<%=from%>" name="from" />
 			</jsp:include></div>
-
-
-
-
 
 		<div class="left-content">
 			<div class="mother-grid-inner"></div>
@@ -141,10 +145,6 @@ label {
 
 							<h4 class="box">Received Request</h4>
 							<br />
-							
-							
-							
-							
 							<form action="./viewReceivedRequestsByDates" method="post">
 								<div class="col-md-10">
 
@@ -220,8 +220,8 @@ label {
 										<tbody>
 										
 												<tr>
-													<td data-title="Request Id" class="numeric">
-														 ${receivedRequestData.requestId }
+													<td data-title="Request Id" class="numeric"><a
+														href="#demo" 	data-toggle="collapse" id="one">${receivedRequestData.requestId }</a>
 														
 										 <!--============================ Doctor and Medicine details fields start ================-->
 														
@@ -231,7 +231,12 @@ label {
 														
 											 <!--============================ Doctor and Medicine details fields End ================-->
 														
-												
+														
+														
+														
+														
+														
+														
 														
 														</td>
 													<td data-title="Request Date" class="numeric">${receivedRequestData.date }</td>
@@ -330,7 +335,7 @@ label {
 													<td data-title="imageDescription" class="numeric"><a
 														href="" data-toggle="modal"
 														data-target="#myModal1${receivedRequestData.requestId }"
-														id="one"> Show Image</a>
+														id="one"> Show Image </a>
 														
 														
 														
@@ -394,7 +399,7 @@ label {
 											  </div>
 												
 
-										      <div >
+										      <div id="demo">
 
 
 											<div class="col-md-12">
@@ -442,6 +447,10 @@ label {
 
 												<h4 id="tw1">Prescription Details</h4>
 												<br>
+												
+												
+											<c:forEach items="${prescription}" var="prescription">
+												
 													<div class="col-md-12" id="dynamicInput">
 
 														<div class="form-group col-lg-2">
@@ -467,17 +476,26 @@ label {
 														<%-- <div class="form-group col-lg-2">
 															<input type="text" name="finalPrice" class="form-control"
 																id="" value="${prescription.finalPrice }" placeholder="Your Final Price" />
-														</div>
- --%>
-														<div class="form-group col-lg-2">
+														</div> --%>
+																											
+														<div class="col-md-1">
+													<a href="./deletePrescriptionData?prescriptionId=${prescription.prescriptionId }&requestId=${receivedRequestData.requestId }" class="btn btn-danger btn-block">
+													
+														Delete</a>
+													</div>
+                                                         <div class="form-group col-lg-2">
 															<button type="button" id="more_fields" name="submit" value="Add Quantity"
 																onclick="addInput('dynamicInput');"
 																class="btn btn-primary btn-block"
 																style="line-height: 18px;">Add Another</button>
 														</div>
-
 													</div>
-											</div>
+													</c:forEach>
+													
+											</div> 
+											
+											
+														
 											<div class="col-md-12">
 												<div class="col-md-4"></div>
 												<div class="col-md-2">
@@ -539,10 +557,6 @@ label {
 				</div>
 			</div>
 
-
- 
-
-
 			<div class="copyrights">
 				<p>
 					Copyright © 2017 Kosur Rythu Mitra. All Rights Reserved | Design by
@@ -579,8 +593,6 @@ label {
 				});
 	</script>
 	<!--scrolling js-->
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="dashboard-js/js/jquery.nicescroll.js"></script>
 	<script src="dashboard-js/js/scripts.js"></script>
 	<!--//scrolling js-->

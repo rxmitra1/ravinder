@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "vendor_product_table", schema = "rxmitra2")
@@ -36,6 +37,9 @@ public class VendorProduct {
 	
 	@Column(name = "VENDOR_ID")
 	private String vendorId;
+	
+	@Transient
+    private String encodedImage;
 	
 	public Integer getVendorProductId() {
 		return vendorProductId;
@@ -98,6 +102,14 @@ public class VendorProduct {
 	}
 	public void setVendorId(String vendorId) {
 		this.vendorId = vendorId;
+	}
+	
+	
+	public String getEncodedImage() {
+		return encodedImage;
+	}
+	public void setEncodedImage(String encodedImage) {
+		this.encodedImage = encodedImage;
 	}
 	@Override
 	public String toString() {

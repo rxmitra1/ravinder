@@ -95,10 +95,7 @@ label {
 		}catch(Exception e){}
 	%>
 	 
-	<%-- <%
- String employeeid=(String)session.getAttribute("referenceid");
- String shopid=new ShopDetails().getEmployeeShopDetails(employeeid).getSHOP_ID();
- %> --%>
+	
 	<div class="col-md-12" id="one">
 	<h1 id="two">Add Invoice</h1>
 	</div>

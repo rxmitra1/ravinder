@@ -20,8 +20,7 @@ public class PrescriptionManagement {
 	private String requestId;
 	@Column(name="ORDER_ID")
 	private String orderId;
-	@Column(name="PRESCRIPTION_MADE_BY")
-	private String prescriptionMadeBy;
+	
 	@Column(name="STATUS")
 	private String status;
 	@Column(name="DOCTOR_NAME")
@@ -53,12 +52,7 @@ public class PrescriptionManagement {
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
-	public String getPrescriptionMadeBy() {
-		return prescriptionMadeBy;
-	}
-	public void setPrescriptionMadeBy(String prescriptionMadeBy) {
-		this.prescriptionMadeBy = prescriptionMadeBy;
-	}
+	
 	
 	public String getStatus() {
 		return status;
@@ -94,7 +88,7 @@ public class PrescriptionManagement {
 	@Override
 	public String toString() {
 		return "PrescriptionManagement [prescriptionMngmtId=" + prescriptionMngmtId + ", requestId=" + requestId
-				+ ", prescriptionMadeBy=" + prescriptionMadeBy + ", status=" + status + ", doctorName=" + doctorName
+				+ ",status=" + status + ", doctorName=" + doctorName
 				+ ", referredBy=" + referredBy + ", address=" + address + "]";
 	}
 	

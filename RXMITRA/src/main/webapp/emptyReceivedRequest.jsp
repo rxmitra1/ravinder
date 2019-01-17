@@ -244,12 +244,7 @@ label {
 			</div>
 		</div>
 		<!--COPY rights end here--
-		<script language="javascript">
-			populateCountries("country", "state");
-		</script>
-		<script language="javascript">
-			populateCountries("country1", "state1");
-		</script>
+		
 		<!--slider menu-->
 
 		<div class="clearfix"></div>

@@ -81,16 +81,33 @@ public class VendorController {
 	public ModelAndView displayVendor(Vendor vendor, Model model, int pageid, HttpSession session)
 			throws VendorException {
 		ModelAndView mav = null;
-
+		String refId = (String) session.getAttribute("referenceId");
 		int total = 5;
 		if (pageid == 1) {
 		} else {
 			pageid = (pageid - 1) * total + 1;
 		}
 
-		String refId = (String) session.getAttribute("referenceId");
+		// Pagination
+				List<Integer> countpagesList = new ArrayList<Integer>();
+				Long count = service.countTotalForPaginationDisplayVendor(refId);
+				
+				if (count > 4) {
+					Long countpages = count / 4;
+					for (int i = 1; i <= countpages + 1; i++) {
+						countpagesList.add(i);
+					}
+				} else {
+					countpagesList.add(1);
+				}
+
+				// End Pagination
+				
+		
+		
 		List<Vendor> list = service.dispalyVendor(refId, pageid, total);
 		if (!list.isEmpty()) {
+			model.addAttribute("count", countpagesList);
 			mav = new ModelAndView("ViewVendorDetails", "vendorList", list);
 		} else {
 			model.addAttribute("dataNotFound", "Data Not Found..");

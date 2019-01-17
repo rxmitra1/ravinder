@@ -34,17 +34,7 @@ function updatebox()
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<!-- script type="text/javascript">
-    $(document).ready(function() {
-        $("button").click(function(){
-            var favorite = [];
-            $.each($("input[name='addInvoiceId']:checked"), function(){            
-                favorite.push($(this).val());
-            });
-            alert("My favourite sports are: " + favorite.join(", "));
-        });
-    });
-</script> -->
+
 </head>
 <body>
 
@@ -189,24 +179,7 @@ function updatebox()
  
             })
         });
-    </script>
-		<!-- <script>
-			function myFunction() {
-				alert(document.getElementById("myCheck").checked);
-				var checkBox = document.getElementById("myCheck");
-				var text = document.getElementById("text");
-				if (checkBox.checked == true) {
-					text.style.display = "block";
-				}  else {
-					text.style.display = "none";
-				}
-		}
-		</script>
- -->
-
-
-
-
+    
 		<!--scrolling js-->
 		<script src="dashboard-js/js/jquery.nicescroll.js"></script>
 		<script src="dashboard-js/js/scripts.js"></script>

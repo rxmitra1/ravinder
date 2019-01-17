@@ -62,6 +62,14 @@ public class VendorDAOImpl implements VendorDAO {
 		return vendor2;
 	}
 	
+	public Long countTotalForPaginationDisplayVendor(String refId) {
+		String query = "select count(*) from com.rxmitra.bean.Vendor where userId='"+refId+"'";
+
+		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
+		Long count = (Long) createQuery.uniqueResult();
+
+		return count;
+	}
 	public Vendor getVendor(String vendorname,String refId) {
 		
 		
@@ -113,8 +121,15 @@ public class VendorDAOImpl implements VendorDAO {
 
 	}
 	
+	public Long countTotalForPaginationInVendorProduct(String vendorName) {
+		String query="select count(*) from com.rxmitra.bean.VendorProduct";
+		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
+		Long count = (Long) createQuery.uniqueResult();
+
+		return count;
 	
-	
+
+	}
 	
 	public String insertUserVendor(Vendor vendor) throws VendorException {
 		// TODO Auto-generated method stub

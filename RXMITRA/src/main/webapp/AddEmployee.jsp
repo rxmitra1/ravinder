@@ -45,7 +45,7 @@ label {
 		}
 	%>
 	<section style="background-color:#febf10; height:3px;"></section>
-	<jsp:include page="./Employee_top.jsp" />
+	<%-- <jsp:include page="./Employee_top.jsp" /> --%>
 
 	<div class="page-container">
 
@@ -132,6 +132,10 @@ label {
       </div>
       </div>
       </form>
+      
+      <div class="col-md-12">
+      
+      </div>
       
       	<div class="clearfix"></div>
 <div class="col-md-4"></div>  

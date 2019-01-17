@@ -29,6 +29,24 @@ public class ReceivedRequestService {
 		return receivedRequest;
 	}
 	
+	public PrescriptionManagement getReceivedRequestPrescription(String requestId) {
+
+		PrescriptionManagement list = reqdao.getReceivedRequestPrescription(requestId);
+
+		return list;
+	}
+	public List<Prescription> getReceivedRequestPrescriptionMedicines(String mngmtId) {
+
+		List<Prescription> list = reqdao.getReceivedRequestPrescriptionMedicines(mngmtId);
+
+		return list;
+	}
+	public String deletePrescriptionData(String mngmtId) {
+      int i = Integer.parseInt(mngmtId);
+		String s = reqdao.deletePrescriptionData(i);
+
+		return s;
+	}
 	public Long getReceivedRequestCount() {
 
 		Long preMngmtId = reqdao.getReceivedRequestCount();

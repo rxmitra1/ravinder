@@ -91,17 +91,7 @@ int noofpages=0,page1=0,maxrowsperpage=0;
                     
                 </div>
 	  </div>
-<!-- 
-<div class="col-md-12 col-sm-12 col-xsm-12">
-<div class="col-md-4 col-sm-12 col-xsm-12">
-Vendor Name:<input class="form-control" type="text" name="vendorname" id="vendorname"></input>
-</div>
-<div class="col-md-4 col-sm-12 col-xsm-12">
-Tin No:<input class="form-control" type="text" name="tinno" id="tinno"></input>
-</div>
-<div class="col-md-4 col-sm-12 col-xsm-12">
-<input type="submit" value="SEARCH"/>
-</div> -->
+
 </form>
 </div>
 

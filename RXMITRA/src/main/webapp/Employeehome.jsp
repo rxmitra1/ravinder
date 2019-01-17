@@ -11,10 +11,7 @@
 <section style="background-color:#febf10; height:3px;"></section>
 <jsp:include page="./Employee_top.jsp"/>
 
- <!-- <img style="padding-left:10px; vertical-align: middle;padding: 10px;padding-bottom: 15px;" src="images/logo.png" alt="Rythumitra">
-</img> 
- <span style="color:#5aa320;font-size: larger;float:right;padding:10px;text-align: center;font-weight: 700;padding-top: 10px;position: relative;right: 40%;top: 25px;font-size: 27px;"><b>EMPLOYEE DASH BOARD</b></span>  
-  <a href="./IndexPage.jsp" style="color:#5aa320;font-size: larger;float:right;padding:10px;text-align: center;font-weight: 700;padding-top: 10px;position: relative;right: -15%;top: 25px;font-size: 27px;"> <input type="submit" class="btn btn-success" value="LOGOUT" /></a> -->
+
    <div class="page-container">
    <div class="sidebar-menu">
    

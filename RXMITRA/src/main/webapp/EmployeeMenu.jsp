@@ -25,7 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600'
 	rel='stylesheet' type='text/css'>
-<!--//skycons-icons-->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -62,8 +64,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li id="menu-academico-boletim"><a
 							href='/RXMITRA/DisplayVendorsToUpdateProducts.jsp?from=EU'>UPDATE/ADD
 								PRODUCTS</a></li>
-						<li id="menu-academico-avaliacoes"><a
-							href='/RXMITRA/AddProduct'>ADD PRODUCTS</a></li>
+						<!-- <li id="menu-academico-avaliacoes"><a
+							href='/RXMITRA/AddProduct'>ADD PRODUCTS</a></li> -->
 
 						<li id="menu-academico-boletim"><a
 							href='/RXMITRA/ViewProductsByVendorName.jsp'>VIEW PRODUCTS</a></li>

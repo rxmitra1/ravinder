@@ -124,7 +124,10 @@ public class AddInvoiceService {
 		return count;
 	}
 	
-	
+	public Long countTotalForPaginationInPublish(String skuid,String productName,String manufacturer) {
+		Long count = dao.countTotalForPaginationInPublish(skuid,productName,manufacturer);
+		return count;
+	}
 	//Pagination End
 	
 	public List<AddInvoice> viewSetSalesPriceAll(String userId,int pageid,int total) {

@@ -298,11 +298,7 @@ int k=1;
 											
 											
 											</c:forEach>
-										<%-- Pages <a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=1">1</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=2">2</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=3">3</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=4">4</a>
-									<a href="./viewVendorInvoiceDetails?invoiceNo=${VendorInvoiceList.invoiceNo}&pageid=5">5</a>  --%>
+										
 									</form>
 									<div class="row">
                                 <div class="col-md-11">
@@ -393,68 +389,7 @@ int k=1;
             })
         });
     </script>
-    <!--  <script type="text/javascript">
-        $(function () {
-            $('.myCheck').change(function () {
-                if ($(this).is(":checked")) {
-                    $('#sellingPrice1').removeAttr('disabled');
-                }
-                else {
-                    var isChecked = false;
-                    $('.myCheck').each(function () {
-                        if ($(this).is(":checked")) {
-                            $('#sellingPrice1').removeAttr('disabled');
-                            isChecked = true;
-                        }
-                    });
-                    if (!isChecked) {
-                        $('#sellingPrice1').attr('disabled', 'disabled');
-                    }
-                }
- 
- 
-            })
-        });
-    </script>
-     <script type="text/javascript">
-        $(function () {
-            $('.myCheck').change(function () {
-                if ($(this).is(":checked")) {
-                    $('#salesDiscount1').removeAttr('disabled');
-                }
-                else {
-                    var isChecked = false;
-                    $('.myCheck').each(function () {
-                        if ($(this).is(":checked")) {
-                            $('#salesDiscount1').removeAttr('disabled');
-                            isChecked = true;
-                        }
-                    });
-                    if (!isChecked) {
-                        $('#salesDiscount1').attr('disabled', 'disabled');
-                    }
-                }
- 
- 
-            })
-        });
-    </script> -->
-    
-    
-     
-  
-	<!-- <script>
-		function myFunction() {
-			alert(document.getElementById("myCheck").checked);
-			var checkBox = document.getElementById("myCheck");
-			var text = document.getElementById("text");
-			if (checkBox.checked == true) {
-				text.style.display = "block";
-			} else {
-				text.style.display = "none";
-			}
-		}
-	</script>  -->
+   
 	<!--scrolling js-->
 	<script src="dashboard-js/js/jquery.nicescroll.js"></script>
 	<script src="dashboard-js/js/scripts.js"></script>

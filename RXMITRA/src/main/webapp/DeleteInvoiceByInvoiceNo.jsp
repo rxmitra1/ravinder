@@ -10,17 +10,7 @@
 <title>RX mitra </title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="./resources/css/style.css" rel="stylesheet" type="text/css" />
-<!-- <script>
-function myFunction() {
-   
-    var txt;
-    if (confirm("Do u want to delete this  record?")) {
-        txt = "./DeleteInvoiceByInvoiceNo.jsp";
-    } else {
-        txt = "./DeleteInvoiceByInvoiceNo.jsp";
-    }
-    document.getElementById("demo").innerHTML = txt;
-} -->
+
 <script>
     function ConfirmDelete()
     {

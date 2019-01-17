@@ -43,9 +43,8 @@ label {
 }
 
 #one {
-	font-size: 20px;
+	font-size: 18px;
 	color: #5aa320;
-	text-decoration: underline;
 }
 
 .modal-header {
@@ -194,7 +193,7 @@ label {
 
 												<th class="numeric">Request Id</th>
 												<th class="numeric">Request Date</th>
-												<th class="numeric">Member Id</th>
+												<th class="numeric">Name</th>
 												<th class="numeric">Email Id</th>
 												<th class="numeric">Phone No</th>
 												<th class="numeric">Pincode</th>
@@ -242,7 +241,7 @@ label {
 													<td data-title="Member Id" class="numeric"><a href="#"
 														data-toggle="modal"
 														data-target="#myModal${receivedRequestData.requestId }"
-														id="one">${receivedRequestData.requestId }</a>
+														id="one">${receivedRequestData.name }</a>
 														
 														
 														
@@ -331,7 +330,7 @@ label {
 													<td data-title="imageDescription" class="numeric"><a
 														href="" data-toggle="modal"
 														data-target="#myModal1${receivedRequestData.requestId }"
-														id="one"> ${receivedRequestData.photo } </a>
+														id="one">Show Image </a>
 														
 														
 														
@@ -542,15 +541,7 @@ label {
 				</p>
 			</div>
 		</div>
-		<!--COPY rights end here--
-		<script language="javascript">
-			populateCountries("country", "state");
-		</script>
-		<script language="javascript">
-			populateCountries("country1", "state1");
-		</script>
-		<!--slider menu-->
-
+		
 		<div class="clearfix"></div>
 	</div>
 	<!--slide bar menu end here-->

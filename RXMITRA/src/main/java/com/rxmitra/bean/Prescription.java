@@ -15,8 +15,8 @@ public class Prescription {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PRESCRION_Id")
 	private Integer prescriptionId;
-	@Column(name="PRESCRION_MNGMT_ID")
-	private Integer prescriptionMngmtId;
+	@Column(name="REQUEST_ID")
+	private String requestId;
 	@Column(name="MEDICINE_NAME")
 	private String medicineName;
 	@Column(name="QUANTITY")
@@ -27,7 +27,8 @@ public class Prescription {
 	private String discountPrice;
 	@Column(name="FINAL_PRICE")
 	private String finalPrice;
-	
+	@Column(name="ORDER_ID")
+	private String orderId;
 	
 	
 	public Integer getPrescriptionId() {
@@ -36,11 +37,12 @@ public class Prescription {
 	public void setPrescriptionId(Integer prescriptionId) {
 		this.prescriptionId = prescriptionId;
 	}
-	public Integer getPrescriptionMngmtId() {
-		return prescriptionMngmtId;
+	
+	public String getRequestId() {
+		return requestId;
 	}
-	public void setPrescriptionMngmtId(Integer prescriptionMngmtId) {
-		this.prescriptionMngmtId = prescriptionMngmtId;
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
 	}
 	public String getMedicineName() {
 		return medicineName;
@@ -73,10 +75,16 @@ public class Prescription {
 	public void setFinalPrice(String finalPrice) {
 		this.finalPrice = finalPrice;
 	}
+	
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
 	@Override
 	public String toString() {
-		return "Prescription [prescriptionId=" + prescriptionId + ", prescriptionMngmtId=" + prescriptionMngmtId
-				+ ", medicineName=" + medicineName + ", quantity=" + quantity + ", mrp=" + mrp + ", discountPrice="
+		return "Prescription [prescriptionId=" + prescriptionId + ", medicineName=" + medicineName + ", quantity=" + quantity + ", mrp=" + mrp + ", discountPrice="
 				+ discountPrice + ", finalPrice=" + finalPrice + "]";
 	}
 	

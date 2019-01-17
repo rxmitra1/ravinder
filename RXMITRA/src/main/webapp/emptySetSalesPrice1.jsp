@@ -14,38 +14,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    
-<!-- <script type="text/javascript">
-    $(function () {
-        $("#myCheck").click(function () {
-            if ($(this).is(":checked")) {
-                $("#salesDiscount").removeAttr("disabled");
-                $("#salesDiscount").focus();
-                
-              
-            } else {
-                $("#salesDiscount").attr("disabled", "disabled");
-                
-               
-            }
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(function () {
-        $("#myCheck").click(function () {
-            if ($(this).is(":checked")) {
-                $("#sellingPrice").removeAttr("disabled");
-                $("#sellingPrice").focus();
-                
-              
-            } else {
-                $("#sellingPrice").attr("disabled", "disabled");
-                
-               
-            }
-        });
-    });
-</script> -->
+
 
 
 </head>
@@ -220,68 +189,7 @@
             })
         });
     </script>
-    <!--  <script type="text/javascript">
-        $(function () {
-            $('.myCheck').change(function () {
-                if ($(this).is(":checked")) {
-                    $('#sellingPrice1').removeAttr('disabled');
-                }
-                else {
-                    var isChecked = false;
-                    $('.myCheck').each(function () {
-                        if ($(this).is(":checked")) {
-                            $('#sellingPrice1').removeAttr('disabled');
-                            isChecked = true;
-                        }
-                    });
-                    if (!isChecked) {
-                        $('#sellingPrice1').attr('disabled', 'disabled');
-                    }
-                }
- 
- 
-            })
-        });
-    </script>
-     <script type="text/javascript">
-        $(function () {
-            $('.myCheck').change(function () {
-                if ($(this).is(":checked")) {
-                    $('#salesDiscount1').removeAttr('disabled');
-                }
-                else {
-                    var isChecked = false;
-                    $('.myCheck').each(function () {
-                        if ($(this).is(":checked")) {
-                            $('#salesDiscount1').removeAttr('disabled');
-                            isChecked = true;
-                        }
-                    });
-                    if (!isChecked) {
-                        $('#salesDiscount1').attr('disabled', 'disabled');
-                    }
-                }
- 
- 
-            })
-        });
-    </script> -->
-    
-    
-     
-  
-	<!-- <script>
-		function myFunction() {
-			alert(document.getElementById("myCheck").checked);
-			var checkBox = document.getElementById("myCheck");
-			var text = document.getElementById("text");
-			if (checkBox.checked == true) {
-				text.style.display = "block";
-			} else {
-				text.style.display = "none";
-			}
-		}
-	</script>  -->
+   
 	<!--scrolling js-->
 	<script src="dashboard-js/js/jquery.nicescroll.js"></script>
 	<script src="dashboard-js/js/scripts.js"></script>

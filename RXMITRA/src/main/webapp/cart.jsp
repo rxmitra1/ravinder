@@ -112,9 +112,7 @@
 		<li><a href="about.html">About Us</a></li>
 		<li><a href="./uploadFile.jsp">Upload</a></li>
         <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-		<!--<li><a href="blog.html">Blog</a></li>
-		<li><a href="#">Page</a></li>
-		<li><a href="contact.html">Contact</a></li>-->
+		
 		</ul>
 		</nav>
 	</div>
@@ -188,8 +186,7 @@
 	</div>
 	<div>
 	
-	<!-- <input type="submit"  class="btn btn-success btn-block" id="we6" value="Remove"/ -->
-	<!-- <button type="button" class="btn btn-success" id="we6"> <i class="fa fa-trash-o" aria-hidden="true"> </i></button> -->
+	
 	<a href="./removeCart?cartId=<%=i++ %>" class="btn btn-success" id="we6"><i class="fa fa-trash-o" aria-hidden="true"> </i></a>
 	</div>
 	
@@ -267,33 +264,7 @@
 				</div>			
 				</div>
 
-				<!--<div class="col-lg-3 footer_col">
-				<div class="footer_section footer_links">
-				<div class="footer_title">Site Links</div>
-				<div class="footer_links_container">
-				<ul>
-				<li><a href="index.html"><i class="fa fa-arrow-right"></i> Home</a></li>
-				<li><a href="about.html"><i class="fa fa-arrow-right"></i> About</a></li>
-				<li><a href="#"><i class="fa fa-arrow-right"></i> Services</a></li>
-				<li><a href="contact.html"><i class="fa fa-arrow-right"></i> Contact</a></li>
-				</ul>
-				</div>
-				</div>			
-				</div> -->
-
-				<!--<div class="col-lg-3 footer_col clearfix">
-				<div class="footer_section footer_links">
-				<div class="footer_title">Our Parteners</div>
-				<div class="footer_links_container">
-				<ul>
-				<li><a href="index.html"><i class="fa fa-arrow-right"></i> Campusguide</a></li>
-				<li><a href="about.html"><i class="fa fa-arrow-right"></i> Rythumitra</a></li>
-				<li><a href="#"><i class="fa fa-arrow-right"></i> Frytemate</a></li>
-				<li><a href="contact.html"><i class="fa fa-arrow-right"></i> Zorocabs</a></li>
-				</ul>
-				</div>
-				</div>		
-				</div> -->
+				
 				
 				<div class="col-lg-3 footer_col">
 				<div class="footer_section footer_contact">

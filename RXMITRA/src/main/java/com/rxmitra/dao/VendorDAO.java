@@ -37,5 +37,8 @@ public interface VendorDAO {
 	public List<VendorProduct> displayProducts(Integer refId);
 	public List<VendorProduct> displayVendorProducts(int pageid,int limit);
 	public List<VendorProduct> displayVendorProducts(String vendorname,String refId,int pageid,int limit);
+	public Long countTotalForPaginationInVendorProduct(String vendorName);
+	public Long countTotalForPaginationDisplayVendor(String refId);
+
 
 }

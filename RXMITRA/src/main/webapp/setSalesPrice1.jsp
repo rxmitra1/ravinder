@@ -313,30 +313,7 @@
 											</c:forEach>
 
 
-
-
-
-
-
-
-											<%--  <td colspan=""><input class="myCheck" id="c" type="checkbox"
-														name="addInvoiceIds"
-														value="${VendorInvoiceList.addInvoiceId }" 
-														onclick="EnableDisableTextBox(this)" style="width: 18px; height: 18px;" />
-														
-                                                        
-													</td>
-											</c:forEach>
-                                        --%>
 											</tr>
-
-
-
-
-
-
-
-
 
 										</table>
 
@@ -365,21 +342,7 @@
 											</c:forEach>
 										</tr>
 									</table>
-									<%-- <form action="./setSalesPrice" method="post">
-        				  <input type="hidden" name="pageid" value="2">
-        				  
-        				  <button type="submit" class="btn btn-link">1</button>
-        				  </form> --%>
-
-
-
-
-
-									<!-- <a href="/RXMITRA/setSalesPrice?pageid=1">1</a> <a
-									href="/RXMITRA/setSalesPrice?pageid=2">2</a> <a
-									href="/RXMITRA/setSalesPrice?pageid=3">3</a> <a
-									href="/RXMITRA/setSalesPrice?pageid=4">4</a> <a
-									href="/RXMITRA/setSalesPrice?pageid=5">5</a> -->
+									
 
 									<div class="row">
 										<div class="col-md-11"></div>

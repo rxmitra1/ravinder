@@ -275,23 +275,7 @@
 				})
 			});
 		</script>
-		<!-- <script>
-			function myFunction() {
-				alert(document.getElementById("myCheck").checked);
-				var checkBox = document.getElementById("myCheck");
-				var text = document.getElementById("text");
-				if (checkBox.checked == true) {
-					text.style.display = "block";
-				}  else {
-					text.style.display = "none";
-				}
-		}
-		</script>
- -->
-
-
-
-
+	
 		<!--scrolling js-->
 		<script src="dashboard-js/js/jquery.nicescroll.js"></script>
 		<script src="dashboard-js/js/scripts.js"></script>

@@ -267,7 +267,14 @@ public class AddInvoiceDAO {
 
 		return count;
 	}
+	public Long countTotalForPaginationInPublish(String skuid,String productName,String manufacturer) {
+		String query = "select count(*) from com.rxmitra.bean.AddInvoice ai where (ai.skuid='" + skuid + "' or  ai.manufacturer='"+ manufacturer + "' or  ai.productName='" + productName + "')";
 
+		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
+		Long count = (Long) createQuery.uniqueResult();
+
+		return count;
+	}
 	
 	// Pagination End
 	

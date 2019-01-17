@@ -38,6 +38,10 @@ public class VendorService {
 		Vendor vendor2 = dao.getVendor(vendor, vid);
 		return vendor2;
 	}
+	public Long countTotalForPaginationDisplayVendor(String refId) {
+		Long vendor2 = dao.countTotalForPaginationDisplayVendor(refId);
+		return vendor2;
+	}
 
 	public Vendor getVendor(String vendorname, String refId) {
 		Vendor vendor2 = dao.getVendor(vendorname, refId);
@@ -49,6 +53,13 @@ public class VendorService {
 		return i;
 
 	}
+	
+	//Pagination start
+	public Long countTotalForPaginationInVendorProduct(String vendorName) {
+		Long count = dao.countTotalForPaginationInVendorProduct(vendorName);
+		return count;
+	}
+	
 
 	public List<VendorProduct> displayProducts(Integer refId) {
 		// product.setSEQ_PRODUCT_ID(12);

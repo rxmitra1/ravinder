@@ -33,26 +33,7 @@ function validateForm()
 		document.getElementById("tinno").focus();
 		return false;
 	}
-/* if(document.getElementById("panno").value.length >=0 ){
-	    
-	    if(document.getElementById("panno").value.length==0){
-	     
-	    }else{
-	      var pan=document.getElementById("panno").value;
-	      var panPat = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
-	      if(!panPat.test(pan)){
-	       alert("Invalid Pan Number");
-	       document.getElementById("panno").focus();
-	       return false;
-	      }else{}
-	    }
-	     }
-		if(document.getElementById("panno").value.length !=10 )
-	{
-		alert("Please enter 10 digits in PANno.");
-		document.getElementById("panno").focus();
-		return false;
-	} */
+
 if(document.getElementById("tinno").value.length >=0 ){
 	    
 	    if(document.getElementById("tinno").value.length==0){
@@ -85,18 +66,7 @@ if(document.getElementById("tinno").value.length >=0 ){
 		document.getElementById("phoneno2").focus();
 		return false;
 	}
-	/* if(document.getElementById("accountno").value.length !=11 )
-	{
-		alert("Please enter 11 digits in AccountNo. ");
-		document.getElementById("accountno").focus();
-		return false;
-	}
-	if(document.getElementById("ifsccode").value.length !=11 )
-	{
-		alert("Please enter 11 digits in IFSC Code. ");
-		document.getElementById("ifsccode").focus();
-		return false;
-	} */
+	
 }
 function addNumbers()
 {

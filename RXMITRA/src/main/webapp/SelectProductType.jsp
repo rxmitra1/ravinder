@@ -66,22 +66,9 @@
 									</tr>
 									 
 
-									<%-- <%
-										String vendorid;
-										vendorid = (String) request.getAttribute("vendorId");
-
-										ArrayList<Product> alp = new ArrayList<Product>();
-										Vendor v = new Vendor();
-										v = (Vendor) session.getAttribute("vendordetails");
-
-										Vendor vendorDetails = (Vendor) request.getAttribute("vendorDetails");
-										request.setAttribute("vendorDetails", vendorDetails);
-									%> 
 									
-									
- --%>                            
- <tr>
-        <td><input type="hidden" name="vendorid" id="vendorid"
+                               <tr>
+                                     <td><input type="hidden" name="vendorid" id="vendorid"
 											value="${vendorDetails.vendorId }" /> </td></tr>
 									<tr>
 										<td style="font-weight: 500;">VENDOR NAME</td>

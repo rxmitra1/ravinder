@@ -63,17 +63,7 @@
 											class="form-control" name="vendorname" id="vendorname" value="${vendorname }"
 											placeholder="Enter Your Vendor Name" />
 									</div>
-											<%-- <td>&nbsp;&nbsp;&nbsp;INVOICE DATE&nbsp;&nbsp;&nbsp;</td>
-											<td><input type="date" class="form-control" name="date"
-												id="date" placeholder="DD/MM/YYYY" /></td>
-
-
-											<td>&nbsp;&nbsp;&nbsp;GSTIN NO</td>
-											<td><input type="text" class="form-control" name="tinno"
-												id="tinno" /> <input type="hidden" name="from"
-												value="<%=from%>" id="from" /> <input type="hidden"
-												name="shopid" value="<%=shopid%>" id="shopid" /></td>
-										</tr> --%>
+											
 										<div class="form-group col-md-2 col-sm-2">
 										<label for="pincode" style="color: #fff;">SK</label><br>
 											<button type="submit" class="btn btn-success btn-block"

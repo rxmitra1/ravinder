@@ -332,9 +332,24 @@ public class AddInvoiceController {
 		} else {
 			pageid = (pageid - 1) * total + 1;
 		}
+		
+		// Pagination
+				List<Integer> countpagesList = new ArrayList<Integer>();
+				Long count = service.countTotalForPaginationInPublish(skuid,productName,manufacturer);
+				if (count > 5) {
+					Long countpages = count / 4;
+					for (int i = 1; i <= countpages + 1; i++) {
+						countpagesList.add(i);
+					}
+				} else {
+					countpagesList.add(1);
+				}
+
+				// End Pagination
 		List<AddInvoice> list = service.viewVendorInvoiceBySkuid1(userId, skuid, productName, manufacturer, pageid,
 				total);
 		model.addAttribute("skuid", skuid);
+		model.addAttribute("count", countpagesList);
 		model.addAttribute("productName", productName);
 		model.addAttribute("manufacturer", manufacturer);
 		mav = new ModelAndView("invoiceSkuidDetails", "invoiceSkuidList", list);

@@ -32,6 +32,31 @@ public class ReceivedRequestDAO {
 		return receivedRequest;
 	}
 
+	public PrescriptionManagement getReceivedRequestPrescription(String requestId) {
+		int i = Integer.parseInt(requestId);
+		String sql="from com.rxmitra.bean.PrescriptionManagement where requestId='"+i+"'";
+		Query createQuery = template.getSessionFactory().openSession().createQuery(sql);
+		PrescriptionManagement list = (PrescriptionManagement) createQuery.uniqueResult();
+
+		return list;
+	}
+	
+	
+	public List<Prescription> getReceivedRequestPrescriptionMedicines(String mngmtId) {
+		
+		String sql="from com.rxmitra.bean.Prescription where requestId='"+mngmtId+"'";
+		Query createQuery = template.getSessionFactory().openSession().createQuery(sql);
+		List<Prescription> list = createQuery.list();
+
+		return list;
+	}
+     public String deletePrescriptionData(Integer prescriptionId) {
+    	 String s="";
+		Prescription prescription = template.load(Prescription.class, prescriptionId);
+		template.delete(prescription);
+		s="success";
+		return s;
+	}
 	public Integer lastPreMngmtId() {
 		String query = "select max(prescriptionMngmtId) from com.rxmitra.bean.PrescriptionManagement";
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);

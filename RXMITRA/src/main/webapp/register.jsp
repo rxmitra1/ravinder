@@ -393,33 +393,7 @@ if(document.getElementById("gstin").value.length >=0 ){
 				</div>			
 				</div>
 
-				<!--<div class="col-lg-3 footer_col">
-				<div class="footer_section footer_links">
-				<div class="footer_title">Site Links</div>
-				<div class="footer_links_container">
-				<ul>
-				<li><a href="index.html"><i class="fa fa-arrow-right"></i> Home</a></li>
-				<li><a href="about.html"><i class="fa fa-arrow-right"></i> About</a></li>
-				<li><a href="#"><i class="fa fa-arrow-right"></i> Services</a></li>
-				<li><a href="contact.html"><i class="fa fa-arrow-right"></i> Contact</a></li>
-				</ul>
-				</div>
-				</div>			
-				</div> -->
-
-				<!--<div class="col-lg-3 footer_col clearfix">
-				<div class="footer_section footer_links">
-				<div class="footer_title">Our Parteners</div>
-				<div class="footer_links_container">
-				<ul>
-				<li><a href="index.html"><i class="fa fa-arrow-right"></i> Campusguide</a></li>
-				<li><a href="about.html"><i class="fa fa-arrow-right"></i> Rythumitra</a></li>
-				<li><a href="#"><i class="fa fa-arrow-right"></i> Frytemate</a></li>
-				<li><a href="contact.html"><i class="fa fa-arrow-right"></i> Zorocabs</a></li>
-				</ul>
-				</div>
-				</div>		
-				</div> -->
+				
 				
 				<div class="col-lg-3 footer_col">
 				<div class="footer_section footer_contact">

@@ -30,26 +30,7 @@
  <script scr="./js/index.js"></script>
   <script scr="./js/active.js"></script>
 
-<%--                  String username1 = (String) session.getAttribute("user1");
-                 String password1 = (String) session.getAttribute("password1");  
-                 
- String userid=(String)session.getAttribute("referenceid");
-		HashMap<String,String> ehm=new EmployeeHM().getUserName();
-		/* userid = userid.substring(0,1).toUpperCase() + userid.substring(1).toLowerCase(); */
-%>
-  <% 
- String eUserid=(String)session.getAttribute("referenceidE");
-		HashMap<String,String> ehm2=new EmployeeHM().getEUserName();
-		/* eUserid = eUserid.substring(0,1).toUpperCase() + eUserid.substring(1).toLowerCase(); */
-%> --%>
-<%-- <% 
-System.out.println("1");
-					String username = (String) session.getAttribute("user");
-                    String password = (String) session.getAttribute("password"); 
-                    HashMap<String,String> ehm3=new EmployeeHM().getEndUName();
- 					if (username != null) {
- 						System.out.println("1234 "+username);
-				%> --%>
+
 				 <ul class="navbar-right" id="lo">
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<i class="fa fa-user"></i>
@@ -69,37 +50,7 @@ System.out.println("1");
 				} else { %> --%>
 <li><a href="Register.jsp" ><span class="glyphicon glyphicon-user" ></span> Registration &nbsp;</a></li>
 <li><a href="LoginPage.jsp"><span class="glyphicon glyphicon-log-in"></span> &nbsp;Login</a></li> 
-<%-- <%} %> --%>     
- 					<%--else if (eUserid != null){
-					System.out.println("12345 "+eUserid);
-				%>
-			   
-			    <ul class="navbar-right" id="lo">
-         <li class="dropdown">
-          <a href="#" class="fa fa-user" class="dropdown-toggle" data-toggle="dropdown">&nbsp; hi... <%=ehm2.get(eUserid)%><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="./ExUserLogin">MY ACCOUNT</a></li>
-			<li><a href="./SessionClose">LOGOUT</a></li>
-          </ul>
-        </li>
-      </ul>
-			   
-				<%
-				} else if (userid != null){ 
-					System.out.println("123 "+userid);
-				%>
-			   
-			    <ul class="navbar-right" id="lo">
-         <li class="dropdown">
-          <a href="#" class="fa fa-user" class="dropdown-toggle" data-toggle="dropdown" style="font-size: large;">&nbsp; hi... <%=ehm.get(userid)%><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="./ExUserLogin">MY ACCOUNT</a></li>
-			<li><a href="./SessionClose">LOGOUT</a></li>
-          </ul>
-        </li>
-      </ul>
-				<%
-				} 	 --%>
+
 			
 </ul>
 </div>
@@ -156,15 +107,7 @@ System.out.println("1");
                                                             <li><a href="#">On Sale</a></li>
                                                         </ul>
                                                     </li>
-                                                   <!--  <li class="dropdown has-submenu">
-                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Land Lease<span class="fa fa-angle-down"></span></a>
-                                                        <ul class="dropdown-menu start-left" role="menu">                                            
-                                                            <li><a href="./AddLeaseLand.jsp">Add Land for Rent</a></li>
-                                                            <li><a href="#">Update Land</a></li>
-                                                            <li><a href="#">View</a></li>
-                                                            <li><a href="#">Search Land for Rent</a></li>
-                                                        </ul>
-                                                    </li> -->
+                                                  
                                                    <%--  <%   if (username !=null) {%> --%>
                                                   <li class="" id="coldstorage"><a href="ColdStorageSearch2.jsp" >Cold Storage</a></li>
                                                    <%-- <%}else{%> --%>

@@ -90,6 +90,7 @@ public class UserRegistrationDAO {
 		
         UserRegistration userRegistration = (UserRegistration) createQuery1.uniqueResult();
         UserLogin userLogin = new UserLogin();
+        userLogin.setMobileNo(userRegistration.getMobileNo());
         userLogin.setUsername(userRegistration.getEmailId());
         userLogin.setPassword(userRegistration.getPassword());
         userLogin.setStatus("A");

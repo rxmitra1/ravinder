@@ -102,8 +102,7 @@
 										<td align="center" style="font-weight: 900;">PRODUCT
 											IMAGE</td>
 									</tr>
-
-
+                                   
 									<c:forEach var="vendorProductList" items="${vendorProductList}">
 										<tr>
 											<td align="center">${vendorProductList.vendorProductId }</td>
@@ -113,21 +112,76 @@
 											<td align="center">${vendorProductList.weight }</td>
 											<td align="center">${vendorProductList.itemMass }</td>
 											<td align="center">${vendorProductList.skuid }</td>
-											<td align="center"><img
-												src="data:image/png;base64,${vendorProductList.photo }"
-												alt="No image" class="img-responsive" width="75" height="75"></img></td>
+											
+											<td data-title="imageDescription" class="numeric"><a
+														href="" data-toggle="modal"
+														data-target="#myModal1${vendorProductList.vendorProductId }"
+														id="one">Show Image </a>
+														
+														
+														
+														 <!-- =================================Image Popup start========================== -->
+
+														<div class="modal"
+															id="myModal1${vendorProductList.vendorProductId }">
+															<div class="modal-dialog modal-lg">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h4 class="modal-title">vendor product</h4>
+																		<button type="button" class="close"
+																			data-dismiss="modal">&times;</button>
+																	</div>
+																	<div class="modal-body">
+
+
+
+																		<div class="col-md-12">
+
+																			<img
+																				src="data:image/jpg;base64,${vendorProductList.encodedImage }"
+																				class="img-responsive"/>
+																		</div>
+
+
+
+																	</div>
+
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-danger"
+																			data-dismiss="modal">Close</button>
+																	</div>
+
+																</div>
+
+															</div>
+														</div> 
+														
+											<%-- <td align="center"><img
+												src="data:image/png;base64,${vendorProductList. }"
+												alt="No image" class="img-responsive" width="75" height="75"></img></td> --%>
 										</tr>
 
 									</c:forEach>
 
-
+                            
 								</table>
 
-								Pages <a href="/RXMITRA/displayVendorProducts?pageid=1">1</a> <a
-									href="/RXMITRA/displayVendorProducts?pageid=2">2</a> <a
-									href="/RXMITRA/displayVendorProducts?pageid=3">3</a> <a
-									href="/RXMITRA/displayVendorProducts?pageid=4">4</a> <a
-									href="/RXMITRA/displayVendorProducts?pageid=5">5</a>
+								<table>
+									<tr>
+										<td>Pages</td>
+										<c:forEach items="${count }" var="count">
+											<td>
+												<form action="./displayVendorProducts" method="get">
+													<input type="hidden" name="pageid" value="${count}">
+													<input type="hidden" name="vendorname" value="${vendorname}">
+														<button type="submit" class="btn btn-link">
+															<c:out value="${count}" />
+														</button>
+												</form>
+											</td>
+										</c:forEach>
+									</tr>
+								</table>
 							</div>
 
 

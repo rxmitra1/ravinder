@@ -101,11 +101,7 @@ label {
 											name="emailId" class="form-control" id="emailId" value="${employeeDetails.emailId }"
 											placeholder="Enter Employee Name"]>
 									</div>
-									<!-- <div class="form-group col-lg-3">
-										<label>Pincode :</label> <input type="pincode" name="pincode"
-											class="form-control" id="" value=""
-											placeholder="Enter Your pincode">
-									</div> -->
+									
 
 									<div class="form-group col-lg-2">
 										<label style="color: #fff !important;">g</label> <input
@@ -212,12 +208,7 @@ label {
 			</div>
 		</div>
 		<!--COPY rights end here--
-		<script language="javascript">
-			populateCountries("country", "state");
-		</script>
-		<script language="javascript">
-			populateCountries("country1", "state1");
-		</script>
+		
 		<!--slider menu-->
 
 		<div class="clearfix"></div>

@@ -83,11 +83,23 @@
 									}
 								%>
 
-								Pages <a href="/RXMITRA/GetVendorDetails?pageid=1">1</a> <a
-									href="/RXMITRA/GetVendorDetails?pageid=2">2</a> <a
-									href="/RXMITRA/GetVendorDetails?pageid=3">3</a> <a
-									href="/RXMITRA/GetVendorDetails?pageid=4">4</a> <a
-									href="/RXMITRA/GetVendorDetails?pageid=5">5</a>
+								<table>
+									<tr>
+										<td>Pages</td>
+										<c:forEach items="${count }" var="count">
+											<td>
+												<form action="./GetVendorDetails" method="get">
+													<input type="hidden" name="pageid" value="${count}"/>
+													
+
+														<button type="submit" class="btn btn-link">
+															<c:out value="${count}" />
+														</button>
+												</form>
+											</td>
+										</c:forEach>
+									</tr>
+								</table>
 							</div>
 
 						</div>

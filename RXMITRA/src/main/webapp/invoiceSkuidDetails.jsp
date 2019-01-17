@@ -15,18 +15,7 @@
 </head>
 <body>
 
-	<%-- <%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%> 
- --%>
+	
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -120,12 +109,25 @@
 
 
 								</table>
-								Pages <a href="./viewVendorInvoiceBySkuid1?pageid=1">1</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=2">2</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=3">3</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=4">4</a> <a
-									href="./viewVendorInvoiceBySkuid1?pageid=5">5</a>
+								<table>
+									<tr>
+										<td>Pages</td>
+										<c:forEach items="${count }" var="count">
+											<td>
+												<form action="./viewVendorInvoiceBySkuid1" method="post">
+													<input type="hidden" name="pageid" value="${count}">
+													<input type="hidden" name="skuid" value="${skuid}">
+													<input type="hidden" name="productName" value="${productName}">
+													<input type="hidden" name="manufacturer" value="${manufacturer}">
 
+														<button type="submit" class="btn btn-link">
+															<c:out value="${count}" />
+														</button>
+												</form>
+											</td>
+										</c:forEach>
+									</tr>
+								</table>
 								<div class="clearfix"></div>
 
 							</div>

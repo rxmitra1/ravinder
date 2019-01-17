@@ -74,17 +74,7 @@ function validateForm()
 
 						<div class="">
 							<jsp:include page="./User.jsp"></jsp:include>
-							<%-- <% 
-Employee employee=new Employee();
-String employeeid=null;
- employeeid=session.getAttribute("referenceid").toString();
- 
-EmployeeDAO empdao=new EmployeeDAOImpl();
-Shop shop=new Shop();
-HashMap<String,String> shm=new ShopHM().getShopName();
-employee=empdao.getEmployee_details(employeeid);
-shop=new ShopDetails().getEmployeeShopDetails(employeeid);
-%> --%>
+							
 							<div align="center">
 								<font color="blue" style="">${updateSuccess }</font>
 							</div>

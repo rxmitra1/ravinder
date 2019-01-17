@@ -46,9 +46,9 @@ public class ProductController {
 
 		/*
 		 * String date1 = request.getParameter("EXPIRY_DATE"); String date2 =
-		 * request.getParameter("MANUFACTURE_DATE"); SimpleDateFormat format =
-		 * new SimpleDateFormat("yyyy-MM-dd"); Date date = format.parse(date1);
-		 * Date date3 = format.parse( product.setEXPIRY_DATE(date);
+		 * request.getParameter("MANUFACTURE_DATE"); SimpleDateFormat format = new
+		 * SimpleDateFormat("yyyy-MM-dd"); Date date = format.parse(date1); Date date3 =
+		 * format.parse( product.setEXPIRY_DATE(date);
 		 * product.setMANUFACTURE_DATE(date3);
 		 */
 		String message = null;
@@ -73,11 +73,9 @@ public class ProductController {
 	// VendorProduct display......
 
 	@RequestMapping(path = "/displayProducts", method = RequestMethod.GET)
-	public ModelAndView displayProducts(HttpServletRequest request, Product product,
-			Model model) {
+	public ModelAndView displayProducts(HttpServletRequest request, Product product, Model model) {
 		ModelAndView mav = null;
 
-		
 		List<VendorProduct> displayProducts = service.displayProducts();
 		model.addAttribute("vendorProductList", displayProducts);
 		mav = new ModelAndView("DisplayVendorProducts");
