@@ -224,7 +224,6 @@ public class ReceivedRequestController {
 
 		ReceivedRequest receivedRequest = reqService.getReceivedRequestData(requestId);
 		if (receivedRequest != null) {
-
 			byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
 			String encodedString = new String(bs);
 			receivedRequest.setEncodedImage(encodedString);
@@ -244,6 +243,7 @@ public class ReceivedRequestController {
 		return mav;
 	}
 
+	
 	@RequestMapping(path = "/deletePrescriptionData", method = RequestMethod.GET)
 	public ModelAndView deletePrescriptionData(String prescriptionId, String requestId, Model model) {
 		ModelAndView mav = null;

@@ -132,13 +132,15 @@ public class EmployeeDAO {
 	 * return message; }
 	 */
 
-	public Employee viewEmployeeInEditPage(String empId, String empName, String pincode) {
+	public Employee viewEmployeeInEditPage(String empId, String empName, String mobileNo,String emailId) {
 
-		String sql = "from com.rxmitra.bean.Employee e where e.empId=? or e.empName=?";
+		String sql = "from com.rxmitra.bean.Employee e where e.empId=? or e.empName=? or e.mobileNo=? or e.emailId=?";
 		Query createQuery = template.getSessionFactory().openSession().createQuery(sql);
-		createQuery.setInteger(0, Integer.parseInt(empId));
+		createQuery.setString(0, empId);
 		createQuery.setString(1, empName);
-		//createQuery.setParameter(2, pincode);
+		createQuery.setParameter(2, mobileNo);
+		createQuery.setParameter(3, emailId);
+
 		Employee employee = (Employee) createQuery.uniqueResult();
 
 		return employee;

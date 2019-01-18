@@ -96,10 +96,10 @@ public class EmployeeController {
 	 */
 
 	@RequestMapping(path = "/viewEmployeeInEditPage", method = RequestMethod.POST)
-	public ModelAndView viewEmployeeInEditPage(String empId, String empName,String pincode) {
+	public ModelAndView viewEmployeeInEditPage(String empId, String empName,String mobileNo,String emialId) {
 		ModelAndView mav = null;
 		//int empId1 = Integer.parseInt(empId);
-		Employee employee = empService.viewEmployeeInEditPage(empId, empName, pincode);
+		Employee employee = empService.viewEmployeeInEditPage(empId, empName,mobileNo,emialId);
 		if (employee != null) {
 			mav = new ModelAndView("EditEmployeeDetails","employeeDetails",employee);
 		} else {

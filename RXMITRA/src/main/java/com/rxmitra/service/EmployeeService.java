@@ -62,8 +62,8 @@ public class EmployeeService {
 		return verify;
 	}*/
 	
-	public Employee viewEmployeeInEditPage(String email,String empName,String pincode) {
-		 Employee employee = empdao.viewEmployeeInEditPage(email,empName,pincode);
+	public Employee viewEmployeeInEditPage(String email,String empName, String mobileNo,String emailId) {
+		 Employee employee = empdao.viewEmployeeInEditPage(email,empName,mobileNo,emailId);
 		return employee;
 	}
 
