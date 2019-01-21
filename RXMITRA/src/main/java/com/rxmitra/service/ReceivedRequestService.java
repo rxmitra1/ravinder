@@ -67,6 +67,12 @@ public class ReceivedRequestService {
 		return preMngmtId;
 	}
 
+	public String savePrescriptionAndDoctorData(List<Prescription> prescription) {
+
+		String message = reqdao.savePrescriptionAndDoctorData(prescription);
+
+		return message;
+	}
 	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, List<Prescription> prescription) {
 
 		String message = reqdao.savePrescriptionAndDoctorData(preMngmt, prescription);
@@ -80,4 +86,12 @@ public class ReceivedRequestService {
 
 		return list;
 	}
+	
+	public String updateExistingPrescription(PrescriptionManagement prescriptionManagement,List<Prescription> prescriptionMedicines) {
+
+		String list = reqdao.updateExistingPrescription(prescriptionManagement,prescriptionMedicines);
+
+		return list;
+	}
+	
 }

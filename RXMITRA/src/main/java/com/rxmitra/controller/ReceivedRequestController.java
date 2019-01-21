@@ -81,12 +81,26 @@ public class ReceivedRequestController {
 			if (list != null) {
 				List<Prescription> prescriptionMedicines = reqService
 						.getReceivedRequestPrescriptionMedicines(requestId);
-				byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
-				String encodedString = new String(bs);
-				receivedRequest.setEncodedImage(encodedString);
-				model.addAttribute("preMngmt", list);
-				model.addAttribute("prescription", prescriptionMedicines);
-				mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+
+				if (prescriptionMedicines.size() > 0) {
+
+					byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+					String encodedString = new String(bs);
+					receivedRequest.setEncodedImage(encodedString);
+					model.addAttribute("preMngmt", list);
+					model.addAttribute("prescription", prescriptionMedicines);
+					mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+
+				} else {
+
+					byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+					String encodedString = new String(bs);
+					receivedRequest.setEncodedImage(encodedString);
+					model.addAttribute("preMngmt", list);
+					// model.addAttribute("prescription", prescriptionMedicines);
+					mav = new ModelAndView("ReceivedRequestPrescription3", "receivedRequestData", receivedRequest);
+				}
+
 			} else {
 				byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
 				String encodedString = new String(bs);
@@ -193,7 +207,7 @@ public class ReceivedRequestController {
 		String orderId = "RX" + "00" + requestId;
 
 		List<Prescription> preList = new ArrayList<Prescription>();
-
+		//List<Prescription> preList1 = preList;
 		String[] medicineNames = request.getParameterValues("medicineName");
 		String[] quantitys = request.getParameterValues("quantity");
 		String[] mrps = request.getParameterValues("mrp");
@@ -230,20 +244,89 @@ public class ReceivedRequestController {
 
 		}
 
-		String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList);
-		if (message.equals("success")) {
+		PrescriptionManagement prescriptionManagement = reqService.getReceivedRequestPrescription(requestId);
+		if (prescriptionManagement != null) {
+			if (prescriptionManagement.getRequestId().equals(preMngmt.getRequestId())) {
+				List<Prescription> prescriptionMedicines = reqService
+						.getReceivedRequestPrescriptionMedicines(requestId);
+				for (int i = 0; i < prescriptionMedicines.size(); i++) {
+					for (int j = 0; j < preList.size(); j++) {
+						if (prescriptionMedicines.get(i).getMedicineName().equals(preList.get(j).getMedicineName())) {
+							preList.remove(j);
+						}
+					}
+				}
 
-			model.addAttribute("prescription", preList);
-			model.addAttribute("preMngmt", preMngmt);
-			model.addAttribute("preSuccess", "Prescription and Doctor details are stored successfully...");
-			mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+				String message = reqService.savePrescriptionAndDoctorData(preList);
+
+				if (message.equals("success")) {
+
+					// String s = reqService.updateExistingPrescription(prescriptionManagement,
+					// prescriptionMedicines);
+					List<Prescription> prescriptionMedicines1 =
+							 reqService.getReceivedRequestPrescriptionMedicines(requestId);
+
+					model.addAttribute("prescription", prescriptionMedicines1);
+					model.addAttribute("preMngmt", preMngmt);
+					model.addAttribute("preSuccess", "Prescription and Doctor details are stored successfully...");
+					mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+
+				}
+
+			} else {
+
+				List<Prescription> prescriptionMedicines = reqService
+						.getReceivedRequestPrescriptionMedicines(requestId);
+				for (int i = 0; i < prescriptionMedicines.size(); i++) {
+					for (int j = 0; j < preList.size(); j++) {
+						if (prescriptionMedicines.get(i).getMedicineName().equals(preList.get(j).getMedicineName())) {
+							preList.remove(j);
+						}
+					}
+				}
+
+				String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList);
+
+				if (message.equals("success")) {
+					// List<Prescription> prescriptionMedicines1 =
+					// reqService.getReceivedRequestPrescriptionMedicines(requestId);
+					// String s = reqService.updateExistingPrescription(prescriptionManagement,
+					// prescriptionMedicines);
+
+					List<Prescription> prescriptionMedicines1 =
+							 reqService.getReceivedRequestPrescriptionMedicines(requestId);
+
+					model.addAttribute("prescription", prescriptionMedicines1);
+					model.addAttribute("preMngmt", preMngmt);
+					model.addAttribute("preSuccess", "Prescription and Doctor details are stored successfully...");
+					mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+
+				}
+			}
+		} else {
+			String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList);
+
+			if (message.equals("success")) {
+				// List<Prescription> prescriptionMedicines1 =
+				// reqService.getReceivedRequestPrescriptionMedicines(requestId);
+				// String s = reqService.updateExistingPrescription(prescriptionManagement,
+				// prescriptionMedicines);
+
+				List<Prescription> prescriptionMedicines1 =
+						 reqService.getReceivedRequestPrescriptionMedicines(requestId);
+
+				model.addAttribute("prescription", prescriptionMedicines1);
+				model.addAttribute("preMngmt", preMngmt);
+				model.addAttribute("preSuccess", "Prescription and Doctor details are stored successfully...");
+				mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+
+			}
 
 		}
 
 		return mav;
 	}
 
-	
 	@RequestMapping(path = "/deletePrescriptionData", method = RequestMethod.GET)
 	public ModelAndView deletePrescriptionData(String prescriptionId, String requestId, Model model) {
 		ModelAndView mav = null;
@@ -257,12 +340,26 @@ public class ReceivedRequestController {
 				if (list != null) {
 					List<Prescription> prescriptionMedicines = reqService
 							.getReceivedRequestPrescriptionMedicines(requestId);
-					byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
-					String encodedString = new String(bs);
-					receivedRequest.setEncodedImage(encodedString);
-					model.addAttribute("preMngmt", list);
-					model.addAttribute("prescription", prescriptionMedicines);
-					mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+
+					if (prescriptionMedicines.size() > 0) {
+
+						byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+						String encodedString = new String(bs);
+						receivedRequest.setEncodedImage(encodedString);
+						model.addAttribute("preMngmt", list);
+						model.addAttribute("prescription", prescriptionMedicines);
+						mav = new ModelAndView("ReceivedRequestPrescription2", "receivedRequestData", receivedRequest);
+
+					} else {
+
+						byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+						String encodedString = new String(bs);
+						receivedRequest.setEncodedImage(encodedString);
+						model.addAttribute("preMngmt", list);
+						// model.addAttribute("prescription", prescriptionMedicines);
+						mav = new ModelAndView("ReceivedRequestPrescription3", "receivedRequestData", receivedRequest);
+					}
+
 				} else {
 					byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
 					String encodedString = new String(bs);

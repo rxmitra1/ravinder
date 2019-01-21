@@ -103,6 +103,26 @@ public class ReceivedRequestDAO {
 
 		return message;
 	}
+	
+	public String savePrescriptionAndDoctorData(List<Prescription> prescription) {
+
+		String message = null;
+		
+		int j=0;
+		
+		for (Prescription prescription2 : prescription) {
+			 j = (Integer) template.save(prescription2);
+            j++;
+		}
+
+		if (j > 0) {
+			message = "success";
+		} else {
+			message = "fail";
+		}
+
+		return message;
+	}
 
 	public List<ReceivedRequest> viewReceivedRequestsByDates(String fromDate, String toDate, String pincode,
 			String requestId) {
@@ -112,6 +132,19 @@ public class ReceivedRequestDAO {
 		List<ReceivedRequest> list = createQuery.list();
 
 		return list;
+	}
+	
+	public String updateExistingPrescription(PrescriptionManagement prescriptionManagement,List<Prescription> prescriptionMedicines) {
+		/*String query = "from com.rxmitra.bean.ReceivedRequest r where (date  between '" + fromDate + "' and '" + toDate
+				+ "') or pincode='"+pincode+"' or requestId='"+requestId+"'";
+		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
+		List<ReceivedRequest> list = createQuery.list();*/
+		
+		template.update(prescriptionManagement);
+        for (Prescription prescription : prescriptionMedicines) {
+	       template.update(prescription);
+          }
+		return "success";
 	}
 
 }

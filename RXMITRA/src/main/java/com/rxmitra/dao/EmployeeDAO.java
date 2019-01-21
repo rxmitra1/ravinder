@@ -30,21 +30,20 @@ public class EmployeeDAO {
 
 	public String registerEmployee(Employee emp) {
 		// TODO Auto-generated method stub
-		//Mailer mail = new Mailer();
+		// Mailer mail = new Mailer();
 		System.out.println(emp);
 		int i = (Integer) template.save(emp);
 		if (i > 0) {
-			String userType="EMPLOYEE";
+			String userType = "EMPLOYEE";
 			UserLogin login = new UserLogin();
 			login.setPassword(emp.getMobileNo());
 			login.setReferenceId(emp.getEmpId().toString());
 			login.setStatus("A");
 			login.setUsername(emp.getEmailId());
 			login.setUserType(userType);
-			
-			
-            template.save(login);
-			
+
+			template.save(login);
+
 			return "Success";
 		} else {
 			return "Fail";
@@ -80,14 +79,14 @@ public class EmployeeDAO {
 	public String checkMobile(String mobileNo) {
 		// TODO Auto-generated method stub
 		String sql = "from com.rxmitra.bean.Employee e where e.mobileNo='" + mobileNo + "'";
-		String sql1 = "from com.rxmitra.bean.Employee e where e.mobileNo='" + mobileNo + "'";
+		String sql1 = "from com.rxmitra.bean.UserRegistration e where e.mobileNo='" + mobileNo + "'";
 
 		String message = null;
 		Query query = template.getSessionFactory().openSession().createQuery(sql);
 		Query query1 = template.getSessionFactory().openSession().createQuery(sql1);
 
 		List list = query.list();
-		List list1 = query.list();
+		List list1 = query1.list();
 
 		if (list.size() <= 0) {
 			message = "New User";
@@ -132,7 +131,7 @@ public class EmployeeDAO {
 	 * return message; }
 	 */
 
-	public Employee viewEmployeeInEditPage(String empId, String empName, String mobileNo,String emailId) {
+	public Employee viewEmployeeInEditPage(String empId, String empName, String mobileNo, String emailId) {
 
 		String sql = "from com.rxmitra.bean.Employee e where e.empId=? or e.empName=? or e.mobileNo=? or e.emailId=?";
 		Query createQuery = template.getSessionFactory().openSession().createQuery(sql);
@@ -147,8 +146,9 @@ public class EmployeeDAO {
 	}
 	
 	
+
 	public String editEmployeeDetails(Employee employee) {
-       template.update(employee);
+		template.update(employee);
 
 		return "update";
 	}

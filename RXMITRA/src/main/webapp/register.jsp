@@ -249,9 +249,8 @@ if(document.getElementById("gstin").value.length >=0 ){
 	   <label>User Type</label>
 	   <select name="businessType" class="form-control12" id="businessType" required>
 		<option>-- Select User Type --</option>
-		<option>DISTRIBUTOR</option>
-		<option>MANUFACTURER</option>
-		<option>RETAILER</option>
+		<option>SELLER</option>
+		<option>CUSTOMER</option>
 	   </select>
 	   </div>
 	   </div>
