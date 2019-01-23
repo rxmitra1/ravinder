@@ -229,7 +229,7 @@ function GetDynamicTextBox(value) {
 												<th class="numeric">Phone No</th>
 												<th class="numeric">Pincode</th>
 												<th class="numeric">Order Status</th>
-												<th class="numeric">Image Prescription</th>
+												<th class="numeric">Image Prescription</th>.
 
 
 											</tr>
@@ -468,11 +468,17 @@ function GetDynamicTextBox(value) {
 
 												<h4 id="tw1">Prescription Details</h4>
 												<br>
-												<c:forEach items="${prescription }" var="prescription">
+												
+												
 													<div class="col-md-12" id="dynamicInput">
+													
+													
 													<div class="table table-responsive">
 													<table class="table table-responsive table-striped table-bordered" style="border: 1px solid #ffffff;">
-<div class="col-md-10">
+
+<c:forEach items="${prescription }" var="prescription">
+
+<div class="col-md-10" style="margin-bottom: 10px;">
 	
     <div class="col-md-3" style="padding-left: 0px;">
     <input type="text" name="medicineName"
@@ -490,28 +496,30 @@ function GetDynamicTextBox(value) {
 	value="${prescription.mrp }" placeholder="Your MRP" />
      </div>
      
-     <div class="col-md-3" style="padding-left: 0px;">
+     <div class="col-md-2" style="padding-left: 0px;">
      <input type="text" name="discountPrice"
     class="form-control" id="" value="${prescription.discountPrice}"
 	placeholder="Your Discount Price" />
      </div>
      
-     <div class="col-md-2">
+     <div class="col-md-1" style="padding-left: 0px;">
 	  <a href="./deletePrescriptionData?prescriptionId=${prescription.prescriptionId }&requestId=${receivedRequestData.requestId }" class="btn btn-danger btn-block">Delete</a>
 	</div>
-    
+	
+   
 </div>
-
-<tbody id="TextBoxContainer" style="border: 1px solid #ffffff;">
+ </c:forEach>
+	<tbody id="TextBoxContainer" style="border: 1px solid #ffffff;">
 </tbody>
-
+	
     <div class="col-md-2">
-    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">Add Quantity</button>
+    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">Add Another</button>
     </div>
-</table>
+</table>												
 </div>
 
-														<%-- <div class="form-group col-lg-2">
+
+													<%-- <div class="form-group col-lg-2">
 														
 
 															<input type="text" name="medicineName"
@@ -537,12 +545,12 @@ function GetDynamicTextBox(value) {
 															<input type="text" name="finalPrice" class="form-control"
 																id="" value="${prescription.finalPrice }" placeholder="Your Final Price" />
 														</div> --%>
-																											
-														
+																									
+
                                                          
 													</div>
+														
 													
-													</c:forEach>
 													<!-- <div class="form-group col-lg-2">
 															<button type="button" id="more_fields" name="submit" value="Add Quantity"
 																onclick="addInput('dynamicInput');"

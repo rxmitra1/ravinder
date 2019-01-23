@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,13 +13,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rxmitra.bean.Prescription;
 import com.rxmitra.bean.PrescriptionManagement;
 import com.rxmitra.bean.ReceivedRequest;
+import com.rxmitra.utils.Mailer;
 
 @Repository
 @Transactional
+@PropertySource(value = "classpath:localResources.properties")
 public class ReceivedRequestDAO {
 
 	@Autowired
 	private HibernateTemplate template;
+	
+	@Autowired
+	private Environment env;
 
 	public List<ReceivedRequest> getReceivedRequestData() {
 		List<ReceivedRequest> list = template.loadAll(ReceivedRequest.class);
@@ -82,11 +89,21 @@ public class ReceivedRequestDAO {
 		return i;
 
 	}
-	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, List<Prescription> prescription) {
+	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, List<Prescription> prescription,ReceivedRequest receivedRequest,String status) {
 
 		String message = null;
 
 		Integer i = (Integer) template.save(preMngmt);
+		
+		
+		Mailer mail = new Mailer();
+
+		mail.send(receivedRequest.getEmailId(), "Order Confermation",
+				"Thanks for approaching RX Mitra. <br> Your Order is "+status+" .Please verify your products <a href='"
+						+ env.getProperty("rxmitra.localhost") + "'>Here</a>");
+		
+		
+		
 		
 		int j=0;
 		
@@ -104,9 +121,19 @@ public class ReceivedRequestDAO {
 		return message;
 	}
 	
-	public String savePrescriptionAndDoctorData(List<Prescription> prescription) {
+	public String savePrescriptionAndDoctorData(List<Prescription> prescription,ReceivedRequest receivedRequest,String status) {
 
 		String message = null;
+		
+		
+		
+		
+		Mailer mail = new Mailer();
+
+		mail.send(receivedRequest.getEmailId(), "Order Confermation",
+				"Thanks for approaching RX Mitra. <br> Your Order is "+status+" .Please verify your products <a href='"
+						+ env.getProperty("rxmitra.localhost") + "'>Here</a>");
+		
 		
 		int j=0;
 		

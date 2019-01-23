@@ -257,7 +257,7 @@ public class ReceivedRequestController {
 					}
 				}
 
-				String message = reqService.savePrescriptionAndDoctorData(preList);
+				String message = reqService.savePrescriptionAndDoctorData(preList,receivedRequest,status);
 
 				if (message.equals("success")) {
 
@@ -285,7 +285,7 @@ public class ReceivedRequestController {
 					}
 				}
 
-				String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList);
+				String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList,receivedRequest,status);
 
 				if (message.equals("success")) {
 					// List<Prescription> prescriptionMedicines1 =
@@ -304,7 +304,7 @@ public class ReceivedRequestController {
 				}
 			}
 		} else {
-			String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList);
+			String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList,receivedRequest,status);
 
 			if (message.equals("success")) {
 				// List<Prescription> prescriptionMedicines1 =

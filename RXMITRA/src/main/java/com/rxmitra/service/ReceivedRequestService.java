@@ -67,15 +67,15 @@ public class ReceivedRequestService {
 		return preMngmtId;
 	}
 
-	public String savePrescriptionAndDoctorData(List<Prescription> prescription) {
+	public String savePrescriptionAndDoctorData(List<Prescription> prescription,ReceivedRequest receivedRequest,String status) {
 
-		String message = reqdao.savePrescriptionAndDoctorData(prescription);
+		String message = reqdao.savePrescriptionAndDoctorData(prescription,receivedRequest,status);
 
 		return message;
 	}
-	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, List<Prescription> prescription) {
+	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, List<Prescription> prescription,ReceivedRequest receivedRequest,String status) {
 
-		String message = reqdao.savePrescriptionAndDoctorData(preMngmt, prescription);
+		String message = reqdao.savePrescriptionAndDoctorData(preMngmt, prescription,receivedRequest,status);
 
 		return message;
 	}
