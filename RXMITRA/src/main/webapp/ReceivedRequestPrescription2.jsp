@@ -44,8 +44,9 @@ label {
 }
 
 #one {
-	font-size: 18px;
+	font-size: 20px;
 	color: #5aa320;
+	text-decoration: underline;
 }
 
 .modal-header {
@@ -77,15 +78,15 @@ label {
 </style>
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
         $(document).ready(function () {
             $("#orderStatus").keyup(function () {
                 var value = $(this).val();
                 $("#orderStatus1").val(value);
             });
         });
-</script>
-
+</script> -->
+<!-- 
 	<script>
 		var counter = 1;
 		var limit = 6;
@@ -104,7 +105,27 @@ label {
 				counter++;
 			}
 		}
-	</script>
+	</script> -->
+	
+	
+	
+<script>
+	$(function () {
+    $("#btnAdd").bind("click", function () {
+        var div = $("<tr />");
+        div.html(GetDynamicTextBox(""));
+        $("#TextBoxContainer").append(div);
+    });
+    $("body").on("click", ".remove", function () {
+        $(this).closest("tr").remove();
+    });
+});
+function GetDynamicTextBox(value) {
+/*     return '<div class="row"><div class="col-md-11"><div class="col-md-3" style="padding: 0 0px;"><input name = "DynamicTextBox" type="text" placeholder="Your medicine Name" value = "' + value + '" class="form-control" /></div>' + '<div class="col-md-3" style="padding: 0 0px;"><input name = "DynamicTextBox" type="text" placeholder="Your Quantity" value = "' + value + '" class="form-control" /></div>' + '<div class="col-md-3" style="padding: 0 0px;"><input name = "DynamicTextBox" type="text" placeholder="Your MRP" value = "' + value + '" class="form-control" /></div>' + '<div class="col-md-3" style="padding: 0 0px;"><input name = "DynamicTextBox" type="text" placeholder="Your Discont Price" value = "' + value + '" class="form-control" /></div></div>' + '<div class="col-md-1"><div class="col-md-12"><button type="button" class="btn btn-danger remove">Delete</button></div></div></div>'
+ */    return '<div class="col-md-11" style="margin: 7px 0px;"><div class="col-md-3" style="padding: 0 10px;"><input name = "medicineName" type="text" placeholder="Your medicine Name" value = "' + value + '" class="form-control" /></div>' + '<div class="col-md-3" style="padding: 0 10px;"><input name = "quantity" type="text" placeholder="Your Quantity" value = "' + value + '" class="form-control" /></div>' + '<div class="col-md-3" style="padding: 0 10px;"><input name = "mrp" type="text" placeholder="Your MRP" value = "' + value + '" class="form-control" /></div>' + '<div class="col-md-3" style="padding: 0 10px;"><input name = "discountPrice" type="text" placeholder="Your Discont Price" value = "' + value + '" class="form-control" /></div></div>' + '<div class="col-md-1" style="margin: 7px 0px;"><div class="col-md-12"><button type="button" class="btn btn-danger remove">Delete</button></div></div>'
+
+}
+</script>
 </head>
 <body>
 
@@ -203,7 +224,7 @@ label {
 
 												<th class="numeric">Request Id</th>
 												<th class="numeric">Request Date</th>
-												<th class="numeric">Name</th>
+												<th class="numeric">Member Id</th>
 												<th class="numeric">Email Id</th>
 												<th class="numeric">Phone No</th>
 												<th class="numeric">Pincode</th>
@@ -220,8 +241,8 @@ label {
 										<tbody>
 										
 												<tr>
-													<td data-title="Request Id" class="numeric"><a
-														href="#demo" 	data-toggle="collapse" id="one">${receivedRequestData.requestId }</a>
+													<td data-title="Request Id" class="numeric">
+														${receivedRequestData.requestId }
 														
 										 <!--============================ Doctor and Medicine details fields start ================-->
 														
@@ -243,7 +264,7 @@ label {
 													<td data-title="Member Id" class="numeric"><a href="#"
 														data-toggle="modal"
 														data-target="#myModal${receivedRequestData.requestId }"
-														id="one">${receivedRequestData.name }</a>
+														id="one">${receivedRequestData.requestId }</a>
 														
 														
 														
@@ -335,7 +356,7 @@ label {
 													<td data-title="imageDescription" class="numeric"><a
 														href="" data-toggle="modal"
 														data-target="#myModal1${receivedRequestData.requestId }"
-														id="one"> Show Image </a>
+														id="one">Show Image</a>
 														
 														
 														
@@ -399,7 +420,7 @@ label {
 											  </div>
 												
 
-										      <div id="demo">
+										      <div >
 
 
 											<div class="col-md-12">
@@ -447,13 +468,52 @@ label {
 
 												<h4 id="tw1">Prescription Details</h4>
 												<br>
-												
-												
-											<c:forEach items="${prescription}" var="prescription">
-												
+												<c:forEach items="${prescription }" var="prescription">
 													<div class="col-md-12" id="dynamicInput">
+													<div class="table table-responsive">
+													<table class="table table-responsive table-striped table-bordered" style="border: 1px solid #ffffff;">
+<div class="col-md-10">
+	
+    <div class="col-md-3" style="padding-left: 0px;">
+    <input type="text" name="medicineName"
+	class="form-control" id="" value="${prescription.medicineName }" placeholder="Your Medicine Name" />
+	</div>
+	
+   
+      <div class="col-md-3" style="padding-left: 0px;">
+      <input type="text" name="quantity" class="form-control"
+	 id="" value="${prescription.quantity }" placeholder="Your Quantity"  />
+      </div>
+      
+     <div class="col-md-3" style="padding-left: 0px;">
+      <input type="text" name="mrp" class="form-control" id=""
+	value="${prescription.mrp }" placeholder="Your MRP" />
+     </div>
+     
+     <div class="col-md-3" style="padding-left: 0px;">
+     <input type="text" name="discountPrice"
+    class="form-control" id="" value="${prescription.discountPrice}"
+	placeholder="Your Discount Price" />
+     </div>
+     
+     <div class="col-md-2">
+	  <a href="./deletePrescriptionData?prescriptionId=${prescription.prescriptionId }&requestId=${receivedRequestData.requestId }" class="btn btn-danger btn-block">Delete</a>
+	</div>
+    
+</div>
 
-														<div class="form-group col-lg-2">
+<tbody id="TextBoxContainer" style="border: 1px solid #ffffff;">
+</tbody>
+
+    <div class="col-md-2">
+    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">Add Quantity</button>
+    </div>
+</table>
+</div>
+
+														<%-- <div class="form-group col-lg-2">
+														
+
 															<input type="text" name="medicineName"
 																class="form-control" id="" value="${prescription.medicineName }"
 																placeholder="Your Medicine Name" />
@@ -472,26 +532,23 @@ label {
 															<input type="text" name="discountPrice"
 																class="form-control" id="" value="${prescription.discountPrice}"
 																placeholder="Your Discount Price" />
-														</div>
+														</div> --%>
 														<%-- <div class="form-group col-lg-2">
 															<input type="text" name="finalPrice" class="form-control"
 																id="" value="${prescription.finalPrice }" placeholder="Your Final Price" />
 														</div> --%>
 																											
-														<div class="col-md-1">
-													<a href="./deletePrescriptionData?prescriptionId=${prescription.prescriptionId }&requestId=${receivedRequestData.requestId }" class="btn btn-danger btn-block">
-													
-														Delete</a>
+														
+                                                         
 													</div>
-                                                         <div class="form-group col-lg-2">
+													
+													</c:forEach>
+													<!-- <div class="form-group col-lg-2">
 															<button type="button" id="more_fields" name="submit" value="Add Quantity"
 																onclick="addInput('dynamicInput');"
 																class="btn btn-primary btn-block"
-																style="line-height: 18px;">Add Another</button>
-														</div>
-													</div>
-													</c:forEach>
-													
+																style="line-height: 18px;">Add Quantity</button>
+														</div> -->
 											</div> 
 											
 											

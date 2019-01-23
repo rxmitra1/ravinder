@@ -106,7 +106,7 @@ public class ReceivedRequestController {
 				String encodedString = new String(bs);
 				receivedRequest.setEncodedImage(encodedString);
 
-				mav = new ModelAndView("ReceivedRequestPrescription1", "receivedRequestData", receivedRequest);
+				mav = new ModelAndView("ReceivedRequestPrescription4", "receivedRequestData", receivedRequest);
 			}
 
 		} else {
@@ -207,7 +207,7 @@ public class ReceivedRequestController {
 		String orderId = "RX" + "00" + requestId;
 
 		List<Prescription> preList = new ArrayList<Prescription>();
-		//List<Prescription> preList1 = preList;
+		// List<Prescription> preList1 = preList;
 		String[] medicineNames = request.getParameterValues("medicineName");
 		String[] quantitys = request.getParameterValues("quantity");
 		String[] mrps = request.getParameterValues("mrp");
@@ -263,8 +263,8 @@ public class ReceivedRequestController {
 
 					// String s = reqService.updateExistingPrescription(prescriptionManagement,
 					// prescriptionMedicines);
-					List<Prescription> prescriptionMedicines1 =
-							 reqService.getReceivedRequestPrescriptionMedicines(requestId);
+					List<Prescription> prescriptionMedicines1 = reqService
+							.getReceivedRequestPrescriptionMedicines(requestId);
 
 					model.addAttribute("prescription", prescriptionMedicines1);
 					model.addAttribute("preMngmt", preMngmt);
@@ -293,8 +293,8 @@ public class ReceivedRequestController {
 					// String s = reqService.updateExistingPrescription(prescriptionManagement,
 					// prescriptionMedicines);
 
-					List<Prescription> prescriptionMedicines1 =
-							 reqService.getReceivedRequestPrescriptionMedicines(requestId);
+					List<Prescription> prescriptionMedicines1 = reqService
+							.getReceivedRequestPrescriptionMedicines(requestId);
 
 					model.addAttribute("prescription", prescriptionMedicines1);
 					model.addAttribute("preMngmt", preMngmt);
@@ -312,8 +312,8 @@ public class ReceivedRequestController {
 				// String s = reqService.updateExistingPrescription(prescriptionManagement,
 				// prescriptionMedicines);
 
-				List<Prescription> prescriptionMedicines1 =
-						 reqService.getReceivedRequestPrescriptionMedicines(requestId);
+				List<Prescription> prescriptionMedicines1 = reqService
+						.getReceivedRequestPrescriptionMedicines(requestId);
 
 				model.addAttribute("prescription", prescriptionMedicines1);
 				model.addAttribute("preMngmt", preMngmt);
@@ -365,7 +365,7 @@ public class ReceivedRequestController {
 					String encodedString = new String(bs);
 					receivedRequest.setEncodedImage(encodedString);
 
-					mav = new ModelAndView("ReceivedRequestPrescription1", "receivedRequestData", receivedRequest);
+					mav = new ModelAndView("ReceivedRequestPrescription4", "receivedRequestData", receivedRequest);
 				}
 			} else {
 				mav = new ModelAndView("emptyReceivedRequest", "emptyReceivedRequest", "Data is Not Found...");

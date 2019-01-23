@@ -78,7 +78,7 @@ label {
 }
 </style>
 
-	<script>
+	<!-- <script>
 		var counter = 1;
 		var limit = 6;
 		function addInput(divName) {
@@ -90,6 +90,18 @@ label {
 
 			else {
 
+
+				$(function () {
+				    $("#more_fields").bind("click", function () {
+				        var div = $("<tr />");
+				        div.html(GetDynamicTextBox(""));
+				        $("#TextBoxContainer").append(div);
+				    });
+				    $("body").on("click", ".remove", function () {
+				        $(this).closest("tr").remove();
+				    });
+				});
+
 				var newdiv = document.createElement('div');
 				newdiv.innerHTML = '<div class="col-md-12" style="padding: 0 0; margin: 9px 0%;"><div class="col-md-2"><input type="text" name="medicineName" class="form-control" id="" value="" placeholder="Your Medicine Name"></div><div class="form-group col-lg-2"><input type="text" name="quantity" class="form-control" id="" value="" placeholder="Your Quantity"></div><div class="form-group col-lg-2"><input type="text" name="mrp" class="form-control" id="" value="" placeholder="Your MRP"></div><div class="form-group col-lg-2"><input type="text" name="discountPrice" class="form-control" id="" value="" placeholder="Your Discount Price"></div>';
 				document.getElementById(divName).appendChild(newdiv);
@@ -97,6 +109,23 @@ label {
 			}
 		}
 	</script>
+	 -->
+	
+	<script>
+	$(function () {
+    $("#btnAdd").bind("click", function () {
+        var div = $("<tr />");
+        div.html(GetDynamicTextBox(""));
+        $("#TextBoxContainer").append(div);
+    });
+    $("body").on("click", ".remove", function () {
+        $(this).closest("tr").remove();
+    });
+});
+function GetDynamicTextBox(value) {
+    return '<td><input name = "DynamicTextBox" type="text" placeholder="Your medicine Name" value = "' + value + '" class="form-control" /></td>' + '<td><input name = "DynamicTextBox" type="text" placeholder="Your Quantity" value = "' + value + '" class="form-control" /></td>' + '<td><input name = "DynamicTextBox" type="text" placeholder="Your MRP" value = "' + value + '" class="form-control" /></td>' + '<td><input name = "DynamicTextBox" type="text" placeholder="Your Discont Price" value = "' + value + '" class="form-control" /></td>' + '<td><button type="button" class="btn btn-danger remove">Delete</button></td>'
+}
+</script>
 </head>
 <body>
 
@@ -443,6 +472,32 @@ label {
 												<h4 id="tw1">Prescription Details</h4>
 												<br>
 													<div class="col-md-12" id="dynamicInput">
+
+
+
+<div class="table table-responsive">
+<table class="table table-responsive table-striped table-bordered">
+<thead>
+	<tr>
+    	<td>Your Medicine Name</td>
+    	<td>Your Quantity</td>
+    	<td>Your MRP</td>
+    	<td>Your Discount Price</td>
+    	<td>Delete</td>
+    </tr>
+</thead>
+<tbody id="TextBoxContainer">
+</tbody>
+<tfoot>
+  <tr>
+    <th colspan="5">
+    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">Add Quantity</button></th>
+  </tr>
+</tfoot>
+</table>
+</div>
+
+
 
 														<div class="form-group col-lg-2">
 															<input type="text" name="medicineName"
