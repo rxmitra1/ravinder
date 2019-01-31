@@ -102,6 +102,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     font-size: 36px;
     margin: 29px 0;
     }
+    .navbar-default {
+    background-color: #ffffff !important;
+    border-color: #e7e7e7;
+}
 </style>
 
 
@@ -116,7 +120,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <nav class="navbar-default">
   <div class="container-fluid">
     <div class="navbar-header2">
-    <div class="col-md-4 logo_text" id="tow"><a href="index.jsp">Rx<span>Mitra</a></span></div>
+    <a href="index.jsp">
+    <div class="col-md-4" id="tow"><img src="./images1/log1.PNG" class="img-respance"></div></a>
      
     <!--   <div class="col-md-4 "><img src="images/rxmitralogo.png" alt="Rythumitra"></div> --> 
     </div>

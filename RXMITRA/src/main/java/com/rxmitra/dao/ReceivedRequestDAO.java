@@ -174,4 +174,24 @@ public class ReceivedRequestDAO {
 		return "success";
 	}
 
+	public String updateTrackOrderStatus(String requestId,String orderStatus,String orderId) {
+		String query = "update com.rxmitra.bean.PrescriptionManagement p set p.status='"+orderStatus+"' where p.orderId='"+orderId+"'";
+		String query1 = "update com.rxmitra.bean.ReceivedRequest r set r.status='"+orderStatus+"' where r.requestId='"+requestId+"'";
+
+		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
+		Query createQuery1 = template.getSessionFactory().openSession().createQuery(query1);
+
+        int i = createQuery.executeUpdate();
+        int j = createQuery1.executeUpdate();
+        String message=null;
+        if(i>0 && j>0) {
+        	message="success";
+        }else {
+        	message="fail";
+
+        }
+
+		return message;
+	}
+	
 }

@@ -257,7 +257,7 @@ public class ReceivedRequestController {
 					}
 				}
 
-				String message = reqService.savePrescriptionAndDoctorData(preList,receivedRequest,status);
+				String message = reqService.savePrescriptionAndDoctorData(preList, receivedRequest, status);
 
 				if (message.equals("success")) {
 
@@ -285,7 +285,7 @@ public class ReceivedRequestController {
 					}
 				}
 
-				String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList,receivedRequest,status);
+				String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList, receivedRequest, status);
 
 				if (message.equals("success")) {
 					// List<Prescription> prescriptionMedicines1 =
@@ -304,7 +304,7 @@ public class ReceivedRequestController {
 				}
 			}
 		} else {
-			String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList,receivedRequest,status);
+			String message = reqService.savePrescriptionAndDoctorData(preMngmt, preList, receivedRequest, status);
 
 			if (message.equals("success")) {
 				// List<Prescription> prescriptionMedicines1 =
@@ -374,5 +374,171 @@ public class ReceivedRequestController {
 
 		return mav;
 	}
+
+	@RequestMapping(path = "/TrackReceivedRequest", method = RequestMethod.GET)
+	public ModelAndView trackReceivedRequestData(Model model) {
+
+		ModelAndView mav = null;
+		// List<String> al = new ArrayList<String>();
+
+		// Pagination
+		List<Integer> countpagesList = new ArrayList<Integer>();
+		Long count = reqService.getReceivedRequestCount();
+		if (count > 5) {
+			Long countpages = count / 4;
+			for (int i = 1; i <= countpages + 1; i++) {
+				countpagesList.add(i);
+			}
+		} else {
+			countpagesList.add(1);
+		}
+
+		// End Pagination
+
+		List<ReceivedRequest> list = reqService.getReceivedRequestData();
+
+		if (list.size() > 0) {
+
+			for (ReceivedRequest receivedRequest : list) {
+				byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+				String encodedString = new String(bs);
+				receivedRequest.setEncodedImage(encodedString);
+			}
+			model.addAttribute("count", countpagesList);
+			mav = new ModelAndView("TrackReceivedRequest", "receivedRequestData", list);
+
+		} else {
+			mav = new ModelAndView("emptyReceivedRequest", "emptyReceivedRequest", "Data is Not Found...");
+		}
+
+		return mav;
+	}
+
+	@RequestMapping(path = "/trackReceivedRequest", method = RequestMethod.POST)
+	public ModelAndView trackReceivedRequest(String requestId, Model model) {
+
+		ModelAndView mav = null;
+		// List<String> al = new ArrayList<String>();
+		ReceivedRequest receivedRequest = reqService.getReceivedRequestData(requestId);
+		PrescriptionManagement list = reqService.getReceivedRequestPrescription(requestId);
+
+		if (receivedRequest != null) {
+
+			if (list != null) {
+				/*
+				 * List<Prescription> prescriptionMedicines = reqService
+				 * .getReceivedRequestPrescriptionMedicines(requestId);
+				 */
+
+				model.addAttribute("orderId", list.getOrderId());
+				// model.addAttribute("prescription", prescriptionMedicines);
+				mav = new ModelAndView("TrackReceivedRequestUpdate", "receivedRequestData", receivedRequest);
+
+			} else {
+
+				byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+				String encodedString = new String(bs);
+				receivedRequest.setEncodedImage(encodedString);
+				model.addAttribute("preMngmt", list);
+				// model.addAttribute("prescription", prescriptionMedicines);
+				mav = new ModelAndView("ReceivedRequestPrescription3", "receivedRequestData", receivedRequest);
+			}
+
+		} else {
+			mav = new ModelAndView("emptyReceivedRequest", "emptyReceivedRequest", "Data is Not Found...");
+		}
+
+		return mav;
+	}
+	
+	
+	@RequestMapping(path = "/trackViewReceivedRequestsByDates", method = RequestMethod.POST)
+	public ModelAndView trackViewReceivedRequestsByDates(String fromDate, String toDate, String pincode, String requestId,
+			Model model) {
+
+		ModelAndView mav = null;
+		List<String> al = new ArrayList<String>();
+
+		List<ReceivedRequest> list = reqService.viewReceivedRequestsByDates(fromDate, toDate, pincode, requestId);
+		if (fromDate != "" || toDate != "" || pincode != "" || requestId != "") {
+
+			// Pagination
+			List<Integer> countpagesList = new ArrayList<Integer>();
+			Long count = reqService.getReceivedRequestCount(fromDate, toDate, pincode, requestId);
+			if (count > 5) {
+				Long countpages = count / 4;
+				for (int i = 1; i <= countpages + 1; i++) {
+					countpagesList.add(i);
+				}
+			} else {
+				countpagesList.add(1);
+			}
+
+			// End Pagination
+
+			if (list.size() > 0) {
+				for (ReceivedRequest receivedRequest : list) {
+					byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+					String encodedString = new String(bs);
+					al.add(encodedString);
+				}
+				model.addAttribute("count", countpagesList);
+				model.addAttribute("userImage", al);
+				model.addAttribute("fromDate", fromDate);
+				model.addAttribute("toDate", toDate);
+				model.addAttribute("pincode", pincode);
+				model.addAttribute("requestId", requestId);
+				mav = new ModelAndView("TrackReceivedRequest", "receivedRequestData", list);
+
+			} else {
+				model.addAttribute("fromDate", fromDate);
+				model.addAttribute("toDate", toDate);
+				model.addAttribute("pincode", pincode);
+				model.addAttribute("requestId", requestId);
+				mav = new ModelAndView("emptyReceivedRequest", "emptyReceivedRequest", "Data Not Found...");
+			}
+		} else {
+			List<ReceivedRequest> list1 = reqService.getReceivedRequestData();
+			List<String> al1 = new ArrayList<String>();
+			if (list1.size() > 0) {
+
+				for (ReceivedRequest receivedRequest : list1) {
+					byte[] bs = Base64.encodeBase64(receivedRequest.getPhoto());
+					String encodedString = new String(bs);
+					al1.add(encodedString);
+				}
+
+				model.addAttribute("userImage", al1);
+				mav = new ModelAndView("ReceivedRequest1", "receivedRequestData", list1);
+
+			} else {
+				mav = new ModelAndView("emptyReceivedRequest", "emptyReceivedRequest", "Data is Not Found...");
+			}
+		}
+
+		return mav;
+	}
+
+	@RequestMapping(path = "/updateTrackOrderStatus", method = RequestMethod.POST)
+	public ModelAndView updateTrackOrderStatus(String requestId, Model model,String status,String orderId) {
+
+		ModelAndView mav = null;
+		// List<String> al = new ArrayList<String>();
+
+		String message = reqService.updateTrackOrderStatus(requestId,status,orderId);
+		if (message=="success") {
+			ReceivedRequest receivedRequest = reqService.getReceivedRequestData(requestId);
+
+		      model.addAttribute("orderId", orderId);
+			  model.addAttribute("updateSuccess", "Order Status Updated......");
+			  mav = new ModelAndView("TrackReceivedRequestUpdate", "receivedRequestData", receivedRequest);
+
+				
+
+
+		}
+
+	return mav;
+}
 
 }

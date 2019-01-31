@@ -32,15 +32,35 @@ public class UserRegistrationDAO {
 		// TODO Auto-generated method stub
 		Mailer mail = new Mailer();
 		System.out.println(reg);
-		int i = (Integer) template.save(reg);
-		if (i > 0) {
-			mail.send(reg.getEmailId(), "Thanks for Registering with RX Mitra",
-					"Thanks for Registering with RX Mitra. <br> Please verify your email id <a href='"
-							+ env.getProperty("rxmitra.localhost") + "?email=" +reg.getEmailId() + "'>Here</a>");
-			return "Success";
-		} else {
-			return "Fail";
+		
+		if(reg.getBusinessType().equals("SELLER")) {
+			int i = (Integer) template.save(reg);
+			if (i > 0) {
+				mail.send(reg.getEmailId(), "Thanks for Registering with RX Mitra As a Seller",
+						"Thanks for Registering with RX Mitra As a Seller. <br> Please verify your email id <a href='"
+								+ env.getProperty("rxmitra.localhost") + "?email=" +reg.getEmailId() + "'>Here</a>");
+				return "Success";
+			} else {
+				return "Fail";
+			}	
+		}else {
+			reg.setBusinessName("UNAVAILABLE");
+			reg.setGstNo("UNAVAILABLE");
+			int i = (Integer) template.save(reg);
+			if (i > 0) {
+				mail.send(reg.getEmailId(), "Thanks for Registering with RX Mitra As a Customer",
+						"Thanks for Registering with RX Mitra As a Customer. <br> Please verify your email id <a href='"
+								+ env.getProperty("rxmitra.localhost") + "?email=" +reg.getEmailId() + "'>Here</a>");
+				return "Success";
+			} else {
+				return "Fail";
+			}	
 		}
+		
+		
+		
+		
+		
 	}
 
 	public String checkEmail(String emailid) {

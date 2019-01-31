@@ -148,7 +148,7 @@
 	   <div class="row">
 	   <div class="col-lg-4"></div>
 	   <div class="col-lg-5">
-	   <button type="submit" class="btn btn-success btn-block" id="one3">Sign in</button>
+	   <button type="submit" class="btn btn-success btn-block" id="one3">Send</button>
 	   </div>
 	   <div class="col-lg-4"></div>
 	   </div>

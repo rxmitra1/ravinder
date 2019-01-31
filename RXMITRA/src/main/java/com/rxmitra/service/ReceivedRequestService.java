@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.rxmitra.bean.Prescription;
 import com.rxmitra.bean.PrescriptionManagement;
@@ -90,6 +91,13 @@ public class ReceivedRequestService {
 	public String updateExistingPrescription(PrescriptionManagement prescriptionManagement,List<Prescription> prescriptionMedicines) {
 
 		String list = reqdao.updateExistingPrescription(prescriptionManagement,prescriptionMedicines);
+
+		return list;
+	}
+	
+	public String updateTrackOrderStatus(String requestId,String orderStatus,String orderId) {
+
+		String list = reqdao.updateTrackOrderStatus(requestId,orderStatus,orderId);
 
 		return list;
 	}

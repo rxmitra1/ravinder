@@ -13,6 +13,11 @@
 <title>RX Mitra | Received Request</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<script
@@ -74,6 +79,16 @@ label {
 	color: #5aa320;
 	text-decoration: underline;
 }
+.to1{
+    
+    border: 1px solid #d9534f;
+    background: #d9534f;
+    width: 100px;
+    border-radius: 4px;
+    height: 29px;
+    color: #fff;
+    font-size: 18px;
+}
 </style>
 
 
@@ -108,6 +123,13 @@ label {
 	
 	
 	
+<!--  <script>
+	$("#anOtherButton").click(function() {
+    $("#FullName").attr('disabled', !$("#FullName").attr('disabled'));
+    });
+</script> -->
+
+	
 <script>
 	$(function () {
     $("#btnAdd").bind("click", function () {
@@ -126,7 +148,7 @@ function GetDynamicTextBox(value) {
 }
 </script>
 </head>
-<body>
+<body ng-app="ngToggle" ng-controller="AppCtrl">
 
 	<%
 		String from = null;
@@ -163,9 +185,9 @@ function GetDynamicTextBox(value) {
 							<jsp:include page="./User.jsp"></jsp:include>
 
 
-							<h4 class="box">Received Request</h4>
+							<h4 class="box">Track Order Status</h4>
 							<br />
-							<form action="./viewReceivedRequestsByDates" method="post">
+							<form action="./trackViewReceivedRequestsByDates" method="post">
 								<div class="col-md-10">
 
 									<div class="form-group col-lg-3">
@@ -208,8 +230,10 @@ function GetDynamicTextBox(value) {
 									<br>
 								</p>
 
-
-									<form action="./savePrescriptionAndDoctorData" method="post">
+                                              <div align="center">
+													<font color="blue" >${updateSuccess }</font>
+											  </div>
+									<form action="./updateTrackOrderStatus" method="post">
 
 
 								<div id="no-more-tables">
@@ -221,14 +245,11 @@ function GetDynamicTextBox(value) {
 										<thead class="cf" style="font-size: 17px; color: #5aa320;">
 											<tr>
 
+												<th class="numeric">Order Id</th>
 												<th class="numeric">Request Id</th>
-												<th class="numeric">Request Date</th>
 												<th class="numeric">Member Id</th>
-												<th class="numeric">Email Id</th>
-												<th class="numeric">Phone No</th>
-												<th class="numeric">Pincode</th>
 												<th class="numeric">Order Status</th>
-												<th class="numeric">Image Prescription</th>.
+												<th class="numeric">Enable Order</th>
 
 
 											</tr>
@@ -240,6 +261,8 @@ function GetDynamicTextBox(value) {
 										<tbody>
 										
 												<tr>
+												<td data-title="Request Id" class="numeric">
+														${orderId }</td>
 													<td data-title="Request Id" class="numeric">
 														${receivedRequestData.requestId }
 														
@@ -259,7 +282,7 @@ function GetDynamicTextBox(value) {
 														
 														
 														</td>
-													<td data-title="Request Date" class="numeric">${receivedRequestData.date }</td>
+													
 													<td data-title="Member Id" class="numeric"><a href="#"
 														data-toggle="modal"
 														data-target="#myModal${receivedRequestData.requestId }"
@@ -307,6 +330,12 @@ function GetDynamicTextBox(value) {
 																					value="<c:out value="${receivedRequestData.mobile }"></c:out>"
 																					readonly="readonly" />
 																			</div>
+                                                                            <div class="form-group col-lg-12">
+																				<label>Email Id</label> <input type="text"
+																					name="contact" class="form-control"
+																					value="<c:out value="${receivedRequestData.emailId }"></c:out>"
+																					readonly="readonly" />
+																			</div>
 
 																			<div class="form-group col-lg-12">
 																				<label>Pincode :</label> <input type="text"
@@ -339,20 +368,30 @@ function GetDynamicTextBox(value) {
 														 
 														 
 														 
-													<td data-title="Email Id" class="numeric">${receivedRequestData.emailId }</td>
-													<td data-title="Phone No" class="numeric">${receivedRequestData.mobile }</td>
-													<td data-title="Pincode" class="numeric">${receivedRequestData.pincode }</td>
-													<td data-title="Order Status" class="numeric"><select id="orderStatus" name="status"
-														class="form-control">
+													<td data-title="Order Status" class="numeric" >
+													
+													
+													<select id="orderStatus" name="status" ng-disabled="isDisabled" model="isDisabled"
+														class="form-control" >
+														<option  value="">${receivedRequestData.status}</option>
 															<option  value="Pending">Pending</option>
 															<option value="Order Process">Order process</option>
 															<option value="Delivery">Delivery</option>
 															<option value="Rejected">Rejected</option>
-													</select></td>
+													</select>
+													
+													<input type="hidden" name="orderId" value="${orderId }"></input>
+													<input type="hidden" name="requestId" value="${receivedRequestData.requestId }"></input>
+													
+													</td>
 
+                                                      <td data-title="enable" class="numeric">
+                                                         
+                                                       <input type="button" class="to1" id="anOtherButton" value="Click" ng-click="disableClick(enable)" />
 
-
-													<td data-title="imageDescription" class="numeric"><a
+                                                      </td>
+                                                       
+													<%-- <td data-title="imageDescription" class="numeric"><a
 														href="" data-toggle="modal"
 														data-target="#myModal1${receivedRequestData.requestId }"
 														id="one">Show Image</a>
@@ -399,7 +438,7 @@ function GetDynamicTextBox(value) {
 														
 														
 														
-														<!-- =========================Image Popup end ==============================--></td>
+														<!-- =========================Image Popup end ==============================--></td> --%>
 												</tr>
 												
 												
@@ -414,15 +453,13 @@ function GetDynamicTextBox(value) {
 										
 										
 									</table>
-									          <div align="center">
-													<font color="blue" >${preSuccess }</font>
-											  </div>
+									          
 												
 
 										      <div >
 
 
-											<div class="col-md-12">
+											<%-- <div class="col-md-12">
 												<p>
 													<br>
 												</p>
@@ -518,7 +555,7 @@ function GetDynamicTextBox(value) {
 </div>
 
 
-													<%-- <div class="form-group col-lg-2">
+													<div class="form-group col-lg-2">
 														
 
 															<input type="text" name="medicineName"
@@ -539,11 +576,11 @@ function GetDynamicTextBox(value) {
 															<input type="text" name="discountPrice"
 																class="form-control" id="" value="${prescription.discountPrice}"
 																placeholder="Your Discount Price" />
-														</div> --%>
-														<%-- <div class="form-group col-lg-2">
+														</div>
+														<div class="form-group col-lg-2">
 															<input type="text" name="finalPrice" class="form-control"
 																id="" value="${prescription.finalPrice }" placeholder="Your Final Price" />
-														</div> --%>
+														</div>
 																									
 
                                                          
@@ -557,14 +594,14 @@ function GetDynamicTextBox(value) {
 																style="line-height: 18px;">Add Quantity</button>
 														</div> -->
 											</div> 
-											
+											 --%>
 											
 														
 											<div class="col-md-12">
 												<div class="col-md-4"></div>
 												<div class="col-md-2">
 													<div class="">
-													<br> <a href="./getReceivedRequestData" class="btn btn-danger btn-block">
+													<br> <a href="./TrackReceivedRequest" class="btn btn-danger btn-block">
 														Back</a>
 													</div>
 												</div>
@@ -572,7 +609,7 @@ function GetDynamicTextBox(value) {
 												<div class="col-md-2">
 													<div class="">
 													<br> 
-														<input type="submit" name="submit" value="Submit"
+														<input type="submit" name="submit" value="Update"
 															class="btn btn-success btn-block"></input>
 													</div>
 												</div>
@@ -633,6 +670,24 @@ function GetDynamicTextBox(value) {
 		<div class="clearfix"></div>
 	</div>
 	<!--slide bar menu end here-->
+	
+	 <script>
+	 angular.module('ngToggle', [])
+	    .controller('AppCtrl',['$scope', function($scope){
+	    $scope.isDisabled = true;
+	    $scope.toggle=true;
+	    $scope.enable="enable";
+	    $scope.disableClick = function(enable) {      
+		    $scope.enable=$scope.toggle ? 'disable' : 'enable';
+	
+		  
+
+		   
+	        $scope.isDisabled =!$scope.isDisabled;
+	        return false;
+	    }
+	}]);
+      </script>
 	<script>
 		var toggle = true;
 
