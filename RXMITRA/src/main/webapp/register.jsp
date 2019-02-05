@@ -227,6 +227,49 @@ select:focus {
     padding: 5px 29px !important;
 }
 </style>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<script type="text/javascript">
+	function getPincodeDets(str)
+    {
+    	if (str=="")
+    	  {
+    	  document.getElementById("pincodedata").value="";
+    	  return;
+    	  }  
+    	if (window.XMLHttpRequest)
+    	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+    	  xmlhttp=new XMLHttpRequest();
+    	  }
+    	else
+    	  {// code for IE6, IE5
+    	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    	  }
+    	xmlhttp.onreadystatechange=function()
+    	  {
+    	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    	    {
+    	    document.getElementById("pincodedata").value=xmlhttp.responseText;
+    	    var pincodedata = document.getElementById("pincodedata").value;
+    	    var str_array = pincodedata.split(',');
+    	    document.getElementById("city").value=str_array[0].replace(/^\s*/, "").replace(/\s*$/, "");
+    	    document.getElementById("district").value=str_array[1].replace(/^\s*/, "").replace(/\s*$/, "");
+    	    document.getElementById("state").value=str_array[2].replace(/^\s*/, "").replace(/\s*$/, "");
+    	    }
+    	  }
+    	xmlhttp.open("GET","./getPincode.jsp?pincode="+str,true);
+    	xmlhttp.send();
+    }
+	</script>
+
+
+
+
 <script>
    function CheckNumeric(e) {
 		 
@@ -558,7 +601,7 @@ $(document).ready(function ()
 	   
 	   <div class="col-lg-6">
 	   <label>Pincode</label>
-	   <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" required>
+	   <input type="text" class="form-control" id="pincode" name="pincode" onchange="getPincodeDets(this.value)" placeholder="Enter Pincode" required>
 	   </div>
 	   </div>
 	   </div>
@@ -566,38 +609,48 @@ $(document).ready(function ()
 	   <div class="row form-group">
 	   <div class="row">
 	   <div class="col-lg-6">
-	   <label>State</label>
-	    <select name="state" class="form-control12" id="state" required>
-		<option>-- Select State --</option>
+	   <label>City</label>
+	    <input type="text" name="city" class="form-control" id="city" placeholder="Enter Your City" required readonly="readonly">
 		
-	   </select>
-	  
 	   </div>
 	   
 	   <div class="col-lg-6">
 	   <label>District</label>
-	   <select name="district" class="form-control12" id="district" required>
-		<option>-- Select District --</option>
-		
-	   </select>
+	   	    <input type="text" name="district" class="form-control" id="district" placeholder="Enter Your district" required readonly="readonly">
+
 	   </div>
 	   </div>
 	   </div>
 	   
 	   <div class="row form-group">
 	   <div class="row">
+	   
+	   <div class="col-lg-6">
+	   <label>State</label>
+	  	    <input type="text" name="state" class="form-control" id="state" placeholder="Enter Your state" required readonly="readonly">
+            <input type="hidden" name="pincodedata" class="form-control" id="pincodedata">
+	  
+	   </div>
 	   <div class="col-lg-6">
 	   <label>Business name</label>
 	   <input type="text" class="form-control" id="businessName" name="businessName" placeholder="Enter Business name" required>
 	   </div>
 	   
-	   <div class="col-lg-6">
-	   <label>Gst No</label>
-	   <input type="text" class="form-control" id="gstNo" name="gstNo" placeholder="Enter Gst No" required>
-	   </div>
+	   
 	   </div>
 	   </div>
 	 
+	 <div class="row form-group">
+	   <div class="row">
+	   
+	 
+	 <div class="col-lg-6">
+	   <label>Gst No</label>
+	   <input type="text" class="form-control" id="gstNo" name="gstNo" placeholder="Enter Gst No" required>
+	   </div>
+	   
+	   </div></div>
+	   
 	   <div class="row form-group">
 	   <div class="row">
 	   <div class="col-lg-4"></div>
@@ -618,13 +671,12 @@ $(document).ready(function ()
        <form action="./userRegister" onsubmit="return validateForm()" method="post" role="form" style="display: block;">
         
         
-        <div class="row form-group">
+      <div class="row form-group">
 	   <div class="row">
 	   <div class="col-lg-6">
 	   <label>First Name</label>
 	   <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name" required>
-	   <input type="hidden"  id="businessType" name="businessType" value="CUSTOMER">
-	   
+	     <input type="hidden"  id="businessType" name="businessType" value="SELLER">
 	   </div>
 	   
 	   <div class="col-lg-6">
@@ -657,34 +709,43 @@ $(document).ready(function ()
 	   
 	   <div class="col-lg-6">
 	   <label>Pincode</label>
-	   <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" required>
+	   <input type="text" class="form-control" id="pincode" name="pincode" onchange="getPincodeDets(this.value)" placeholder="Enter Pincode" required>
 	   </div>
 	   </div>
 	   </div>
 	   
-	    <div class="row form-group">
+	   <div class="row form-group">
 	   <div class="row">
 	   <div class="col-lg-6">
-	   <label>State</label>
-	    <select name="state" class="form-control12" id="state" required>
-		<option>-- Select State --</option>
+	   <label>City</label>
+	    <input type="text" name="city" class="form-control" id="city" placeholder="Enter Your City" required readonly="readonly">
 		
-	   </select>
-	  
 	   </div>
 	   
 	   <div class="col-lg-6">
 	   <label>District</label>
-	   <select name="district" class="form-control12" id="district" required>
-		<option>-- Select District --</option>
-		
-	   </select>
+	   	    <input type="text" name="district" class="form-control" id="district" placeholder="Enter Your district" required readonly="readonly">
+
 	   </div>
 	   </div>
 	   </div>
 	   
+	   <div class="row form-group">
+	   <div class="row">
+	   
+	   <div class="col-lg-6">
+	   <label>State</label>
+	  	    <input type="text" name="state" class="form-control" id="state" placeholder="Enter Your state" required readonly="readonly">
+            <input type="hidden" name="pincodedata" class="form-control" id="pincodedata">
 	  
+	   </div>
+	   
+	   
+	   </div>
+	   </div>
 	 
+	   
+	   
 	   <div class="row form-group">
 	   <div class="row">
 	   <div class="col-lg-4"></div>
@@ -694,6 +755,8 @@ $(document).ready(function ()
 	   <div class="col-lg-4"></div>
 	   </div>
 	   </div>
+            
+
 	   
 	  </form> 
 	   
@@ -1030,12 +1093,12 @@ $(function() {
 	<script src="js/custom.js"></script>
 	<script src="js/home.js"></script>
 	
-	<script language="javascript">
+	<!-- <script language="javascript">
     populateCountries("country", "state");
     </script>
 	<script language="javascript">
     populateCountries("state", "district");
-    </script>
+    </script> -->
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </body>
 </html>
