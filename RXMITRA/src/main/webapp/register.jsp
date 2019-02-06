@@ -97,10 +97,7 @@ body:last-child .dropdown select, x:-moz-any-link {
   padding-right: .8em;
 }
 
-/* Firefox 7+ -- Will let us hide the arrow, but inconsistently (see FF 30 comment below). We've found the simplest way to hide the native styling in FF is to make the select bigger than its container. */
-/* The specific FF selector used below successfully overrides the previous rule that turns off the custom icon; other FF hacky selectors we tried, like `*>.dropdown::after`, did not undo the previous rule */
 
-/* Set overflow:hidden on the wrapper to clip the native select's arrow, this clips hte outline too so focus styles are less than ideal in FF */
 _::-moz-progress-bar, body:last-child .dropdown {
   overflow: hidden;
 }
@@ -119,10 +116,8 @@ _::-moz-progress-bar, body:last-child .dropdown select {
   width: 110%;
 }
 
-/* At first we tried the following rule to hide the native select arrow in Firefox 30+ in Windows 8, but we'd rather simplify the CSS and widen the select for all versions of FF since this is a recurring issue in that browser */
-/* @supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
-.dropdown select { width:110%; }
-}   */
+
+
 
 
 /* Firefox 7+ focus style - This works around the issue that -moz-appearance: window kills the normal select focus. Using semi-opaque because outline doesn't handle rounded corners */
@@ -219,7 +214,7 @@ select:focus {
 }
 .or1{
     font-size: 16px;
-    margin: 4px 0px;
+    margin: 0px 3px;
     position: absolute;
     }
     .form-group {
@@ -237,6 +232,8 @@ select:focus {
 <script type="text/javascript">
 	function getPincodeDets(str)
     {
+
+	  
     	if (str=="")
     	  {
     	  document.getElementById("pincodedata").value="";
@@ -416,7 +413,22 @@ $(document).ready(function ()
 		
 		  
 		 });
+
+
+
+
+
+
+
+function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.visibility = 'visible';
+    }
+    else document.getElementById('ifYes').style.visibility = 'hidden';
+
+}
 </script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
 <body>
 
@@ -484,7 +496,7 @@ $(document).ready(function ()
 		<nav class="main_nav_contaner ml-auto">
 		<ul class="main_nav">
 		<li class="active"><a href="#">Home</a></li>
-		<li><a href="">About Us</a></li>
+		<li><a href="#">About Us</a></li>
 		<li><a href="./uploadFile.jsp">Upload</a></li>
 		<li><a href="courses.html"></a></li>
 		<li><a href="blog.html"></a></li>
@@ -535,6 +547,22 @@ $(document).ready(function ()
 		           </div>
 
 
+
+
+
+<!-- 
+   <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">  Yes
+   <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck"> No<br>
+   
+    <div id="ifYes" style="visibility:hidden">
+        If yes, explain: <input type='text' id='yes' name='yes'><br>
+        What can we do to accommodate you?  <input type='text' id='acc' name='acc'>
+        </div>
+        
+        other 3<input type='text' id='other3' name='other3'><br>
+        other 4<input type='text' id='other4' name='other4'><br> -->
+        
+        
  <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6" id="login_page">
@@ -543,24 +571,78 @@ $(document).ready(function ()
 	   <p><br></p>
 	   </div>
 	  
+	   <form action="./userRegister" onsubmit="return validateForm()" method="post">
+	   
+	   
+	  
+	   
+	   
 	   
 	   <div class="row" id='form-id' style="padding: 0 15px;">
 	   <div class="col-lg-12">
 	    <label>Business Type</label><br>
 	     <div class="col-lg-2" style="padding:0 0px;">
-	     <input style="width:19px;  height:19px;" id='watch-me' name="businessType" type='radio' checked value="SELLER"/> <span class="or1"> SELLER </span> &nbsp; &nbsp;
+	     <input type="radio" onclick="w3.show('#London')" checked name="businessType" id="yesCheck" value="SELLER"> <span class="or1"> SELLER </span> &nbsp; &nbsp;
+	     <!-- <input style="width:19px;  height:19px;" id='watch-me' name="businessType" type='radio' checked value="SELLER"/> <span class="or1"> SELLER </span> &nbsp; &nbsp; -->
          </div>
          <div class="col-lg-3">
-         <input style="width:19px;  height:19px;" id='see-me' name="businessType" type='radio'  value="CUSTOMER"/> <span class="or1"> CUSTOMER </span>
+          <input type="radio" onclick="w3.hide('#London')" name="businessType" id="noCheck" value="CUSTOMER"> <span class="or1"> CUSTOMER </span>
+        <!--  <input style="width:19px;  height:19px;" id='see-me' name="businessType" type='radio'  value="CUSTOMER"/> <span class="or1"> CUSTOMER </span> -->
           </div>
 	    </div>
         </div>
      
-        <div id='show-me'>
+     
+     
+     <!-- <div class="row" id='form-id' style="padding: 0 15px;">
+	   <div class="col-lg-12">
+	    <label>Business Type</label><br>
+	     <div class="col-lg-2" style="padding:0 0px;">
+	     <input type="radio" onclick="javascript:yesnoCheck();"  name="businessType" id="yesCheck" value="SELLER"> <span class="or1"> SELLER </span> &nbsp; &nbsp;
+	     <input style="width:19px;  height:19px;" id='watch-me' name="businessType" type='radio' checked value="SELLER"/> <span class="or1"> SELLER </span> &nbsp; &nbsp;
+         </div>
+         <div class="col-lg-3">
+          <input type="radio" onclick="javascript:yesnoCheck();" name="businessType" id="noCheck" value="CUSTOMER"> <span class="or1"> CUSTOMER </span>
+         <input style="width:19px;  height:19px;" id='see-me' name="businessType" type='radio'  value="CUSTOMER"/> <span class="or1"> CUSTOMER </span>
+          </div>
+	    </div>
+        </div> -->
+     
+     
+     
+       <!--  <div id='show-me'> -->
         
         
-     <form action="./userRegister" onsubmit="return validateForm()" method="post" role="form" style="display: block;">
-        
+     
+        <div class="row form-group">
+	   <div class="row">
+	  <div id="London" style="width: 100%;"> 
+	  
+	  <div class="col-lg-12">
+	   <label>Business Type</label>
+	   <select class="form-control" id="businessType" name="businessType"  style="height: 35px;margin-bottom: 10px;" required>
+	   <option value="SELECT ">SELECT</option>
+	   	   <option value="MANUFACTURER">MANUFACTURER</option>
+	   	   <option value="DISTRIBUTOR">DISTRIBUTOR</option>
+	   	   <option value="RETAILER">RETAILER</option>
+	   
+	   </select>
+	   </div>
+	  
+	  <div class="col-lg-6">
+	   <label>Business name</label>
+	   <input type="text" class="form-control" id="businessName" name="businessName" placeholder="Enter Business name" required>
+	   </div>
+	   
+	   
+	   <div class="col-lg-6">
+	   <label>Gst No</label>
+	   <input type="text" class="form-control" id="gstNo" name="gstNo" placeholder="Enter Gst No" required>
+	   </div>
+	   
+	   </div>
+	   </div>
+	   </div>
         
             
        <div class="row form-group">
@@ -568,7 +650,6 @@ $(document).ready(function ()
 	   <div class="col-lg-6">
 	   <label>First Name</label>
 	   <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name" required>
-	     <input type="hidden"  id="businessType" name="businessType" value="SELLER">
 	   </div>
 	   
 	   <div class="col-lg-6">
@@ -582,7 +663,7 @@ $(document).ready(function ()
 	   <div class="row">
 	   <div class="col-lg-6">
 	   <label>Email ID</label>
-	   <input type="text" class="form-control" id="emailId" name="emailId" placeholder="Enter Email Id" required>
+	   <input type="text" class="form-control" id="emailId" name="emailId"  placeholder="Enter Email Id" required>
 	   </div>
 	   
 	   <div class="col-lg-6">
@@ -591,6 +672,7 @@ $(document).ready(function ()
 	   </div>
 	   </div>
 	   </div>
+	   
 	   
 	   <div class="row form-group">
 	   <div class="row">
@@ -631,25 +713,13 @@ $(document).ready(function ()
             <input type="hidden" name="pincodedata" class="form-control" id="pincodedata">
 	  
 	   </div>
-	   <div class="col-lg-6">
-	   <label>Business name</label>
-	   <input type="text" class="form-control" id="businessName" name="businessName" placeholder="Enter Business name" required>
-	   </div>
-	   
-	   
+	  
+	   <div class="col-lg-6">  </div>
+	  
 	   </div>
 	   </div>
 	 
-	 <div class="row form-group">
-	   <div class="row">
 	   
-	 
-	 <div class="col-lg-6">
-	   <label>Gst No</label>
-	   <input type="text" class="form-control" id="gstNo" name="gstNo" placeholder="Enter Gst No" required>
-	   </div>
-	   
-	   </div></div>
 	   
 	   <div class="row form-group">
 	   <div class="row">
@@ -663,9 +733,9 @@ $(document).ready(function ()
             
         </form>    
             
-        </div>
+       <!--  </div> -->
         
-        <div id='show-me-two' style='display:none;'>
+        <!-- <div id='show-me-two' style='display:none;'>
         
         
        <form action="./userRegister" onsubmit="return validateForm()" method="post" role="form" style="display: block;">
@@ -762,229 +832,10 @@ $(document).ready(function ()
 	   
 	   
         </div>
-      
+       -->
 	   
-	  
-	   
-	   
-	<!--    
-	   <div class="col-lg-12">
-	    <label>Business Type</label>
-	    <select name="businessType" class="form-control12" id="colorselector" required>
-	    <option>-- Select User Type --</option>
-		<option value="red">SELLER</option>
-		<option value="yellow">CUSTOMER</option>
-	    </select>
-	    </div>
-        
-  
 	 
-	 
-	 
-	 <div class="col-lg-12">
-	    <label>Business Type</label>
-	    <select name="businessType" class="form-control12" id="colorselector" required>
-	    <option>-- Select User Type --</option>
-		<option value="red">SELLER</option>
-		<option value="yellow">CUSTOMER</option>
-	    </select>
-	    </div>
-       
 	   
-	   <div class="output">
-       <div id="red" class="colors red">
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>First Name</label>
-	   <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name" required>
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>Last Name</label>
-	   <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name" required>
-	   </div>
-	   </div>
-	   </div>
-	 
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>Email ID</label>
-	   <input type="text" class="form-control" id="emailId" name="emailId" placeholder="Enter Email Id" required>
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>Password</label>
-	   <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
-	   </div>
-	   </div>
-	   </div>
-	   
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>Mobile</label>
-	   <input type="text" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Mobile No" required>
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>Pincode</label>
-	   <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" required>
-	   </div>
-	   </div>
-	   </div>
-	   
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>State</label>
-	    <select name="state" class="form-control12" id="state" required>
-		<option>-- Select State --</option>
-		
-	   </select>
-	  
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>District</label>
-	   <select name="district" class="form-control12" id="district" required>
-		<option>-- Select District --</option>
-		
-	   </select>
-	   </div>
-	   </div>
-	   </div>
-	   
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>Business name</label>
-	   <input type="text" class="form-control" id="businessName" name="businessName" placeholder="Enter Business name" required>
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>Gst No</label>
-	   <input type="text" class="form-control" id="gstNo" name="gstNo" placeholder="Enter Gst No" required>
-	   </div>
-	   </div>
-	   </div>
-	 
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-4"></div>
-	   <div class="col-lg-5">
-	   <button type="submit" class="btn btn-success btn-block" id="one3">Regester</button>
-	   </div>
-	   <div class="col-lg-4"></div>
-	   </div>
-	   </div> -->
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	<!--    <div class="row">
-	   <div class="f-row agree-terms">
-       <input type="checkbox" name="terms" class="check-box" id="terms"> &nbsp;I agree to the silicasmart.com <a href="privacy-policy" target="_blank">privacy policy</a> &amp; <a href="terms" target="_blank">Terms &amp; Conditions</a> 
-       <div id="error_terms"><strong><b class="error hidden"></b></strong></div>                                       
-       </div>
-	   </div> -->
-	   
-	<!--    </div>
-	   
-	   
-	   <div id="yellow" class="colors yellow">
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>First Name</label>
-	   <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name" required>
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>Last Name</label>
-	   <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name" required>
-	   </div>
-	   </div>
-	   </div>
-	 
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>Email ID</label>
-	   <input type="text" class="form-control" id="emailId" name="emailId" placeholder="Enter Email Id" required>
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>Password</label>
-	   <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
-	   </div>
-	   </div>
-	   </div>
-	   
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>Mobile</label>
-	   <input type="text" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Mobile No" required>
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>Pincode</label>
-	   <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" required>
-	   </div>
-	   </div>
-	   </div>
-	   
-	    <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-6">
-	   <label>State</label>
-	    <select name="state" class="form-control12" id="state" required>
-		<option>-- Select State --</option>
-		
-	   </select>
-	  
-	   </div>
-	   
-	   <div class="col-lg-6">
-	   <label>District</label>
-	   <select name="district" class="form-control12" id="district" required>
-		<option>-- Select District --</option>
-		
-	   </select>
-	   </div>
-	   </div>
-	   </div>
-	   
-	  
-	 
-	   <div class="row form-group">
-	   <div class="row">
-	   <div class="col-lg-4"></div>
-	   <div class="col-lg-5">
-	   <button type="submit" class="btn btn-success btn-block" id="one3">Regester</button>
-	   </div>
-	   <div class="col-lg-4"></div>
-	   </div>
-	   </div> -->
-	   
-	   
-	   
-	   
-	 <!--   <div class="row">
-	   <div class="f-row agree-terms">
-       <input type="checkbox" name="terms" class="check-box" id="terms"> &nbsp;I agree to the silicasmart.com <a href="privacy-policy" target="_blank">privacy policy</a> &amp; <a href="terms" target="_blank">Terms &amp; Conditions</a> 
-       <div id="error_terms"><strong><b class="error hidden"></b></strong></div>                                       
-       </div>
-	   </div> -->
-	   
-	   
-	</form>
   </div>
 <div class="col-md-3"></div>  
  </div>
