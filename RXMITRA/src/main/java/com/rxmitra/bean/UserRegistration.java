@@ -49,6 +49,9 @@ public class UserRegistration {
 	@Column(name = "PINCODE")
 	private String pincode;
 
+	@Column(name = "CITY")
+	private String city;
+	
 	@Column(name = "STATE")
 	private String state;
 
@@ -64,6 +67,8 @@ public class UserRegistration {
 	@Column(name = "BUSINESS_TYPE")
 	private String businessType;
 	
+	@Column(name ="USER_TYPE")
+	private String userType;
    /* @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<UserLogin> loginTbl;*/
 	
@@ -187,6 +192,7 @@ public class UserRegistration {
 		this.businessType = businessType;
 	}
 
+	
 	/*public List<UserLogin> getLoginTbl() {
 		return loginTbl;
 	}
@@ -194,6 +200,23 @@ public class UserRegistration {
 	public void setLoginTbl(List<UserLogin> loginTbl) {
 		this.loginTbl = loginTbl;
 	}*/
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	@Override
 	public String toString() {

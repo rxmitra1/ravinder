@@ -33,7 +33,7 @@ public class UserRegistrationDAO {
 		Mailer mail = new Mailer();
 		System.out.println(reg);
 		
-		if(reg.getBusinessType().equals("SELLER")) {
+		if(reg.getUserType().equals("SELLER")) {
 			int i = (Integer) template.save(reg);
 			if (i > 0) {
 				mail.send(reg.getEmailId(), "Thanks for Registering with RX Mitra As a Seller",

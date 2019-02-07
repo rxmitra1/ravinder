@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 				<li><a href="#"><i class="fa fa-pie-chart"
-						style="position: absolute;"></i><span style="margin: 0 24px;">VENDOR
+						style="position: absolute;"></i><span style="margin: 0 24px;">BRAND
 							MANAGEMANT</span><span class="fa fa-angle-right" style="float: right"></span></a>
 					<ul id="menu-academico-sub">
 						<li id="menu-academico-avaliacoes"><a href='/RXMITRA/add'>ADD
@@ -71,10 +71,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							href='/RXMITRA/ViewProductsByVendorName.jsp'>VIEW PRODUCTS</a></li>
 						<li id="menu-academico-boletim"><a
 							href='/RXMITRA/GetVendorDetails?pageid=1'>VIEW VENDORS</a></li>
+						<li id="menu-academico-boletim"><a
+							href='/RXMITRA/uploadProductsFromExcel.jsp'>UPLOAD PRODUCT FROM EXCEL</a></li>
 						<!-- <li id="menu-academico-boletim" ><a href="#">SEARCH</a></li> -->
 					</ul></li>
 
 
+                   <li><a href="#"><i class="fa fa-pie-chart"
+						style="position: absolute;"></i><span style="margin: 0 24px;">SEARCH SUPPLIER
+							</span><span class="fa fa-angle-right" style="float: right"></span></a>
+					<ul id="menu-academico-sub">
+						<li id="menu-academico-avaliacoes"><a href='/RXMITRA/add'>SEARCH BY DISTRIBUTOR
+								</a></li>
+						<li id="menu-academico-boletim"><a
+							href='/RXMITRA/DisplayVendorsToUpdateProducts.jsp?from=EU'>SEARCH BY BRAND
+								</a></li>
+						
+						<!-- <li id="menu-academico-boletim" ><a href="#">SEARCH</a></li> -->
+					</ul></li>
 
 				<li><a href="#"><i class="fa fa-shopping-cart"
 						style="position: absolute;"></i><span style="margin: 0 24px;">PURCHASE
