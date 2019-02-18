@@ -22,6 +22,28 @@ function validateForm() {
     return true;
 }
 </script>
+<style>
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal !important;
+    font-size: 15px;
+    color: #6f6666;
+}
+.re{
+background: #5aa320;
+    color: #fff !important;
+    border: 1px solid #5aa320;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 21px !important;
+
+}
+#re1{align-content: padding: 19px 29px;
+    margin: 12px 15px 14px 10px;
+    }
+</style>
 </head>
 <body>
 
@@ -71,49 +93,46 @@ function validateForm() {
        
        
        
-    	 <div class="col-md-12 mailbox-content  tab-content tab-content-in">
+    	 <div class="col-md-12 mailbox-content  tab-content tab-content-in" id="re1">
     	 	
              
              <div class=""> 
    <form method="post"  onsubmit="return validateForm()" action="./changePassword">
     <jsp:include page="./User.jsp"></jsp:include>
-           <table class="table table-bordered">
-       
-            <tr> 
-<td colspan="2">
-
-<%
-String returnString = "";
-try{
-returnString = request.getAttribute("returnString").toString();
-out.println(" <font color=green>"+returnString+"</font>");
-}
-catch(Exception e)
-{
-}
-%>
- </td>
-</tr> 
-<tr><th colspan="6" style="padding: 5px;background: #5aa320;color:#fff;text-align: center;font-size: 20px;border-bottom: 2px solid #febf10;">CHANGE PASSWORD</th></tr>
-                <tr>
-                    <td>Enter Old Password: </td>
-                    <td><input type="password" class="form-control" required name="oldpswd" id="oldpswd"/>
-                    <input type="hidden" name="from" value="<%=from%>" id="from"/> </td>
-                </tr>
-                <tr>
-                    <td>Enter New password :</td>
-                    <td><input type="password" class="form-control" class="form-control" required name="newpswd" id="newpswd"/></td>
-                </tr>
-                <tr>
-                    <td>Enter Confirm Password:  </td>
-                    <td><input type="password" class="form-control" required name="conformpswd" id="conformpswd" /></td>
-                </tr>
-                <tr>
-                    <td colspan="6" align="center">     
-                    <input type="submit" class="btn btn-success" name="submit" value="SUBMIT" style="width: 20%"/></td>
-                </tr>
-            </table>
-           </form>
+    
+    
+    <p class="re">CHANGE PASSWORD</p>	
+             <div class="col-md-12">
+							<form action="./updateUserProfile"
+								onsubmit="return validateForm()" method="post">
+	    			
+				
+            <div class="row">						
+            <div class="form-group col-md-3 col-sm-3">
+            <label for="name">Enter Old password</label>
+            <input type="password"class="form-control input-sm" class="form-control" required name="oldpswd" id="oldpswd"/>
+            </div>
+            
+            <div class="form-group col-md-3 col-sm-3">
+            <label for="name">Enter New password </label>
+            <input type="password" class="form-control input-sm" class="form-control" required name="newpswd" id="newpswd"/>
+            </div>
+            
+             <div class="form-group col-md-3 col-sm-3">
+            <label for="name">Enter Confirm password </label>
+            <input type="password" class="form-control input-sm" required name="conformpswd" id="conformpswd" />
+            </div>
+            
+             <div class="form-group col-md-3 col-sm-3">
+            <label for="name" style="color:#fff;">Entejyujkykjuyki </label>
+            <input type="submit" class="btn btn-success" name="submit" value="SUBMIT" style="width:80%"/>
+            </div>
+            
+            </div>
+            	</form>
+							</div>
+    
+          
 </div>
             </div>
              <div class="clearfix"> </div>  

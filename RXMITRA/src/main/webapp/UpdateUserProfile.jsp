@@ -38,6 +38,28 @@ function validateForm()
 	
 }
 </script>
+<style>
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal !important;
+    font-size: 15px;
+    color: #6f6666;
+}
+.re{
+background: #5aa320;
+    color: #fff !important;
+    border: 1px solid #5aa320;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 21px !important;
+
+}
+#re1{align-content: padding: 19px 29px;
+    margin: 12px 15px 14px 10px;
+    }
+</style>
 </head>
 <body>
 
@@ -69,7 +91,7 @@ function validateForm()
 			<div class="inner-block">
 				<div class="inbox">
 					<div class="profile_details"></div>
-					<div class="col-md-12 mailbox-content  tab-content tab-content-in">
+					<div class="col-md-12 mailbox-content  tab-content tab-content-in" id="re1">
 
 
 						<div class="">
@@ -78,35 +100,22 @@ function validateForm()
 							<div align="center">
 								<font color="blue" style="">${updateSuccess }</font>
 							</div>
+							
+
+
+
+
+<p class="re">UPDATE PROFILE</p>	
+             <div class="col-md-8">
 							<form action="./updateUserProfile"
 								onsubmit="return validateForm()" method="post">
-
-								<table class="table table-bordered">
-									<tr>
-										<th colspan="6"
-											style="padding: 5px; background: #5aa320; color: #fff; text-align: center; font-size: 20px; border-bottom: 2px solid #febf10;">PROFILE
-											UPDATE</th>
-									</tr>
-									<tr>
-										<td colspan="2">
-											<%
-												String returnString = "";
-												try {
-													returnString = request.getAttribute("returnString").toString();
-													out.println(request.getParameter("emp_name") + " <font color=blue>" + returnString + "</font>");
-												} catch (Exception e) {
-												}
-											%>
-										</td>
-									</tr>
-
-
-									<tr>
-										<td style="font-weight: 500;">USER NAME</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="firstName" required
-											value="${userRegistration.firstName }" size="50" /></td>
-										<input type="hidden" name="registrationId" required
+	    			
+									
+			<div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">USER NAME</label>
+            <input type="text" class="form-control input-sm" name="firstName" value="${userRegistration.firstName }" size="50" />
+            <input type="hidden" name="registrationId" required
 											value="${userRegistration.registrationId }" maxlength="30" />
 										<input type="hidden" name="password" required
 											value="${userRegistration.password }" maxlength="30" />
@@ -115,89 +124,128 @@ function validateForm()
 										<input type="hidden" name="verified" required
 											value="${userRegistration.verified }" maxlength="30" />
 										<input type="hidden" value="<%=from%>" name="from" id="from" />
-
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500;">LAST NAME</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="lastName" required
-											value="${userRegistration.lastName }" size="50" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500;">PHONE NO</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="mobileNo" required
-											value="${userRegistration.mobileNo }" size="50" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500;">EMAIL</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="emailId" required value="${userRegistration.emailId }"
-											size="50" readonly="readonly" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500;">REGISTRATION DATE</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="registrationDate" required
-											value="${userRegistration.registrationDate }" size="50" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500;">PINCODE</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="pincode" required value="${userRegistration.pincode }"
-											size="50" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500;">STATE</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="state" required value="${userRegistration.state }"
-											size="50" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500;">DISTRICT</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="district" required
-											value="${userRegistration.district }" size="50" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500;">GST NO</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="gstNo" required value="${userRegistration.gstNo }"
-											size="50" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500;">BUSINESS NAME</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="businessName" required
-											value="${userRegistration.businessName }" size="50" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500;">BUSINESS TYPE</td>
-										<td colspan="3"><select class="color"
-											class="form-control" name="businessType" required
-											id="businessType" style="width: 100%">
-												<option>${userRegistration.businessType }</option>
-												<option>DISTRIBUTER</option>
-												<option>MANUFACTURER</option>
-												<option>RETAILER</option>
-										</select></td>
-										<%-- <input type="text" class="form-control" name="businessType" required value="${userRegistration.businessType }"size="50"/> </td> --%>
-									</tr>
-
-									<tr>
-										<td colspan="4" align="center"><input type="submit"
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">LAST NAME</label>
+            <input type="text" class="form-control input-sm" name="lastName" value="${userRegistration.lastName }" size="50" />
+            </div>
+            
+            </div>
+            
+            
+            <div class="row">						
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">PHONE NO</label>
+            <input type="text" class="form-control input-sm" name="mobileNo" value="${userRegistration.mobileNo }" size="50"  />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">EMAIL</label>
+            <input type="text" class="form-control input-sm" name="emailId" value="${userRegistration.emailId }" size="50" readonly="readonly" />
+            </div>
+            
+            </div>
+            
+            
+            <div class="row">						
+		    
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">REGISTRATION DATE</label>
+            <input type="text" class="form-control input-sm"
+											name="registrationDate" value="${userRegistration.registrationDate }" size="50" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">PINCODE</label>
+            <input type="text" class="form-control input-sm"
+											name="pincode" value="${userRegistration.pincode }" size="50"
+											 />
+            </div>
+            </div>
+            
+            
+            <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">STATE</label>
+            <input type="text" class="form-control input-sm" name="state" value="${userRegistration.state }" size="50" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">DISTRICT</label>
+            <input type="text" class="form-control input-sm" name="district" value="${userRegistration.district }" size="50" />
+            </div>
+            
+            
+            </div>
+            
+            
+             <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">BUSINESS NAME</label>
+            <input type="text" class="form-control input-sm"
+											name="businessName" value="${userRegistration.businessName }" size="50"  />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">BUSINESS TYPE</label>
+            <input type="text" class="form-control input-sm" name="businessType" value="${userRegistration.businessType }" size="50" />
+            </div>
+            
+           
+            </div>
+            
+            <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">GST NO</label>
+            <input type="text" class="form-control input-sm" name="gstNo" value="${userRegistration.gstNo }" size="50"  />
+            </div>
+           
+            </div>
+		 				
+		 				
+		 				<div class="row">						
+		    <div class="form-group col-md-4 col-sm-4">
+            </div>
+            
+            <div class="form-group col-md-4 col-sm-4">
+            
+            <input type="submit"
 											class="btn btn-success" value="UPDATE"
-											style="width: 20%; font-weight: 500; font-size: 15px" /></td>
-									</tr>
+											style="width: 100%; font-weight: 500; font-size: 15px" />
+            </div>
+            
+            <div class="form-group col-md-4 col-sm-4">
+            </div>
+           
+            </div>
+		 				
+		 				
+		 							   
 
-								</table>
+								
+
 							</form>
+							</div>
+							
+							<div class="col-md-4">
+							
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+								
 						</div>
 					</div>
 					<div class="clearfix"></div>

@@ -72,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li id="menu-academico-boletim"><a
 							href='/RXMITRA/GetVendorDetails?pageid=1'>VIEW VENDORS</a></li>
 						<li id="menu-academico-boletim"><a
-							href='/RXMITRA/uploadProductsFromExcel.jsp'>UPLOAD PRODUCT FROM EXCEL</a></li>
+							href='/RXMITRA/uploadExcelDemo'>UPLOAD PRODUCT FROM EXCEL</a></li>
 						<!-- <li id="menu-academico-boletim" ><a href="#">SEARCH</a></li> -->
 					</ul></li>
 

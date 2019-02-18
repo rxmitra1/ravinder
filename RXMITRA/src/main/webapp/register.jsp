@@ -583,7 +583,7 @@ function yesnoCheck() {
 
 					<div class="row" id='form-id' style="padding: 0 15px;">
 						<div class="col-lg-12">
-							<label>Business Type</label><br>
+							<label>UserType</label><br>
 							<div class="col-lg-2" style="padding: 0 0px;">
 								<input type="radio" onclick="w3.show('#London')" checked
 									name="userType" id="yesCheck" value="SELLER"> <span
@@ -608,7 +608,7 @@ function yesnoCheck() {
 									<label>Business Type</label> <select class="form-control"
 										id="businessType" name="businessType"
 										style="height: 35px; margin-bottom: 10px;" required>
-										<option value="SELECT ">SELECT</option>
+										<option value="SELECT">SELECT</option>
 										<option value="MANUFACTURER">MANUFACTURER</option>
 										<option value="DISTRIBUTOR">DISTRIBUTOR</option>
 										<option value="RETAILER">RETAILER</option>
@@ -657,7 +657,7 @@ function yesnoCheck() {
 									required>
 							</div>
 
-							<div class="col-lg-6">
+							<div class="col-lg-6" style="margin-top: 10px;">
 								<label>Password</label> <input type="Password"
 									class="form-contro" id="password" name="password"
 									placeholder="Enter Password" required>

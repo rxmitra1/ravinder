@@ -34,6 +34,9 @@ public class UserRegistrationDAO {
 		System.out.println(reg);
 		
 		if(reg.getUserType().equals("SELLER")) {
+			
+			
+			
 			int i = (Integer) template.save(reg);
 			if (i > 0) {
 				mail.send(reg.getEmailId(), "Thanks for Registering with RX Mitra As a Seller",
@@ -42,7 +45,9 @@ public class UserRegistrationDAO {
 				return "Success";
 			} else {
 				return "Fail";
-			}	
+			}
+			
+			
 		}else {
 			reg.setBusinessName("UNAVAILABLE");
 			reg.setGstNo("UNAVAILABLE");

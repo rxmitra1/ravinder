@@ -9,6 +9,28 @@
 <title>RX mitra</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="./css/style.css" rel="stylesheet" type="text/css" />
+<style>
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal !important;
+    font-size: 15px;
+    color: #6f6666;
+}
+.re{
+background: #5aa320;
+    color: #fff !important;
+    border: 1px solid #5aa320;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 21px !important;
+
+}
+#re1{align-content: padding: 19px 29px;
+    margin: 12px 15px 14px 10px;
+    }
+</style>
 </head>
 <body>
 
@@ -39,96 +61,110 @@
 			<div class="inner-block">
 				<div class="inbox">
 					<div class="profile_details"></div>
-					<div class="col-md-12 mailbox-content  tab-content tab-content-in">
+					<div class="col-md-12 mailbox-content  tab-content tab-content-in" id="re1">
 
 
 						<div class="">
 							<jsp:include page="./User.jsp"></jsp:include>
-
+<p class="re">PROFILE VIEW</p>	
+             <div class="col-md-8">
 							<form method="post">
 
-
-								<table class="table table-bordered">
-									<tr>
-										<th colspan="6"
-											style="padding: 5px; background: #5aa320; color: #fff; text-align: center; font-size: 20px; border-bottom: 2px solid #febf10;">PROFILE
-											VIEW</th>
-									</tr>
-									<tr>
-										<td style="font-weight: 500">USER NAME</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="firstName" value="${userRegistration.firstName }"
-											size="50" readonly="readonly" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500">LAST NAME</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="lastName" value="${userRegistration.lastName }"
-											size="50" readonly="readonly" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500">PHONE NO</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="mobileNo" value="${userRegistration.mobileNo }"
-											size="50" readonly="readonly" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500">EMAIL</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="emailId" value="${userRegistration.emailId }" size="50"
-											readonly="readonly" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500">REGISTRATION DATE</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="registrationDate"
-											value="${userRegistration.registrationDate }" size="50"
-											readonly="readonly" /></td>
-									</tr>
-
-									<tr>
-										<td style="font-weight: 500">PINCODE</td>
-										<td colspan="3"><input type="text" class="form-control"
+	    			
+									
+			<div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">USER NAME</label>
+            <input type="text" class="form-control input-sm" name="firstName" value="${userRegistration.firstName }" size="50" readonly="readonly" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">LAST NAME</label>
+            <input type="text" class="form-control input-sm" name="lastName" value="${userRegistration.lastName }" size="50" readonly="readonly" />
+            </div>
+            
+            </div>
+            
+            
+            <div class="row">						
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">PHONE NO</label>
+            <input type="text" class="form-control input-sm" name="mobileNo" value="${userRegistration.mobileNo }" size="50" readonly="readonly" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">EMAIL</label>
+            <input type="text" class="form-control input-sm" name="emailId" value="${userRegistration.emailId }" size="50" readonly="readonly" />
+            </div>
+            
+            </div>
+            
+            
+            <div class="row">						
+		    
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">REGISTRATION DATE</label>
+            <input type="text" class="form-control input-sm"
+											name="registrationDate" value="${userRegistration.registrationDate }" size="50" readonly="readonly" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">PINCODE</label>
+            <input type="text" class="form-control input-sm"
 											name="pincode" value="${userRegistration.pincode }" size="50"
-											readonly="readonly" /></td>
-									</tr>
+											readonly="readonly" />
+            </div>
+            </div>
+            
+            
+            <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">STATE</label>
+            <input type="text" class="form-control input-sm" name="state" value="${userRegistration.state }" size="50" readonly="readonly" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">DISTRICT</label>
+            <input type="text" class="form-control input-sm" name="district" value="${userRegistration.district }" size="50" readonly="readonly" />
+            </div>
+            
+            
+            </div>
+            
+            
+             <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">BUSINESS NAME</label>
+            <input type="text" class="form-control input-sm"
+											name="businessName" value="${userRegistration.businessName }" size="50" readonly="readonly" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">BUSINESS TYPE</label>
+            <input type="text" class="form-control input-sm" name="businessType" value="${userRegistration.businessType }" size="50" readonly="readonly" />
+            </div>
+            
+           
+            </div>
+            
+            <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">GST NO</label>
+            <input type="text" class="form-control input-sm" name="gstNo" value="${userRegistration.gstNo }" size="50" readonly="readonly" />
+            </div>
+           
+            </div>
+		 							   
 
-									<tr>
-										<td style="font-weight: 500">STATE</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="state" value="${userRegistration.state }" size="50"
-											readonly="readonly" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500">DISTRICT</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="district" value="${userRegistration.district }"
-											size="50" readonly="readonly" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500">GST NO</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="gstNo" value="${userRegistration.gstNo }" size="50"
-											readonly="readonly" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500">BUSINESS NAME</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="businessName" value="${userRegistration.businessName }"
-											size="50" readonly="readonly" /></td>
-									</tr>
-									<tr>
-										<td style="font-weight: 500">BUSINESS TYPE</td>
-										<td colspan="3"><input type="text" class="form-control"
-											name="businessType" value="${userRegistration.businessType }"
-											size="50" readonly="readonly" /></td>
-									</tr>
-								</table>
+								
+
 							</form>
+							</div>
+							
+							<div class="col-md-4">
+							
+							</div>
 						</div>
 					</div>
 					<div class="clearfix"></div>

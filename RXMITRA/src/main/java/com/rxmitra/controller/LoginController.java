@@ -67,7 +67,9 @@ public class LoginController {
 				mav = new ModelAndView("Employeehome1", "message1", "Login Successfully completed....");
 			}
 
-		} else {
+		} else if(hashMap.get("userType")=="RETAILER" || hashMap.get("userType").equals("RETAILER")){
+			
+			System.out.println(hashMap.get("userType")+"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 			if (hashMap.get("referenceId").equals("PM")) {
 				mav = new ModelAndView("login", "message2", "Invalid Password ....");
 			} else if (hashMap.get("referenceId").equals("NV")) {
@@ -81,6 +83,24 @@ public class LoginController {
 
 				// session.setMaxInactiveInterval(60);
 				mav = new ModelAndView("Employeehome", "message1", "Login Successfully completed....");
+			}
+		}else {
+			
+			System.out.println(hashMap.get("userType")+"ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAA");
+
+			if (hashMap.get("referenceId").equals("PM")) {
+				mav = new ModelAndView("login", "message2", "Invalid Password ....");
+			} else if (hashMap.get("referenceId").equals("NV")) {
+				mav = new ModelAndView("login", "message2", "User Not yet Verified....Please Verify Your Email!");
+			} else if (hashMap.get("referenceId").equals("NR")) {
+				mav = new ModelAndView("login", "message2", "User Not Registerd ....please Register ");
+			} else {
+				session.setAttribute("referenceId", hashMap.get("referenceId"));
+				session.setAttribute("userType", hashMap.get("userType"));
+				session.setAttribute("userName", hashMap.get("userName"));
+
+				// session.setMaxInactiveInterval(60);
+				mav = new ModelAndView("Employeehome2", "message1", "Login Successfully completed....");
 			}
 		}
 

@@ -49,7 +49,12 @@ public class UserLoginDAO {
 		Employee employee = (Employee) query2.uniqueResult();
 
 		if (login == null) {
-			hashMap.put("referenceId", "NR");// NR-Not Registered.
+			if(reg==null) {
+				hashMap.put("referenceId", "NR");// NR-Not Registered.
+			}else {
+				hashMap.put("referenceId", "NV");// NV-Not Verified
+			}
+			
 		} else {
 			if (login.getUserType().equals("EMPLOYEE")) {
 

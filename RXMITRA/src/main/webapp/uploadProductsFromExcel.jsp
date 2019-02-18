@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Rythu mitra | Employee</title>
+<title>RxMitra | Employee</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="./resources/css/style.css" rel="stylesheet" type="text/css" />
 
@@ -84,7 +84,50 @@
 										<div class="col-md-2" id="one">
 											<div class="form-group">
 												<label for="firstname" style="color: #fff;">EN </label>
-												<a href="./uploadExcelDemo" class="btn btn-success btn-block">SAMPLE DEMO</a>
+												<a  data-toggle="modal"
+														data-target="#myModal1" class="btn btn-success btn-block">SAMPLE DEMO</a>
+												
+												
+												
+												
+												
+												<div class="modal"
+															id="myModal1">
+															<div class="modal-dialog modal-lg">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h4 class="modal-title">Excel Demo</h4>
+																		<button type="button" class="close"
+																			data-dismiss="modal">&times;</button>
+																	</div>
+																	<div class="modal-body">
+
+
+
+																		<div class="col-md-12">
+
+																			<img
+																				src="data:image/jpg;base64,${encodedString}"
+																				class="img-responsive"/>
+																		</div>
+
+
+
+																	</div>
+
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-danger"
+																			data-dismiss="modal">Close</button>
+																	</div>
+
+																</div>
+
+															</div>
+														</div>
+												
+												
+												
+												
 
 											</div>
 										</div>
