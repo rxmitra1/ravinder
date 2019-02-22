@@ -8,10 +8,20 @@ import java.nio.file.Paths;
 
 public class DownloadImage {
 
+	int a=10;
+	
+	static int b=12;
+	
+	public void m1() {
+		System.out.println(b);
+		System.out.println(a);
+
+	}
+	
 	
 	public static void main(String[] args) {
 
-        String imageUrl = "https://www.instagram.com/p/BuA89VxBqLA/";
+       /* String imageUrl = "https://www.instagram.com/p/BuA89VxBqLA/";
         String destinationFilePath = "E:\\test.jpg";    // For windows something like c:\\path\to\file\test.jpg
 
         InputStream inputStream = null;
@@ -28,8 +38,13 @@ public class DownloadImage {
                     // Ignore
                 }
             }
+            
         }
-
+*/
+		
+		DownloadImage downloadImage = new DownloadImage();
+		downloadImage.m1();
+		
     }
 
 }

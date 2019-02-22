@@ -295,8 +295,56 @@ select:focus {
 	    }
 	}
 
-function validateForm()
+/* function validateForm()
 {
+
+
+
+	 var userType = document.getElementsByName("userType");
+     if (userType[0].checked == true) {
+         alert("Your gender is male");
+     } else if (userType[1].checked == true) {
+         alert("Your gender is female");
+     } else {
+         // no checked
+         var msg = '<span style="color:red;">You must select your gender!</span><br /><br />';
+         document.getElementById('msg').innerHTML = msg;
+         return false;
+     }
+     return true;
+
+} */
+
+/* 	
+	alert("Ravinder reddy");
+	
+
+	alert(document.getElementById("userType").checked);
+	
+
+	var val=document.getElementById("userType").value;
+	if(val=="SELLER"){
+
+		 var x = document.forms["myForm"]["businessType"].value;
+		  if (x == "") {
+		    alert("businessType must be filled out");
+		    return false;
+		  }
+
+		  var x = document.forms["myForm"]["businessName"].value;
+		  if (x == "") {
+		    alert("businessName must be filled out");
+		    return false;
+		  }
+
+		  var x = document.forms["myForm"]["gstNo"].value;
+		  if (x == "") {
+		    alert("gstNo must be filled out");
+		    return false;
+		  } */
+
+		
+	 
 	if(document.getElementById("panno").value.length >=0 ){
 	    
 	    if(document.getElementById("panno").value.length==0){
@@ -312,10 +360,11 @@ function validateForm()
 	    }
 	     }
 if(document.getElementById("gstin").value.length >=0 ){
-	    
+	
 	    if(document.getElementById("gstin").value.length==0){
 	     
 	    }else{
+	    	alert("ravi");
 	      var pan=document.getElementById("gstin").value;alert(pan);
 	     /*  var panPat = \d{2}[A-Z]{5}\d{4}[A-Z]{1}\d[Z]{1}[A-Z\d]{1}; */
 	      if(!panPat.test(pan)){
@@ -375,6 +424,45 @@ if(document.getElementById("gstin").value.length >=0 ){
 	}
 }
 </script>
+<script type="text/javascript">
+ function radioValidation(){
+ 
+ 
+  var userType = document.getElementsByName("userType");
+  
+  if (userType[0].checked == true) {
+      
+
+      var x = document.forms["myForm"]["businessType"].value;
+	  if (x == "") {
+	    alert("businessType must be filled out");
+	    return false;
+	  }
+
+	  var x = document.forms["myForm"]["businessName"].value;
+	  if (x == "") {
+	    alert("businessName must be filled out");
+	    return false;
+	  }
+
+	  var x = document.forms["myForm"]["gstNo"].value;
+	  if (x == "") {
+	    alert("gstNo must be filled out");
+	    return false;
+	  }
+  } else if (userType[1].checked == true) {
+     
+  } else {
+      // no checked
+      //var msg = '<span style="color:red;">You must select your gender!</span><br /><br />';
+      alert("You must select your gender!");
+      document.getElementById('msg').innerHTML = msg;
+      return false;
+  }
+  
+ }
+</script>
+
 
 <script>
 $(function() {
@@ -384,6 +472,10 @@ $(function() {
   });
 });
 </script>
+
+
+
+
 
 <script>
 
@@ -567,6 +659,7 @@ function yesnoCheck() {
 
 
 
+
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6" id="login_page">
@@ -577,28 +670,28 @@ function yesnoCheck() {
 					</p>
 				</div>
 
-				<form action="./userRegister" onsubmit="return validateForm()"
-					method="post">
-
+				
+           <form  name="myForm" action="./userRegister" method="post" enctype="multipart/form-data">
 
 					<div class="row" id='form-id' style="padding: 0 15px;">
 						<div class="col-lg-12">
 							<label>UserType</label><br>
 							<div class="col-lg-2" style="padding: 0 0px;">
-								<input type="radio" onclick="w3.show('#London')" checked
-									name="userType" id="yesCheck" value="SELLER"> <span
+								<input type="radio"  
+									name="userType" id="SELLER" value="SELLER"  onclick="w3.show('#London')"> <span
 									class="or1"> SELLER </span> &nbsp; &nbsp;
-								<!-- <input style="width:19px;  height:19px;" id='watch-me' name="businessType" type='radio' checked value="SELLER"/> <span class="or1"> SELLER </span> &nbsp; &nbsp; -->
 							</div>
 							<div class="col-lg-3">
-								<input type="radio" onclick="w3.hide('#London')" name="userType"
-									id="noCheck" value="CUSTOMER"> <span class="or1">
+								<input type="radio" name="userType"
+									id="CUSTOMER" value="CUSTOMER"  onclick="w3.hide('#London')"> <span class="or1">
 									CUSTOMER </span>
 								<!--  <input style="width:19px;  height:19px;" id='see-me' name="businessType" type='radio'  value="CUSTOMER"/> <span class="or1"> CUSTOMER </span> -->
 							</div>
 						</div>
 					</div>
 
+
+					
 
 					<div class="row form-group">
 						<div class="row">
@@ -619,13 +712,13 @@ function yesnoCheck() {
 								<div class="col-lg-6">
 									<label>Business name</label> <input type="text"
 										class="form-control" id="businessName" name="businessName"
-										placeholder="Enter Business name" required>
+										placeholder="Enter Business name" >
 								</div>
 
 
 								<div class="col-lg-6">
 									<label>Gst No</label> <input type="text" class="form-control"
-										id="gstNo" name="gstNo" placeholder="Enter Gst No" required>
+										id="gstNo" name="gstNo" placeholder="Enter Gst No" >
 								</div>
 
 							</div>
@@ -723,8 +816,10 @@ function yesnoCheck() {
 						<div class="row">
 							<div class="col-lg-4"></div>
 							<div class="col-lg-5">
-								<button type="submit" class="btn btn-success btn-block"
-									id="one3">Regester</button>
+								<!-- <button type="submit" class="btn btn-success btn-block"
+									id="one3">Register</button> -->
+									<input type="submit" class="btn btn-success btn-block"
+									id="one3" value="Register"  onclick="return radioValidation();"></input>
 							</div>
 							<div class="col-lg-4"></div>
 						</div>

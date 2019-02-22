@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>RxMitra | Distributor</title>
+<title>RxMitra | Retailer</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="./resources/css/style.css" rel="stylesheet" type="text/css" />
 
@@ -29,7 +29,7 @@
 
 	<div class="page-container">
 		<div class="sidebar-menu">
-			<jsp:include page="./EmployeeMenu1.jsp" /></div>
+			<jsp:include page="./EmployeeMenu.jsp" /></div>
 		<div class="rightsidebar-menu"></div>
 		<div class="left-content">
 			<div class="mother-grid-inner"></div>
@@ -39,8 +39,8 @@
 					<div class="profile_details"></div>
 
 					<div align="center">
-						<font style='color: blue; font-weight: 600; font-size: medium;'>${message}</font>
-						<font style='color: red; font-weight: 600; font-size: medium;'>${message1}</font>
+						<font style='color: red; font-weight: 600; font-size: medium;'>${selectNameErroe}</font>
+						<font style='color: red; font-weight: 600; font-size: medium;'>${validNameError}</font>
 					</div>
 
 					<div class="col-md-12 mailbox-content  tab-content tab-content-in">
@@ -52,23 +52,20 @@
 									String shopid = (String) request.getParameter("shopid");
 								%>
 
+								<form action="./displayVendorProducts" method="get">
 									<div colspan="12"
 										style="padding: 5px; background: #5aa320; color: #fff; text-align: center; font-size: 20px; border-bottom: 2px solid #febf10;">
 										<tr>
-											<th>VIEW PRODUCTS</th>
+											<th>UPLOAD PRODUCT FROM EXCEL</th>
 										</tr>
 									</div>
 									<br />
 
 
 									<div class="col-md-12" id="one">
-									
-									
-									<form action="./uploadProductFromExcelDistributor" method="post" enctype="multipart/form-data">
-									
 										<div class="form-group col-md-4 col-sm-4">
 											<label for="pincode">UPLOAD EXCEL</label> <input type="file"
-												class="form-control" name="file" id="file"
+												class="form-control" name="uploadExcel" id="uploadExcel"
 												value="${vendorname }" placeholder="Enter Your Vendor Name" />
 											<input type="hidden" name="pageid" id="pageid" value="1" />
 										</div>
@@ -84,9 +81,6 @@
 
 											</div>
 										</div>
-										
-										
-										</form>
 										<div class="col-md-3" id="one">
 											<div class="form-group">
 												<label for="firstname" style="color: #fff;">EN </label>
@@ -138,7 +132,7 @@
 											</div>
 										</div>
 									</div>
-								
+								</form>
 
 							</div>
 

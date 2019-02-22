@@ -30,8 +30,7 @@ public class UserLoginDAO {
 	private Environment env;
 
 	public HashMap<String, String> loginUser1(UserLogin userLogin) {
-		Integer i = 0;
-		String message = "";
+		
 		HashMap<String, String> hashMap = new HashMap<String, String>();
 
 		String sql = "from com.rxmitra.bean.UserLogin l where l.username='" + userLogin.getUsername() +"'or l.mobileNo='" + userLogin.getUsername() + "'";

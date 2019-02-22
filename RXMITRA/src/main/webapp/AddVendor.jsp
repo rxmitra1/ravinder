@@ -78,7 +78,28 @@ function addNumbers()
 	document.getElementById("netpayable").value = netpayable;
 }
 </script>
+<style>
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal !important;
+    font-size: 15px;
+    color: #6f6666;
+}
+.re{
+background: #5aa320;
+    color: #fff !important;
+    border: 1px solid #5aa320;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 21px !important;
 
+}
+#re1{align-content: padding: 19px 29px;
+    margin: 12px 15px 14px 10px;
+    }
+</style>
 </head>
 <body>
 
@@ -94,26 +115,17 @@ function addNumbers()
 			<div class="inner-block">
 				<div class="inbox">
 					<div class="profile_details"></div>
-					<div class="col-md-12 mailbox-content  tab-content tab-content-in">
-
-
-						<div class="panel panel-orange" style="padding: 2px 13px;">
+					<div class="col-md-12 mailbox-content  tab-content tab-content-in"  id="re1">
 							<div class="">
 								<%
 									String employeeid = (String) session.getAttribute("referenceid");
 									// String shopid=new ShopDetails().getEmployeeShopDetails(employeeid).getSHOP_ID();
 								%>
-								<form action="/RXMITRA/addProcess" method="post"
-									onsubmit="return validateForm()">
-									<table class="table table-bordered">
-										<tr>
-											<th colspan="10"
-												style="padding: 5px; background: #5aa320; color: #fff; text-align: center; font-size: 20px; border-bottom: 2px solid #febf10;">VENDOR
-												DETAILS</th>
-										</tr>
-										<tr>
-											<td colspan="4" align="center">
-												<%
+								
+					<p class="re"> ADD VENDOR</p>				
+			<div class="col-md-8">
+			<form action="/RXMITRA/addProcess" method="post" onsubmit="return validateForm()">
+				<%
 													String message = "";
 													try {
 														message = request.getAttribute("message").toString();
@@ -123,118 +135,146 @@ function addNumbers()
 														}
 													} catch (Exception e) {
 													}
-												%>
-											</td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">VENDOR TYPE<font color=red>*</font></td>
-											<td colspan="3"><input size="57" type="text"
-												class="form-control" name="vendorType" /></td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">VENDOR NAME<font color=red>*</font></td>
-											<td colspan="3"><input size="57" type="text"
-												class="form-control" name="vendorName" /></td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">ADDRESS<font color=red>*</font></td>
-											<td colspan="4"><textarea cols="59" rows="3"
-													class="form-control" name="address" id="address"></textarea>
-											</td>
+												%>						
+			<div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">VENDOR TYPE</label>
+            <input size="57" type="text" class="form-control input-sm" name="vendorType" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">VENDOR NAME</label>
+            <input size="57" type="text" class="form-control input-sm" name="vendorName" />
+            </div>
+            
+            </div>
+            
+           <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">MOBILE</label>
+             <input type="text" class="form-control input-sm" name="phoneNo1" id="phoneNo1" onkeypress="CheckNumeric(event)" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">LAND LINE NO</label>
+             <input type="text" class="form-control input-sm" name="phoneNo2" id="phoneNo2" onkeypress="CheckNumeric(event)" />
+            </div>
+           
+            </div>
+            
+            <div class="row">						
+		     <div class="form-group col-md-6 col-sm-6">
+            <label for="name">EMAIL</label>
+             <input type="text" class="form-control input-sm" name="phoneNo1" id="phoneNo1" onkeypress="CheckNumeric(event)" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">GST IN NO</label>
+            <input type="text" class="form-control input-sm" name="tinNo" id="tinNo" required /> <input type="hidden" name="shopId" value="" />
+            </div>
+            
+            </div>
+            
+            
+            <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">LICENSE NO</label>
+            <input type="text" class="form-control input-sm" name="licenseNo" id="licenseNo" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">PAN CARD NO</label>
+            <input type="text" class="form-control input-sm" name="panNo" id="panNo" />
+            </div>
+            
+            </div>
+            
+            
+            <div class="row">						
+		    
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">DISTRICT</label>
+            <input type="text" class="form-control input-sm"
+											name="registrationDate"  size="50"  />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">STATE</label>
+            
+            <input type="text" class="form-control input-sm"
+											name="pincode" size="50"
+											/>
+            </div>
+            </div>
+            
+            <div class="row">						
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">ADDRESS</label>
+            <textarea cols="59" rows="3" class="form-control input-sm" name="address" id="address"></textarea>
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">PINCODE</label>
+            <input size="57" type="text" class="form-control input-sm" name="pinCode" id="pinCode">
+            </div>
+            </div>
+            
+            <p style="text-align: center; font-weight: 700; padding-top: 10px; font-size: 22px"><span
+												style="color: #fc8213;">BANK DETAILS</p>
+            
+            
+            <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">BANK NAME</label>
+            <input type="text" class="form-control input-sm"  name="bankName" id="bankName" />
+            </div>
+            
+            <div class="form-group col-md-6 col-sm-6">
+            <label for="name">A/C NO</label>
+             <input type="text" class="form-control input-sm"
+						name="accountNo" id="accountNo" maxlength="22" onkeypress="CheckNumeric(event)" />
+            </div>
+            
+            </div>
+            
+            
+            <div class="row">						
+		    <div class="form-group col-md-6 col-sm-6">
+            <label for="name">I&nbsp;.F&nbsp;.S&nbsp;.C&nbsp;CODE</label>
+               <input type="text" class="form-control input-sm" name="ifscCode" id="ifscCode" maxlength="11" />
+
+            </div>
+            
+            </div>
+            
+            <div class="row">						
+		    <div class="form-group col-md-4 col-sm-4"></div>
+           <div class="form-group col-md-4 col-sm-4">
+           <input type="submit" class="btn btn-success btn-block" name="submit" value="ADD VENDOR" />
+           </div>
+           <div class="form-group col-md-4 col-sm-4"></div>            
+            </div>
+		 		
+			</form>
+			</div>
 							
-											
-											
-											
-										
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">PINCODE<font color=red>*</font></td>
-											<td colspan="3"><textarea cols="59" rows="1"
-													class="form-control" name="pinCode" id="pinCode"></textarea>
-											</td>
-											</tr>
-										<tr>
-										<td style="font-weight: 500;">DISTRICT<font color=red>*</font></td>
-											<td colspan="3"><textarea cols="59" rows="1"
-													class="form-control" name="district" id="district"></textarea>
-											</td>
-											</tr>
-											<tr>
-											<td style="font-weight: 500;">STATE<font color=red>*</font></td>
-											<td colspan="3"><textarea cols="59" rows="1"
-													class="form-control" name="state" id="state"></textarea>
-											</td>
-											</tr>
-											
-										<tr>
-											<td style="font-weight: 500;">GST IN NO.<font color=red>*</font></td>
-											<td><input type="text" class="form-control"
-												name="tinNo" id="tinNo" required /> <input type="hidden"
-												name="shopId" value="" /></td>
-											<td style="font-weight: 500;">LICENSE NO.</td>
-											<td><input type="text" class="form-control"
-												name="licenseNo" id="licenseNo" /></td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">PAN CARD NO.</td>
-											<td><input type="text" class="form-control"
-												name="panNo" id="panNo" /></td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">MOBILE</td>
-											<td><input type="text" class="form-control"
-												name="phoneNo1" id="phoneNo1"
-												onkeypress="CheckNumeric(event)" /></td>
-											<td style="font-weight: 500;">LAND LINE NO.</td>
-											<td><input type="text" class="form-control"
-												name="phoneNo2" id="phoneNo2"
-												onkeypress="CheckNumeric(event)" /></td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">EMAIL</td>
-											<td><input type="text" class="form-control"
-												name="email" id="email" /></td>
-										</tr>
-										<tr>
-											<td colspan="6"
-												style="text-align: center; font-weight: 700; padding-top: 10px; font-size: 22px"><span
-												style="color: #fc8213;">BANK DETAILS</span></td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">BANK NAME</td>
-											 <td><input type="text" class="form-control"
-												name="bankName" id="bankName" /></td>
-												
-											<td style="font-weight: 500;">A/C NO</td>
-											<td><input type="text" class="form-control"
-												name="accountNo" id="accountNo" maxlength="22"
-												onkeypress="CheckNumeric(event)" /></td>
-										</tr>
-										<tr>
-											<td style="font-weight: 500;">I&nbsp;.F&nbsp;.S&nbsp;.C&nbsp;CODE
-											</td>
-											<td><input type="text" class="form-control"
-												name="ifscCode" id="ifscCode" maxlength="11" /></td>
-											<td>&nbsp;</td>
-										</tr>
-										<tr align="center">
-											<td colspan="4"><input type="submit"
-												class="btn btn-success" name="submit" value="ADD VENDOR" /></td>
-										</tr>
-									</table>
-								</form>
+			<div class="col-md-4">
+							
+			</div>
+		</div>						
+								
+						
 							</div>
 
 
 						</div>
-					</div>
-				</div>
+				
 				<div class="clearfix"></div>
 			</div>
 
 			<div class="copyrights">
 				<p>
-					© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
+					Copyright © 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

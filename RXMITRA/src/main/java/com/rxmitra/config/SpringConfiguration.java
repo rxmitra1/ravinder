@@ -40,7 +40,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.rxmitra.bean.AddInvoice;
+import com.rxmitra.bean.AdminBrands;
 import com.rxmitra.bean.DeliverAddress;
+import com.rxmitra.bean.DistributorBrands;
+import com.rxmitra.bean.DistributorInvoice;
 import com.rxmitra.bean.EmpLogin;
 import com.rxmitra.bean.Employee;
 import com.rxmitra.bean.Excel;
@@ -92,7 +95,7 @@ public class SpringConfiguration implements WebMvcConfigurer{
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setAnnotatedPackages("com.rxmitra.bean.*");
-		sessionFactory.setAnnotatedClasses(Vendor.class,Product.class,VendorProduct.class,Excel.class,AddInvoice.class,UserRegistration.class,UserLogin.class,Publish.class,DeliverAddress.class,Employee.class,EmpLogin.class,Prescription.class,PrescriptionManagement.class,ReceivedRequest.class,UploadDemo.class );
+		sessionFactory.setAnnotatedClasses(Vendor.class,Product.class,VendorProduct.class,Excel.class,AddInvoice.class,UserRegistration.class,UserLogin.class,Publish.class,DeliverAddress.class,Employee.class,EmpLogin.class,Prescription.class,PrescriptionManagement.class,ReceivedRequest.class,UploadDemo.class,DistributorInvoice.class,AdminBrands.class,DistributorBrands.class);
 		//sessionFactory.setAnnotatedClasses(Product.class);
 		sessionFactory.setHibernateProperties(getProperties());
 

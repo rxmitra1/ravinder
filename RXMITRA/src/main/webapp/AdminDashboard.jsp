@@ -1,7 +1,6 @@
-<%@ page language="java"
-	import="com.rxmitra.dao.*,com.rxmitra.bean.*,com.rxmitra.bean.*,com.rxmitra.service.*,java.util.*"
-	isELIgnored="false" errorPage="true"%>
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>RX Mitra | Menu</title>
@@ -25,9 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600'
 	rel='stylesheet' type='text/css'>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--//skycons-icons-->
 </head>
 <body>
 
@@ -46,66 +43,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="menu">
 			<ul id="menu">
 				
-
-
-				<li><a href="#"><i class="fa fa-pie-chart"
+                    <li><a href="#"><i class="fa fa-pie-chart"
 						style="position: absolute;"></i><span style="margin: 0 24px;">BRAND
 							MANAGEMANT</span><span class="fa fa-angle-right" style="float: right"></span></a>
-					<!-- <ul id="menu-academico-sub">
-						
-						<li id="menu-academico-boletim"><a
-							href='/RXMITRA/DisplayVendorsToUpdateProducts.jsp?from=EU'>UPDATE
-								PRODUCTS</a></li>
-						
-
-						<li id="menu-academico-boletim"><a
-							href='/RXMITRA/ViewProductsByVendorName.jsp'>VIEW PRODUCTS</a></li>
-						<li id="menu-academico-boletim"><a
-							href='/RXMITRA/GetVendorDetails?pageid=1'>VIEW VENDORS</a></li>
-						<li id="menu-academico-boletim"><a
-							href='/RXMITRA/uploadExcelDemo'>UPLOAD PRODUCT FROM EXCEL</a></li>
-						<li id="menu-academico-boletim" ><a href="#">SEARCH</a></li>
-					</ul> -->
-					
-					
 					<ul id="menu-academico-sub">
-						<li id="menu-academico-boletim"><a
-							href='/RXMITRA/uploadExcelDemo'>UPLOAD PRODUCT FROM EXCEL</a></li>
-						<li id="menu-academico-boletim"><a
-							href='#'>UPDATE
-								PRODUCTS</a></li>
-						
-
-						<li id="menu-academico-boletim"><a
-							href='#'>VIEW PRODUCTS</a></li>
-						<li id="menu-academico-boletim"><a
-							href='#'>VIEW VENDORS</a></li>
-							
-							<li id="menu-academico-boletim"><a
-							href='./ServingBrandsInDistributor.jsp'>SERVING BRANDS</a></li>
+						<li id="menu-academico-avaliacoes"><a href='./AdminSubmitBrands.jsp'>ADD
+								BRAND</a></li>
 						
 						<!-- <li id="menu-academico-boletim" ><a href="#">SEARCH</a></li> -->
-					</ul>
-					
-					
-					
-					
-					</li>
-
-
+					</ul></li>
 				
-				<li><a href="#"><i class="fa fa-sticky-note-o"
-						style="position: absolute;"></i><span style="margin: 0 24px;">ORDER
-							MANAGEMANT</span><span class="fa fa-angle-right" style="float: right"></span></a>
-															<ul id="menu-academico-sub">
-							
-							<li id="menu-academico-boletim"><a
-							href='#'>RECEIVED REQUEST</a></li>
-							<li id="menu-academico-boletim"><a
-							href='#'>TRACK ORDER STATUS</a></li>
-							</ul>
-				</li>
-
 
 			</ul>
 		</div>
