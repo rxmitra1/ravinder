@@ -15,6 +15,8 @@ public class DistributorBrands {
 	@GeneratedValue
 	@Column(name="DISTRIBUTOR_BRAND_ID")
 	private Integer distributorBrandId;
+	@Column(name="CATEGORY")
+	private String category;
 	@Column(name="DISTRIBUTOR_BRANDS")
 	private String distributorBrands;
 	@Column(name="DISTRIBUTOR_ID")
@@ -26,6 +28,13 @@ public class DistributorBrands {
 	}
 	public void setDistributorBrandId(Integer distributorBrandId) {
 		this.distributorBrandId = distributorBrandId;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getDistributorBrands() {
 		return distributorBrands;

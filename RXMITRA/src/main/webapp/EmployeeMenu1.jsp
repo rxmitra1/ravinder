@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							href='#'>VIEW VENDORS</a></li>
 							
 							<li id="menu-academico-boletim"><a
-							href='./ServingBrandsInDistributor.jsp'>SERVING BRANDS</a></li>
+							href='./getAdminCategory'>SERVING BRANDS</a></li>
 						
 						<!-- <li id="menu-academico-boletim" ><a href="#">SEARCH</a></li> -->
 					</ul>

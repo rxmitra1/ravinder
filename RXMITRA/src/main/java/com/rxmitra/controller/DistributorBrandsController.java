@@ -20,10 +20,15 @@ public class DistributorBrandsController {
 	private DistributorBrandsService distributorBrandsService;
 	
 	@RequestMapping(value="addDistributorBrands",method=RequestMethod.POST)
-	public ModelAndView addDistributorBrands(DistributorBrands distributorBrands,Model model,HttpSession session) {
+	public ModelAndView addDistributorBrands(DistributorBrands distributorBrands,Model model,HttpSession session,String[] brandName) {
 		ModelAndView mav=null;
-		
+		String s="";
+		for (String string : brandName) {
+			s=s+string+",";
+		}
+		String substring = s.substring(0, s.length()-1);
 		int userId = Integer.parseInt((String) session.getAttribute("referenceId"));
+		distributorBrands.setDistributorBrands(substring);
         distributorBrands.setDistributorId(userId);
 		int i = distributorBrandsService.addDistributorBrands(distributorBrands);
 		if(i>0) {

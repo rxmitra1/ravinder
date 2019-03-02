@@ -49,7 +49,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul id="menu-academico-sub">
 						<li id="menu-academico-avaliacoes"><a href='./AdminSubmitBrands.jsp'>ADD
 								BRAND</a></li>
-						
+						<li id="menu-academico-avaliacoes"><a href='./viewAdminBrands?pageid=1'>VIEW
+								BRAND</a></li>
+								<li id="menu-academico-avaliacoes"><form action="./viewAdminBrands" method="post">
+													<input type="hidden" name="pageid" value="1"/>
+													
+
+														<button type="submit" class="btn btn-link" value="VIEW BRAND">VIEW BRAND
+															
+														</button>
+												</form></li>
 						<!-- <li id="menu-academico-boletim" ><a href="#">SEARCH</a></li> -->
 					</ul></li>
 				

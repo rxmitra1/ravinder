@@ -26,6 +26,34 @@ label{
     font-weight: normal !important;
     }
 </style>
+<script type="text/javascript">
+		function getSubCategory(str)
+		{
+		if (str=="")
+		  {
+		  document.getElementById("brandName").innerHTML="";
+		  return;
+		  }  
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    document.getElementById("brandName").innerHTML=xmlhttp.responseText;
+		    }
+		  }
+		xmlhttp.open("GET","./getAdminBrandsInRetailer?category="+str,true);
+		xmlhttp.send();
+		}
+		
+		</script>
 </head>
 <body>
 	<%
@@ -79,19 +107,20 @@ label{
 											 
 											 <div class = "form-group col-md-3 col-sm-3">
 										      <label for="months">CATEGORY:</label>     
-										      <select class="form-control input-sm" id="category" name="category">
-											  <option>Select Category</option>
+										      <select class="form-control input-sm" id="category" name="category" onchange="getSubCategory(this.value)">
+											  <option>---Select Category---</option>
 											  <option value="All">All</option>
-											  <option>2</option>
-											  <option>3</option>
-											  <option>4</option>
+											  <c:forEach items="${adminBrands }" var="adminBrands">
+											  <option value="${adminBrands }">${adminBrands }</option>
+											  </c:forEach>
+											  
 										      </select>
 										      </div>
 										      
 											 
 											  <div class = "form-group col-md-3 col-sm-3">
 										      <label for="months">BRAND :</label>     
-										      <select class="form-control input-sm" id="brand" name="brand">
+										      <select class="form-control input-sm" id="brandName" name="brandName">
 											  <option>Select Brand</option>
 											  <option value="All">All</option>
 											  <option>2</option>
@@ -100,11 +129,14 @@ label{
 										      </select>
 										      </div>
 										      
-												<div class="form-group col-md-3 col-sm-3">
-													<label for="pincode">STATE</label> <input
-														type="text" class="form-control" name="state"
-														id="state" placeholder="Enter Your State" />
-												</div>
+												 <div class = "form-group col-md-3 col-sm-3">
+										      <label for="months">STATE :</label>     
+										      <select class="form-control input-sm" id="state" name="state">
+											  <option>Select Sate</option>
+											  <option value="AP">ANDRA PRADESH</option>
+											 
+										      </select>
+										      </div>
 
 												
 

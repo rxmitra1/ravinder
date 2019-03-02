@@ -45,7 +45,9 @@ label{
 					
 					<div  align="center">
 			            <font style='color: blue;  font-size: medium;'>${success}</font>
-			              <font style='color: red; font-size: medium;'>${failure}</font></div>
+			              <font style='color: red; font-size: medium;'>${failure}</font>
+			              <font style='color: red; font-size: medium;'>${Exit}</font></div>
+			              
 					
 					<div class="col-md-12 mailbox-content  tab-content tab-content-in" style="margin: 19px 13px;">
 
@@ -68,19 +70,19 @@ label{
 										      <div class="form-group col-md-3 col-sm-3">
 													<label for="pincode">BRAND NAME</label> <input
 														type="text" class="form-control" name="brandName"
-														id="brandName" placeholder="Enter Brand Name" />
+														id="brandName" value="${brandName }" placeholder="Enter Brand Name" />
 												</div>
 												
 												<div class="form-group col-md-3 col-sm-3">
 													<label for="pincode">CATEGORY</label> <input
 														type="text" class="form-control" name="category"
-														id="category" placeholder="Enter Category" />
+														id="category" value="${category }" placeholder="Enter Category" />
 												</div>
 												
 												<div class="form-group col-md-3 col-sm-3">
 													<label for="pincode">SUB CATEGORY</label> <input
 														type="text" class="form-control" name="subCategory"
-														id="subCategory" placeholder="Enter Sub Category" />
+														id="subCategory" ${subCategory } placeholder="Enter Sub Category" />
 												</div>
 
 												
