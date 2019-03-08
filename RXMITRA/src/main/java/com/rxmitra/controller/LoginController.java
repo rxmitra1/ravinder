@@ -52,7 +52,7 @@ public class LoginController {
 		HashMap<String, String> hashMap = new HashMap<String, String>();
 		hashMap = loginService.loginUser1(userLogin);
 		System.out.println(hashMap.get("userType"));
-		String s=hashMap.get("userType");;
+		String s=hashMap.get("userType");
 		if(hashMap.get("userType")==null) {
 			s="ravi";
 		}
@@ -85,7 +85,7 @@ public class LoginController {
 				session.setAttribute("userType", hashMap.get("userType"));
 				session.setAttribute("userName", hashMap.get("userName"));
 
-				// session.setMaxInactiveInterval(60);
+		        // session.setMaxInactiveInterval(60);
 				mav = new ModelAndView("Employeehome", "message1", "Login Successfully completed....");
 			}
 		}
@@ -108,6 +108,7 @@ public class LoginController {
 					mav = new ModelAndView("Adminhome", "message1", "Login Successfully completed....");
 				}
 			}
+		
 		else {
 			
 			System.out.println(hashMap.get("userType")+"ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBAAAAAAAAAAA");

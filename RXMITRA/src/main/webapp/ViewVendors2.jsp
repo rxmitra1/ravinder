@@ -32,27 +32,7 @@ label {
 </style>
 </head>
 <body>
-<%
-  String from=null;
-  try
-  {
-  from=request.getParameter("from");
-  if(from==null)
-  {
-   from=request.getAttribute("from").toString();
-  }
-  }
-  catch(Exception e)
-  {
-   
-  }
-  %>
-  <%
-  
- Vendor vendor= (Vendor)session.getAttribute("vendor");
-  
-  
-  %>
+
 <section style="background-color:#febf10; height:3px;"></section>
 <jsp:include page="./Employee_top.jsp"/>
 
@@ -75,7 +55,7 @@ label {
              
   <div class="panel panel-orange" style="padding:2px 13px;">
    <div class="">
-    <%String shopid=(String)request.getParameter("shopid"); %>
+   
    <form  action="/RXMITRA/DisplayVendorsToInsertProducts" method="post"> 
     <div colspan="12" style="padding: 5px;background: #5aa320;color:#fff;text-align: center;font-size: 20px;border-bottom: 2px solid #febf10;">
 	                                 <tr>
@@ -168,7 +148,7 @@ label {
         <label for="firstname">SELECT FILE </label>
         <input type="file" class="form-control" name="file" id="file" placeholder="Choose Required File"/>
          <input type="hidden" name="vendorid" id="vendorid" value="${vendor.vendorId }"/>
-        <input type="hidden" name="from" value="<%=from%>" id="from"/>
+       
        <%--  <input type="hidden" name="shopid" value="<%=shopid%>" id="shopid"/> --%>
         </div>
 	    </div>

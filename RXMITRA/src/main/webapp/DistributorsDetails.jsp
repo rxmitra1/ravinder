@@ -56,7 +56,7 @@ label{
 		</script>
 </head>
 <body>
-	
+
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -94,7 +94,7 @@ label{
 											 
 											 <div class = "form-group col-md-3 col-sm-3">
 										      <label for="months">CATEGORY:</label>     
-										      <select class="form-control input-sm" id="category" name="category" onchange="getSubCategory(this.value)">
+										      <select class="form-control input-sm" id="category"  name="category" onchange="getSubCategory(this.value)">
 											  <option>---Select Category---</option>
 											  <option value="All">All</option>
 											  <c:forEach items="${adminBrands }" var="adminBrands">
@@ -109,8 +109,7 @@ label{
 										      <label for="months">BRAND :</label>     
 										      <select class="form-control input-sm" id="brandName" name="brandName">
 											  <option>Select Brand</option>
-											 
-										      </select>
+											  </select>
 										      </div>
 										      
 												 <div class = "form-group col-md-3 col-sm-3">
@@ -127,12 +126,44 @@ label{
 												<div class="col-md-2" id="one">
 													<div class="form-group">
 														<label for="firstname" style="color: #fff;">EN </label>
-														<button type="submit" class="btn btn-success btn-block">SEARCH</button>
+														<input type="submit" class="btn btn-success btn-block" value="SEARCH"/>
 
 													</div>
 												</div>
 											</div>
 								</form>
+								
+								
+								
+								<table class="table table-bordered">
+  <tr>
+	 <th colspan="10" style="padding: 5px;background: #5aa320;color:#fff;text-align: center;font-size: 20px;border-bottom: 2px solid #febf10;">LIST OF DISTRIBUTORS</th>
+	</tr>
+<tr>
+<td align="center" style="font-weight: 900;">BUSINESS NAME</td>
+<td align="center"  style="font-weight: 900;">EMAIL</td>
+<td align="center"  style="font-weight: 900;">MOBILENO</td>
+<td align="center"  style="font-weight: 900;">ADDRESS</td>
+
+</tr>
+
+<c:forEach items="${distributorDetails }" var="distributorDetails">
+<tr>
+<td align="center"><c:out value="${ distributorDetails.businessName }"/></td>
+<td align="center"><c:out value="${ distributorDetails.emailId}"/></td>
+<td align="center"><c:out value="${ distributorDetails.mobileNo}"/></td>
+<td align="center"><c:out value="${ distributorDetails.city}"/>,
+<c:out value="${ distributorDetails.district}"/>,<c:out value="${ distributorDetails.state}"/>,<c:out value="${ distributorDetails.pincode}"/>.</td>
+<%-- <td align="center"><c:out value="${ vendor.CST_NO}"/></td> --%>
+
+
+
+</tr>
+</c:forEach>
+ </table>
+								
+								
+								
 
 							</div>
 

@@ -71,7 +71,8 @@ public class AdminBrandsController {
 	@RequestMapping(value = "getAdminCategoryInRetailer", method = RequestMethod.GET)
 	public ModelAndView getAdminCategoryInRetailer(Model model) {
 		ModelAndView mav = null;
-		List<String> adminBrands = adminBrandsService.getAdminCategory();
+		List<String> adminBrands1 = adminBrandsService.getAdminCategory();
+		Set<String> adminBrands = new HashSet<String>(adminBrands1);
 		// Set<String> s=new HashSet<String>(adminBrands);
 		/*
 		 * if(i>0) { mav=new
