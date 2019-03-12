@@ -29,11 +29,13 @@ public class AdminBrandsDAO {
 		
 		String sql = "select a.category from com.rxmitra.bean.AdminBrands a";
 		Query createQuery = template.getSessionFactory().openSession().createQuery(sql);
+		@SuppressWarnings("unchecked")
 		ArrayList<String> list2 = (ArrayList<String>) createQuery.list();
 		
 		return list2;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<String> getAdminBrands(String category) {
 		List<String> list=null;
 		if(category.equals("All")) {

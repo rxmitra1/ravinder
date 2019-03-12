@@ -88,6 +88,7 @@ public class VendorDAOImpl implements VendorDAO {
 		return i;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<VendorProduct> displayProducts(Integer refId) {
 		System.out.println(refId+"ttttttttttttttttt");
         String sql="from VendorProduct vp where vp.vendorId="+refId+"";
@@ -97,6 +98,7 @@ public class VendorDAOImpl implements VendorDAO {
 		return list;
 
 	}
+	@SuppressWarnings("unchecked")
 	public List<VendorProduct> displayVendorProducts(int pageid,int limit) {
 		String query="from com.rxmitra.bean.VendorProduct";
 		Query query2 = template.getSessionFactory().openSession().createQuery(query);
@@ -107,6 +109,7 @@ public class VendorDAOImpl implements VendorDAO {
 
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<VendorProduct> displayVendorProducts(String vendorname,String refId,int pageid,int limit) {
 		String query="from com.rxmitra.bean.Vendor where vendorName='"+vendorname+"' and userId='"+refId+"'";
 		

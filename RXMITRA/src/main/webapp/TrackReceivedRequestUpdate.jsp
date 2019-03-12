@@ -92,43 +92,6 @@ label {
 </style>
 
 
-<!-- <script type="text/javascript">
-        $(document).ready(function () {
-            $("#orderStatus").keyup(function () {
-                var value = $(this).val();
-                $("#orderStatus1").val(value);
-            });
-        });
-</script> -->
-<!-- 
-	<script>
-		var counter = 1;
-		var limit = 6;
-		function addInput(divName) {
-
-			if (counter == limit) {
-				alert("You have reached the limit of adding " + counter
-						+ " inputs");
-			}
-
-			else {
-
-				var newdiv = document.createElement('div');
-				newdiv.innerHTML = '<div class="col-md-12" style="padding: 0 0; margin: 9px 0%;"><div class="col-md-2"><input type="text" name="medicineName" class="form-control" id="" value="" placeholder="Your Medicine Name"></div><div class="form-group col-lg-2"><input type="text" name="quantity" class="form-control" id="" value="" placeholder="Your Quantity"></div><div class="form-group col-lg-2"><input type="text" name="mrp" class="form-control" id="" value="" placeholder="Your MRP"></div><div class="form-group col-lg-2"><input type="text" name="discountPrice" class="form-control" id="" value="" placeholder="Your Discount Price"></div>';
-				document.getElementById(divName).appendChild(newdiv);
-				counter++;
-			}
-		}
-	</script> -->
-	
-	
-	
-<!--  <script>
-	$("#anOtherButton").click(function() {
-    $("#FullName").attr('disabled', !$("#FullName").attr('disabled'));
-    });
-</script> -->
-
 	
 <script>
 	$(function () {
@@ -150,17 +113,7 @@ function GetDynamicTextBox(value) {
 </head>
 <body ng-app="ngToggle" ng-controller="AppCtrl">
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
+	
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -168,7 +121,7 @@ function GetDynamicTextBox(value) {
 
 		<div class="sidebar-menu">
 			<jsp:include page="./EmployeeMenu.jsp">
-				<jsp:param value="<%=from%>" name="from" />
+			
 			</jsp:include></div>
 
 		<div class="left-content">
@@ -391,64 +344,8 @@ function GetDynamicTextBox(value) {
 
                                                       </td>
                                                        
-													<%-- <td data-title="imageDescription" class="numeric"><a
-														href="" data-toggle="modal"
-														data-target="#myModal1${receivedRequestData.requestId }"
-														id="one">Show Image</a>
-														
-														
-														
-														 <!-- =================================Image Popup start========================== -->
-
-														<div class="modal"
-															id="myModal1${receivedRequestData.requestId }">
-															<div class="modal-dialog modal-lg">
-																<div class="modal-content">
-																	<div class="modal-header">
-																		<h4 class="modal-title">Received Request</h4>
-																		<button type="button" class="close"
-																			data-dismiss="modal">&times;</button>
-																	</div>
-																	<div class="modal-body">
-
-
-
-																		<div class="col-md-12">
-
-																			<img
-																				src="data:image/jpg;base64,${receivedRequestData.encodedImage }"
-																				class="img-responsive"/>
-																		</div>
-
-
-
-																	</div>
-
-																	<div class="modal-footer">
-																		<button type="button" class="btn btn-danger"
-																			data-dismiss="modal">Close</button>
-																			
-																	</div>
-
-																</div>
-
-															</div>
-														</div> 
-														
-														
-														
-														
-														<!-- =========================Image Popup end ==============================--></td> --%>
-												</tr>
-												
-												
-							 
-												
-												
-												
-												
-											
-
+													</tr>
+										
 										</tbody>
 										
 										
@@ -458,145 +355,7 @@ function GetDynamicTextBox(value) {
 
 										      <div >
 
-
-											<%-- <div class="col-md-12">
-												<p>
-													<br>
-												</p>
-
-												<h4 id="tw1">Doctor Details</h4>
-												<br>
-													<div class="form-group col-lg-3">
-														<label>Refered By :</label> <input type="text"
-															name="referredBy" class="form-control"
-															placeholder="Enter Your Refered By" value="${preMngmt.referredBy }" />
-															 <input type="hidden"
-															name="requestId" class="form-control" value="${receivedRequestData.requestId }"/>
-															<!-- <input type="hidden"
-															name="status" id="orderStatus1" class="form-control" value=""/>  -->
-													</div>
-
-													<div class="form-group col-lg-3">
-														<label>Doctor :</label> <input type="text"
-															name="doctorName" class="form-control" id="" value="${preMngmt.doctorName }"
-															placeholder="Enter Your Doctor" />
-													</div>
-
-													<div class="form-group col-lg-3">
-														<label>Address</label>
-														<textarea class="form-control" rows="2" name="address"
-															required="required"
-															placeholder="Enter Your Address ........" >${preMngmt.address }</textarea>
-													</div>
-												<div style="float: right;" class="form-group col-lg-2" >
-													
-													<a href=""data-toggle="modal"
-														data-target="#myModal1${receivedRequestData.requestId }"><img 
-																				src="data:image/jpg;base64,${receivedRequestData.encodedImage }"
-																				class="img-responsive" width="140px" height="60px"/></a>
-																				</div>
-											</div>
-
-											<div class="clearfix"></div>
-
-
-											<div class="col-md-12">
-
-												<h4 id="tw1">Prescription Details</h4>
-												<br>
-												
-												
-													<div class="col-md-12" id="dynamicInput">
-													
-													
-													<div class="table table-responsive">
-													<table class="table table-responsive table-striped table-bordered" style="border: 1px solid #ffffff;">
-
-<c:forEach items="${prescription }" var="prescription">
-
-<div class="col-md-10" style="margin-bottom: 10px;">
-	
-    <div class="col-md-3" style="padding-left: 0px;">
-    <input type="text" name="medicineName"
-	class="form-control" id="" value="${prescription.medicineName }" placeholder="Your Medicine Name" />
-	</div>
-	
-   
-      <div class="col-md-3" style="padding-left: 0px;">
-      <input type="text" name="quantity" class="form-control"
-	 id="" value="${prescription.quantity }" placeholder="Your Quantity"  />
-      </div>
-      
-     <div class="col-md-3" style="padding-left: 0px;">
-      <input type="text" name="mrp" class="form-control" id=""
-	value="${prescription.mrp }" placeholder="Your MRP" />
-     </div>
-     
-     <div class="col-md-2" style="padding-left: 0px;">
-     <input type="text" name="discountPrice"
-    class="form-control" id="" value="${prescription.discountPrice}"
-	placeholder="Your Discount Price" />
-     </div>
-     
-     <div class="col-md-1" style="padding-left: 0px;">
-	  <a href="./deletePrescriptionData?prescriptionId=${prescription.prescriptionId }&requestId=${receivedRequestData.requestId }" class="btn btn-danger btn-block">Delete</a>
-	</div>
-	
-   
-</div>
- </c:forEach>
-	<tbody id="TextBoxContainer" style="border: 1px solid #ffffff;">
-</tbody>
-	
-    <div class="col-md-2">
-    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls">Add Another</button>
-    </div>
-</table>												
-</div>
-
-
-													<div class="form-group col-lg-2">
-														
-
-															<input type="text" name="medicineName"
-																class="form-control" id="" value="${prescription.medicineName }"
-																placeholder="Your Medicine Name" />
-														</div>
-
-														<div class="form-group col-lg-2">
-															<input type="text" name="quantity" class="form-control"
-																id="" value="${prescription.quantity }" placeholder="Your Quantity"  />
-														</div>
-
-														<div class="form-group col-lg-2">
-															<input type="text" name="mrp" class="form-control" id=""
-																value="${prescription.mrp }" placeholder="Your MRP" />
-														</div>
-														<div class="form-group col-lg-2">
-															<input type="text" name="discountPrice"
-																class="form-control" id="" value="${prescription.discountPrice}"
-																placeholder="Your Discount Price" />
-														</div>
-														<div class="form-group col-lg-2">
-															<input type="text" name="finalPrice" class="form-control"
-																id="" value="${prescription.finalPrice }" placeholder="Your Final Price" />
-														</div>
-																									
-
-                                                         
-													</div>
-														
-													
-													<!-- <div class="form-group col-lg-2">
-															<button type="button" id="more_fields" name="submit" value="Add Quantity"
-																onclick="addInput('dynamicInput');"
-																class="btn btn-primary btn-block"
-																style="line-height: 18px;">Add Quantity</button>
-														</div> -->
-											</div> 
-											 --%>
-											
-														
+		
 											<div class="col-md-12">
 												<div class="col-md-4"></div>
 												<div class="col-md-2">
@@ -660,7 +419,7 @@ function GetDynamicTextBox(value) {
 
 			<div class="copyrights">
 				<p>
-					Copyright © 2017 Kosur Rythu Mitra. All Rights Reserved | Design by
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by
 					<a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

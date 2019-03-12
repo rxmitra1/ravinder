@@ -15,18 +15,6 @@
 </head>
 <body>
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
-
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -65,7 +53,7 @@
 
 											<tr>
 												<td><a
-													href="./EIndVendor.jsp?vendorid=${vendorList.vendorId }&from=<%=from%>">${vendorList.vendorName }</a></td>
+													href="./EIndVendor.jsp?vendorid=${vendorList.vendorId }">${vendorList.vendorName }</a></td>
 												<td align="center">${vendorList.tinNo }</td>
 												<td align="center">${vendorList.panNo }</td>
 												<td align="center">${vendorList.phoneNo1 }</td>
@@ -89,7 +77,7 @@
 
 				<div class="copyrights">
 					<p>
-						© 2017 Kosur Rythu Mitra. All Rights Reserved | Design by <a
+						Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by <a
 							href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 					</p>
 				</div>

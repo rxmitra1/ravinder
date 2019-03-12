@@ -1,6 +1,5 @@
 package com.rxmitra.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -11,11 +10,8 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rxmitra.bean.EmpLogin;
 import com.rxmitra.bean.Employee;
 import com.rxmitra.bean.UserLogin;
-import com.rxmitra.bean.UserRegistration;
-import com.rxmitra.utils.Mailer;
 
 @Repository
 @Transactional
@@ -102,34 +98,7 @@ public class EmployeeDAO {
 		return message;
 	}
 
-	/*
-	 * public String verifyEmail(String email) {
-	 * 
-	 * String message = ""; String verify = "YES";
-	 * 
-	 * String sql =
-	 * "update com.rxmitra.bean.Employee e set e.verified=? , e.status=? where e.emailId=?"
-	 * ; String sql1 = "from com.rxmitra.bean.Employee e where e.emailId=?"; Query
-	 * createQuery = template.getSessionFactory().openSession().createQuery(sql);
-	 * Query createQuery1 =
-	 * template.getSessionFactory().openSession().createQuery(sql1);
-	 * createQuery.setString(0, verify); createQuery.setString(1, "A");
-	 * createQuery.setString(2, email);
-	 * 
-	 * createQuery1.setString(0, email);
-	 * 
-	 * Employee employee = (Employee) createQuery1.uniqueResult(); EmpLogin empLogin
-	 * = new EmpLogin(); empLogin.setUsername(employee.getEmailId());
-	 * empLogin.setPassword(employee.getPassword()); empLogin.setStatus("A");
-	 * empLogin.setEmpId(employee.getEmpId().toString()); int i=0,j=0; i =
-	 * createQuery.executeUpdate(); j = (Integer) template.save(empLogin);
-	 * 
-	 * if (i > 0 && j>0) { message = "Verified"; } else { message = " Not Verified";
-	 * 
-	 * }
-	 * 
-	 * return message; }
-	 */
+	
 
 	public Employee viewEmployeeInEditPage(String empId, String empName, String mobileNo, String emailId) {
 

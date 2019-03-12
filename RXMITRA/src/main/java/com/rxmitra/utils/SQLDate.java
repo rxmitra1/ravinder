@@ -49,6 +49,7 @@ public class SQLDate {
 		return date;
 	}
 
+	@SuppressWarnings("unused")
 	public String getSysDate() {
 		Date date;
 		String dat = "";
@@ -67,6 +68,7 @@ public class SQLDate {
 		return datereg;
 	}
 
+	@SuppressWarnings("unused")
 	public String getSysDateandTime() {
 		Date date = new Date();
 		String dat = "";
@@ -81,6 +83,7 @@ public class SQLDate {
 		return dat;
 	}
 
+	@SuppressWarnings("unused")
 	public String getInSysDateandTime(String dateandtime) {
 		Date date = new Date();
 		String dat = "";
@@ -96,6 +99,7 @@ public class SQLDate {
 		}
 		return dat;
 	}
+	@SuppressWarnings("unused")
 	public String getTime(String hrs, String mins, String meridian) {
 		Date date = null;
 		int hr = Integer.parseInt(hrs);

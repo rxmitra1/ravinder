@@ -3,6 +3,7 @@
 	contentType="text/html; charset=ISO-8859-1" isErrorPage="true"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -183,17 +184,7 @@
 												DETAILS</th>
 										</tr>
 
-										<%
-											//String vendorid = null;
-											//vendorid = (String) request.getAttribute("vendorid");
-
-											//ArrayList<Product> alp = new ArrayList<Product>();
-											//Vendor v = new Vendor();
-											//v = (Vendor) session.getAttribute("vendordetails");
-
-											//Vendor vendorDetails = (Vendor) request.getAttribute("vendorDetails");
-										%>
-
+										
 										<tr>
 											<td style="font-weight: 500;">VENDOR NAME</td>
 											<td colspan="3">${vendorDetails.vendorName}</td>
@@ -243,12 +234,8 @@
 
 									<%
 										String categoryT = request.getParameter("category");
-
-										System.out.println(categoryT + "+++++++++++++++++++++++++++++++++++++++++++++++++++++");
-
-										if (categoryT != null) {
-											//ArrayList<VendorProduct> prodsal = new ArrayList<VendorProduct>();
-											//prodsal=new Products().getVendorProducts(vendorid,categoryf);
+                                        if (categoryT != null) {
+											
 									%>
 									<table class="table table-bordered table2">
 										<tr>
@@ -440,209 +427,9 @@
 							<%
 								}
 							%>
-							<%-- <%
-										String categoryc = request.getParameter("category");
-						                 System.out.println(categoryc+"____________________________________________");
-										if (categoryc.equals("C")) {
-									%>   
-									<table class="table table-bordered table2">
-										<tr>
-											<td colspan="4"
-												style="text-align: center; font-weight: 700; padding-top: 10px; font-size: 22px"><span
-												style="color: #fc8213;">PRODUCT DETAILS</span></td>
-										</tr>
-										<tr>
-											<td align="center" style="font-weight: 500;" class="col-md-3">CATEGORY</td>
-											<td align="center"><select class="form-control"
-												name="category" id="category" class="col-md-3">
-													<option value="C">CAPSULES</option>
-											</select></td>
-											<td class="col-md-6" colspan="2"></td>
-
-										</tr>
-									</table>
-									  <%
-										}
-									%>   --%>
-
-
-
-							<%-- <form action="./UpdateVendorPesticides" method="post">
-								<div class="C box">
-									<table class="table table-bordered">
-										<tr>
-											<td align="center" style="font-weight: 500;">PRODUCT
-												COMPANY<font color=red>*</font>
-											</td>
-											<td align="center" style="font-weight: 500;">SPECIAL
-												NAME<font color=red>*</font>
-											</td>
-											<td align="center" style="font-weight: 500;">WEIGHT<font
-												color=red>*</font></td>
-											<td align="center" style="font-weight: 500;">ITEM MASS<font
-												color=red>*</font></td>
-											<td align="center" style="font-weight: 500;">SKUID<font
-												color=red>*</font></td>
-											<td colspan="2" align="left" style="font-weight: 500;">SELECT
-												IMAGE<font color=red>*</font>
-											</td>
-										</tr>
-										<%
-											try {
-												ArrayList<VendorProduct> alp = (ArrayList<VendorProduct>) session.getAttribute("productdetails");
-												if (alp.size() > 0) {
-													for (int i = 0; i < alp.size(); i++) {
-														VendorProduct p = new VendorProduct();
-														p = alp.get(i);
-										%>
-										<tr>
-											<td align="center"><%=p.getCompanyName()%></td>
-											<td align="center"><%=p.getSpecialName()%></td>
-											<td align="center"><%=p.getWeight()%></td>
-											<td align="left"><%=p.getItemMass()%></td>
-											<td align="center"><%=p.getSkuid()%></td>
-											<td colspan="2" align="left"><img
-												src="data:image/png;base64,<%=p.getPhoto()%>" alt="No image"
-												class="img-responsive" width="75" height="75"></img></td>
-										</tr>
-										<%
-											}
-												}
-											} catch (Exception e) {
-												//  e.printStackTrace();
-											}
-										%>
-										<%
-											String category2 = request.getParameter("category");
-										%>
-										<tr>
-											<td align="center"><input type="text" size="8"
-												class="form-control" name="companyName" id="companyName" />
-												<input type="hidden" name="vendorid" id="vendorid"
-												value="${vendorDetails.vendorId}" /> <input type="hidden"
-												name="category" id="category" value="<%=category2%>" /></td>
-											<td align="center"><input type="text"
-												class="form-control" size="8" name="specialName"
-												id="specialName" /></td>
-
-											<td align="center"><input type="text"
-												class="form-control" size="2" name="weight" id="weight" />
-												<select name="weightmass" id="weightmass">
-													<option>Ml</option>
-													<option>Ltrs</option>
-													<option>Kgs</option>
-													<option>Grms</option>
-											</select></td>
-											<td align="center"><select class="form-control"
-												name="itemMass" id="itemMass">
-													<option>BOTTLES</option>
-													<option>PACKETS</option>
-													<option>BAGS</option>
-													<option>CONTAINER</option>
-											</select></td>
-											<td align="center"><input type="text"
-												class="form-control" size="8" name="skuid" id="skuid" /></td>
-											<td><input type="file" class="form-control" name="photo"
-												accept="image/*" placeholder="Select Image" /></td>
-											<td align="center"><input type="submit"
-												class="btn btn-success" size="8" name="submit"
-												value="ADD PRODUCT" /></td>
-										</tr>
-										<tr align="center">
-											<td colspan="8"><input type="submit"
-												class="btn btn-success" name="submit" value="SUBMIT ALL" /></td>
-										</tr>
-									</table>
-								</div>
-							</form>
-
-
-						  <form action='#' method="post">
-										<div class="S box">
-											<table class="table table-bordered">
-												<tr>
-													<td align="center" style="font-weight: 500;">PRODUCT
-														COMPANY</td>
-													<td align="center" style="font-weight: 500;">SPECIAL
-														NAME</td>
-													<td align="center" style="font-weight: 500;">TYPE</td>
-													<td align="center" style="font-weight: 500;">WEIGHT</td>
-													<td colspan="2" align="left" style="font-weight: 500;">ITEM
-														MASS</td>
-												</tr>
-												<%
-													try {
-														ArrayList<VendorProduct> alp = (ArrayList<VendorProduct>) session.getAttribute("productdetails");
-														if (alp.size() > 0) {
-															for (int i = 0; i < alp.size(); i++) {
-																VendorProduct p = new VendorProduct();
-																p = alp.get(i);
-												%>
-												<tr>
-													<td align="center"><%=p.getCompanyName()%></td>
-													<td align="center"><%=p.getSpecialName()%></td>
-													<td align="center"><%=p.getType()%></td>
-													<td align="center"><%=p.getWeight()%></td>
-													<td align="center"><%=p.getItemMass()%></td>
-													<td align="center"><%=p.getSkuid()%></td>
-													<td colspan="2" align="left"><img
-														src="data:image/png;base64,<%=p.getPhoto()%>"
-														alt="No image" class="img-responsive" width="75"
-														height="75"></img></td>
-												</tr>
-												<%
-													}
-														}
-													} catch (Exception e) {
-														//  e.printStackTrace();
-													}
-												%>
-												<tr>
-													<td align="center"><input type="text" size="8"
-														class="form-control" name="companyName" id="companyName" /></td>
-													<td align="center"><input type="text"
-														class="form-control" size="8" name="specialName"
-														id="specialName" /></td>
-
-													<td align="center"><select class="form-control"
-														name="type" id="type">
-															<option>14-35-14</option>
-															<option>20-20-0-13</option>
-															<option>M.O.P</option>
-															<option>S.N.D</option>
-													</select></td>
-													<td align="center"><input type="text"
-														class="form-control" size="2" name="weight" id="weight" />
-														<select name="weightmass" id="weightmass">
-															<option>Kgs</option>
-															<option>Grams</option>
-															<option>Ltrs</option>
-															<option>Mls</option>
-													</select></td>
-													<td align="center"><input type="text"
-														class="form-control" size="8" name="itemMass"
-														id="itemMass" /></td>
-													<td align="center"><input type="submit"
-														class="btn btn-success" size="8" name="submit"
-														value="ADD PRODUCT" /></td>
-												</tr>
-												<tr align="center">
-													<td colspan="8"><input type="submit"
-														class="btn btn-success" name="submit" value="SUBMIT ALL" /></td>
-												</tr>
-											</table>
-										</div>
-									</form>  --%>
-
-
-
+							
 
 						</div>
-
-
-
-
-
 
 					</div>
 
@@ -657,7 +444,7 @@
 
 		<div class="copyrights">
 			<p>
-				© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
+				Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed by <a
 					href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 			</p>
 		</div>

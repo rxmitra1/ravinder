@@ -33,17 +33,6 @@ label {
 </head>
 <body>
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -51,7 +40,7 @@ label {
 
 		<div class="sidebar-menu">
 			<jsp:include page="./EmployeeMenu.jsp">
-				<jsp:param value="<%=from%>" name="from" />
+				
 			</jsp:include></div>
 
 		<div class="left-content">
@@ -81,32 +70,32 @@ label {
 									<div class="form-group col-lg-2">
 										<label>Employee Id :</label> <input type="text"
 											name="empId" class="form-control" id="empId" value=""
-											placeholder="Enter Employee Id">
+											placeholder="Enter Employee Id"/>
 									</div>
 
 									<div class="form-group col-lg-3">
 										<label>Employee Name :</label> <input type="text"
 											name="empName" class="form-control" id="empName" value=""
-											placeholder="Enter Employee Name"]>
+											placeholder="Enter Employee Name"/>
 									</div>
 									<div class="form-group col-lg-2">
 										<label>Mobile No :</label> <input type="text"
 											name="mobileNo" class="form-control" id="mobileNo" value=""
-											placeholder="Enter Employee Name"]>
+											placeholder="Enter Employee Name"/>
 									</div>
 									
 									<div class="form-group col-lg-3">
 										<label>Email Id :</label> <input type="text"
 											name="emailId" class="form-control" id="emailId" value=""
-											placeholder="Enter Employee Name"]>
+											placeholder="Enter Employee Name"/>
 									</div>
 									
 
 									
 									<div class="form-group col-lg-2">
 										<label style="color: #fff !important;">g</label>
-										<input type="submit" value="Search" class="btn btn-success btn-block"></button>
-										<br />
+										<input type="submit" value="Search" class="btn btn-success btn-block"/>
+										<br/>
 									</div>
                                  </form>
 
@@ -125,7 +114,7 @@ label {
 
 			<div class="copyrights">
 				<p>
-					Copyright © 2017 Kosur Rythu Mitra. All Rights Reserved | Design by
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by
 					<a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

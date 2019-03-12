@@ -17,6 +17,7 @@ public class SearchMngmtInRetailerDAO {
 	@Autowired
 	private HibernateTemplate template;
 
+	@SuppressWarnings("unchecked")
 	public List<UserRegistration> searchByDistributor(String category, String brandName, String state) {
 		
 		List<UserRegistration> list2 = new ArrayList<UserRegistration>();

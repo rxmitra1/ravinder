@@ -14,6 +14,7 @@ package com.rxmitra.utils;
 	import sun.misc.BASE64Decoder;
 	import sun.misc.BASE64Encoder;
 
+	@SuppressWarnings("restriction")
 	public class EncryptDecrypt {
 
 	    private static final char[] PASSWORD = "kosurisoftlabs".toCharArray();
@@ -37,7 +38,8 @@ package com.rxmitra.utils;
 	        return base64Encode(pbeCipher.doFinal(property.getBytes("UTF-8")));
 	    }
 
-	    private static String base64Encode(byte[] bytes) {
+	    @SuppressWarnings("restriction")
+		private static String base64Encode(byte[] bytes) {
 	        // NB: This class is internal, and you probably should use another impl
 	        return new BASE64Encoder().encode(bytes);
 	    }
@@ -50,7 +52,8 @@ package com.rxmitra.utils;
 	        return new String(pbeCipher.doFinal(base64Decode(property)), "UTF-8");
 	    }
 
-	    private static byte[] base64Decode(String property) throws IOException {
+	    @SuppressWarnings("restriction")
+		private static byte[] base64Decode(String property) throws IOException {
 	        // NB: This class is internal, and you probably should use another impl
 	        return new BASE64Decoder().decodeBuffer(property);
 	    }

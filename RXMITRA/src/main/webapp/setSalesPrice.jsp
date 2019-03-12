@@ -14,54 +14,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    
-<!-- <script type="text/javascript">
-    $(function () {
-        $("#myCheck").click(function () {
-            if ($(this).is(":checked")) {
-                $("#salesDiscount").removeAttr("disabled");
-                $("#salesDiscount").focus();
-                
-              
-            } else {
-                $("#salesDiscount").attr("disabled", "disabled");
-                
-               
-            }
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(function () {
-        $("#myCheck").click(function () {
-            if ($(this).is(":checked")) {
-                $("#sellingPrice").removeAttr("disabled");
-                $("#sellingPrice").focus();
-                
-              
-            } else {
-                $("#sellingPrice").attr("disabled", "disabled");
-                
-               
-            }
-        });
-    });
-</script> -->
 
 
 </head>
 <body>
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
 
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
@@ -70,7 +27,7 @@
 
 		<div class="sidebar-menu">
 			<jsp:include page="./EmployeeMenu.jsp">
-				<jsp:param value="<%=from%>" name="from" />
+				
 			</jsp:include></div>
 
 		<div class="rightsidebar-menu"></div>
@@ -324,7 +281,7 @@ int k=1;
 
 			<div class="copyrights">
 				<p>
-					© 2017 Kosur Rythu Mitra. All Rights Reserved | Design by <a
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

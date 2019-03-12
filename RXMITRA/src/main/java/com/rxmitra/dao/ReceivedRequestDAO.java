@@ -49,6 +49,7 @@ public class ReceivedRequestDAO {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public List<Prescription> getReceivedRequestPrescriptionMedicines(String mngmtId) {
 		
 		String sql="from com.rxmitra.bean.Prescription where requestId='"+mngmtId+"'";
@@ -89,6 +90,7 @@ public class ReceivedRequestDAO {
 		return i;
 
 	}
+	@SuppressWarnings("static-access")
 	public String savePrescriptionAndDoctorData(PrescriptionManagement preMngmt, List<Prescription> prescription,ReceivedRequest receivedRequest,String status) {
 
 		String message = null;
@@ -121,6 +123,7 @@ public class ReceivedRequestDAO {
 		return message;
 	}
 	
+	@SuppressWarnings("static-access")
 	public String savePrescriptionAndDoctorData(List<Prescription> prescription,ReceivedRequest receivedRequest,String status) {
 
 		String message = null;
@@ -151,6 +154,7 @@ public class ReceivedRequestDAO {
 		return message;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<ReceivedRequest> viewReceivedRequestsByDates(String fromDate, String toDate, String pincode,
 			String requestId) {
 		String query = "from com.rxmitra.bean.ReceivedRequest r where (date  between '" + fromDate + "' and '" + toDate

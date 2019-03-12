@@ -33,17 +33,6 @@ label {
 </head>
 <body>
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
 	<section style="background-color:#febf10; height:3px;"></section>
 	<%-- <jsp:include page="./Employee_top.jsp" /> --%>
 
@@ -51,7 +40,7 @@ label {
 
 		<div class="sidebar-menu">
 			<jsp:include page="./EmployeeMenu.jsp">
-				<jsp:param value="<%=from%>" name="from" />
+				
 			</jsp:include></div>
 
 		<div class="left-content">
@@ -81,32 +70,32 @@ label {
 	  
 	   <div class="form-group col-lg-6">
 	   <label>Employee Name</label>
-	   <input type="text" class="form-control" id="empName" name="empName"  value="${employeeDetails.empName }" placeholder="Your Employee Name" required>
+	   <input type="text" class="form-control" id="empName" name="empName"  value="${employeeDetails.empName }" placeholder="Your Employee Name" required/>
 	   </div>
 	   
 	   <div class="form-group col-lg-6">
 	   <label>Employee Surname</label>
-	   <input type="text" class="form-control" id="empSurName" name="empSurName" value="${employeeDetails.empSurName }" placeholder="Your Employee Surname" required>
+	   <input type="text" class="form-control" id="empSurName" name="empSurName" value="${employeeDetails.empSurName }" placeholder="Your Employee Surname" required/>
 	   </div>
 	   
 	   <div class="form-group col-lg-6">
 	  <label>Email ID</label>
-	   <input type="text" class="form-control" id="emailId" name="emailId" value="${employeeDetails.emailId }" placeholder="Enter Email Id" required>
+	   <input type="text" class="form-control" id="emailId" name="emailId" value="${employeeDetails.emailId }" placeholder="Enter Email Id" required/>
 	   </div>
 	   
 	   <div class="form-group col-lg-6">
 	   <label>Mobile</label>
-	   <input type="text" class="form-control" id="mobileNo" name="mobileNo" value="${employeeDetails.mobileNo }" placeholder="Enter Mobile No" required>
+	   <input type="text" class="form-control" id="mobileNo" name="mobileNo" value="${employeeDetails.mobileNo }" placeholder="Enter Mobile No" required/>
 	   </div>
 	   
 	   <div class="form-group col-lg-6">
 	    <label>Education</label>
-	   <input type="text" class="form-control" id="Education" name="Education" value="${employeeDetails.education }" placeholder="Enter Education" required>
+	   <input type="text" class="form-control" id="Education" name="Education" value="${employeeDetails.education }" placeholder="Enter Education" required/>
 	   </div>
 	   
 	    <div class="form-group col-lg-6">
 	    <label>Completed Year</label>
-	    <input type="text" class="form-control" id="completedYear " name="completedYear" value="${employeeDetails.completedYear }" placeholder="Enter Completed Year" required>
+	    <input type="text" class="form-control" id="completedYear " name="completedYear" value="${employeeDetails.completedYear }" placeholder="Enter Completed Year" required/>
 	     </div>
 	  
 	 
@@ -116,11 +105,11 @@ label {
 	
 	
 	   <div class="row form-group">
-	   <p><br><br></br></p>
+	   <p><br/><br/></p>
 	   <div class="row">
 	   <div class="col-lg-4"></div>
 	   <div class="col-lg-4">
-	    <p><br></p>
+	    <p><br/></p>
 	   <button type="submit" class="btn btn-success btn-block" id="one3">Regester</button>
 	   </div>
 	   <div class="col-lg-4"></div>
@@ -128,7 +117,7 @@ label {
 	   </div>
 	   
 	  
-	 <p><br><br></br></p>
+	 <p><br/><br/></p>
       </div>
       </div>
       </form>
@@ -155,7 +144,7 @@ label {
 
 			<div class="copyrights">
 				<p>
-					Copyright © 2017 Kosur Rythu Mitra. All Rights Reserved | Design by
+					copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by
 					<a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

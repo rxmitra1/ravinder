@@ -146,7 +146,7 @@
 		<div class="container">
 		<div class="row">
 		<div class="col-md-6 text-left">
-		<p class="rx_fooyter">Copyright © 2018 Designed And Maintained by <a href="#" title="">kosurisoft.com</a></p>
+		<p class="rx_fooyter">Copyright © 2019 Kosuri RxMitra. Designed And Maintained by <a href="#" title="">kosurisoft.com</a></p>
 		</div>
 		<div class="col-md-6 text-right">
 		<ul class="list-inline">

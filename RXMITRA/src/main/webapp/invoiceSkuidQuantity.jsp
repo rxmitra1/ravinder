@@ -12,17 +12,7 @@
 <link href="./resources/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
+	
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -72,7 +62,7 @@
 
 
 									<div class="form-group col-md-2 col-sm-2">
-										<label for="pincode" style="color: #fff;">SK</label><br>
+										<label for="pincode" style="color: #fff;">SK</label><br/>
 											<button type="submit" class="btn btn-success btn-block"
 												name="sub" id="box"
 												style="font-size: 20px; line-height: 19px;">Search
@@ -83,7 +73,7 @@
 
 								<!--=========== table section =============-->
 								<div class="col-xl-12 col-sm-12">
-									<br>
+									<br/>
 								</div>
 								<div class="col-xl-12 col-sm-12">
 									<div id="no-more-tables">
@@ -147,7 +137,7 @@
 
 			<div class="copyrights">
 				<p>
-					Copyright © 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed
 					by <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

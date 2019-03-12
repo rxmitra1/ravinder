@@ -141,7 +141,7 @@ background: #5aa320;
             </div>
 
   <div class="copyrights">
-	 <p>© 2017 Kosur Rythu Mitra. All Rights Reserved | Design by  <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a> </p>
+	 <p>copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by  <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a> </p>
 </div>	</div>
 <!--COPY rights end here-->
 

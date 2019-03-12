@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
@@ -99,17 +99,6 @@ label {
 </head>
 <body>
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -117,7 +106,7 @@ label {
 
 		<div class="sidebar-menu">
 			<jsp:include page="./EmployeeMenu.jsp">
-				<jsp:param value="<%=from%>" name="from" />
+				
 			</jsp:include></div>
 
 		<div class="left-content">
@@ -176,7 +165,7 @@ label {
 
 							<div class="col-md-12">
 								<p>
-									<br>
+									<br/>
 								</p>
 
 
@@ -210,7 +199,7 @@ label {
 												<tr>
 													<td data-title="Request Id" class="numeric">
 													<form action="./ReceivedRequestPrescription" method="post">
-														<input type="hidden" name="requestId" value="${receivedRequestData.requestId }">
+														<input type="hidden" name="requestId" value="${receivedRequestData.requestId }"/>
 
 														<button type="submit" class="btn btn-link" style="color: #429400;
                                                                 font-size: 21px; line-height: 0px">
@@ -353,7 +342,7 @@ label {
 
 																			<img
 																				src="data:image/jpg;base64,${receivedRequestData.encodedImage }"
-																				class="img-responsive">
+																				class="img-responsive"/>
 																		</div>
 
 
@@ -461,7 +450,7 @@ label {
 												<div class="col-md-5"></div>
 												<div class="col-md-2">
 													<div class="">
-														<br> <input type="submit" name="submit" value="Submit"
+														<br/> <input type="submit" name="submit" value="Submit"
 															class="btn btn-success btn-block"></input>
 													</div>
 												</div>
@@ -510,7 +499,7 @@ label {
 											<c:forEach items="${count }" var="count">
 												<td>
 													<form action="./getReceivedRequestData" method="get">
-														<input type="hidden" name="pageid" value="${count}">
+														<input type="hidden" name="pageid" value="${count}"/>
 
 														<button type="submit" class="btn btn-link">
 															<c:out value="${count}" />
@@ -536,7 +525,7 @@ label {
 
 			<div class="copyrights">
 				<p>
-					Copyright © 2017 Kosur Rythu Mitra. All Rights Reserved | Design by
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by
 					<a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

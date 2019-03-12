@@ -113,7 +113,7 @@
 
 			<div class="copyrights">
 				<p>
-					© 2017 Kosuri Rythu Mitra. All Rights Reserved | Design by <a
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

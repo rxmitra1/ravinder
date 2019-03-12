@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rxmitra.bean.Product;
-import com.rxmitra.bean.Vendor;
 import com.rxmitra.bean.VendorProduct;
 
 @Repository

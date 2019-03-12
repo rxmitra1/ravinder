@@ -126,7 +126,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-left">
-                        <p>© 2017 Designed And Maintained by<a href="#" title="">kosurisoft.com</a></p>
+                        <p>copyright © 2019 Kosuri RxMitra. Designed And Maintained by<a href="#" title="">kosurisoft.com</a></p>
                     </div><!-- end col -->
                     <div class="col-md-6 text-right">
                         <ul class="list-inline">

@@ -1,11 +1,9 @@
 package com.rxmitra.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import com.rxmitra.bean.Employee;
-import com.rxmitra.bean.UserRegistration;
 import com.rxmitra.dao.EmployeeDAO;
 
 @Service

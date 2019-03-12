@@ -1,5 +1,6 @@
 package com.rxmitra.exception;
 
+@SuppressWarnings("serial")
 public class VendorException extends Exception {
 
 	String message=null;

@@ -10,21 +10,7 @@
 
 </head>
 <body>
-<%
-  String from=null;
-  try
-  {
-  from=request.getParameter("from");
-  if(from==null)
-  {
-   from=request.getAttribute("from").toString();
-  }
-  }
-  catch(Exception e)
-  {
-   
-  }
-  %>
+
 <section style="background-color:#febf10; height:3px;"></section>
 <jsp:include page="./Employee_top.jsp"/>
 
@@ -114,7 +100,7 @@
   </div> </div> </div><div class="clearfix"> </div></div>
 
   <div class="copyrights">
-	 <p>© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by  <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a> </p>
+	 <p>Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed by  <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a> </p>
 </div>	</div>
 <!--COPY rights end here-->
 

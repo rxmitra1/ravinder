@@ -28,6 +28,7 @@ public class UserRegistrationDAO {
 	@Autowired
 	private Environment env;
 
+	@SuppressWarnings("static-access")
 	public String registerUser(UserRegistration reg) {
 		// TODO Auto-generated method stub
 		Mailer mail = new Mailer();
@@ -68,6 +69,7 @@ public class UserRegistrationDAO {
 		
 	}
 
+	@SuppressWarnings("rawtypes")
 	public String checkEmail(String emailid) {
 		// TODO Auto-generated method stub
 		String sql = "from com.rxmitra.bean.UserRegistration r where r.emailId='" + emailid + "'";
@@ -83,6 +85,7 @@ public class UserRegistrationDAO {
 		return message;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public String checkMobile(String mobile) {
 
 		String sql = "from com.rxmitra.bean.UserRegistration b where b.mobileNo='" + mobile + "'";
@@ -135,11 +138,12 @@ public class UserRegistrationDAO {
 		return message;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public UserRegistration getRegistration(UserLogin userLogin) {
 		UserRegistration reg = null;
 		String sql = "from com.rxmitra.bean.UserRegistration r where r.emailId='" + userLogin.getUsername()
 				+ "' or r.mobileNo='" + userLogin.getUsername() + "'";
-		String message = null;
+		
 		Query query = template.getSessionFactory().openSession().createQuery(sql);
 		List list = query.list();
 		if (list.size() > 0) {
@@ -152,6 +156,7 @@ public class UserRegistrationDAO {
 	}
 
 	// Get the profile of perticular user
+	@SuppressWarnings("unchecked")
 	public UserRegistration viewUserProfile(Integer userId) {
 		String sql = "from com.rxmitra.bean.UserRegistration r where r.registrationId='" + userId + "'";
 		Query createQuery = template.getSessionFactory().openSession().createQuery(sql);

@@ -215,12 +215,12 @@ background: #5aa320;
             
             <div class="form-group col-md-6 col-sm-6">
             <label for="name">PINCODE</label>
-            <input size="57" type="text" class="form-control input-sm" name="pinCode" id="pinCode">
+            <input size="57" type="text" class="form-control input-sm" name="pinCode" id="pinCode"/>
             </div>
             </div>
             
             <p style="text-align: center; font-weight: 700; padding-top: 10px; font-size: 22px"><span
-												style="color: #fc8213;">BANK DETAILS</p>
+												style="color: #fc8213;"/>BANK DETAILS</p>
             
             
             <div class="row">						
@@ -274,7 +274,7 @@ background: #5aa320;
 
 			<div class="copyrights">
 				<p>
-					Copyright © 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

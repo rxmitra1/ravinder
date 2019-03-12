@@ -34,17 +34,6 @@ background: #5aa320;
 </head>
 <body>
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -52,7 +41,7 @@ background: #5aa320;
 
 		<div class="sidebar-menu">
 			<jsp:include page="./EmployeeMenu.jsp">
-				<jsp:param value="<%=from%>" name="from" />
+				
 			</jsp:include></div>
 
 		<div class="left-content">
@@ -174,7 +163,7 @@ background: #5aa320;
 
 			<div class="copyrights">
 				<p>
-					Copyright © 2017 Kosur Rythu Mitra. All Rights Reserved | Design by
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by
 					<a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

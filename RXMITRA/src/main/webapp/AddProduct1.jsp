@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>RxMitra | Addproduct1</title>
 </head>
 <body>
 
@@ -131,7 +131,7 @@
 
 			<div class="copyrights">
 				<p>
-					© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
+					copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

@@ -7,23 +7,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Rythu mitra | Employee</title>
+<title>RxMitra | Employee</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="./resources/css/style.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
+	
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -95,7 +85,7 @@
 
 			<div class="copyrights">
 				<p>
-					© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
+					Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

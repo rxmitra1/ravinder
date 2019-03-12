@@ -13,17 +13,7 @@
 
 </head>
 <body>
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
+	
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -73,7 +63,7 @@
 											placeholder="Enter Your Product Name" />
 									</div>
 									<div class="form-group col-md-2 col-sm-2">
-										<label for="pincode" style="color: #fff;">SK</label><br>
+										<label for="pincode" style="color: #fff;">SK</label><br/>
 											<button type="submit" class="btn btn-success btn-block"
 												name="submit" id="box"
 												style="font-size: 20px; line-height: 19px;">Search
@@ -91,7 +81,7 @@
 
 			<div class="copyrights">
 				<p>
-					CopyRight © 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed
+					copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed
 					by <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

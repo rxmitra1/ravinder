@@ -1,6 +1,5 @@
 package com.rxmitra.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -11,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rxmitra.bean.AddInvoice;
 import com.rxmitra.bean.Publish;
-import com.rxmitra.bean.Vendor;
-import com.rxmitra.exception.VendorException;
 
 @Repository
 @Transactional
@@ -44,6 +41,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		createQuery.setFirstResult((pageid - 1));
 		createQuery.setMaxResults(limit);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 		return list;
 	}
@@ -57,6 +55,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		createQuery.setFirstResult((pageid - 1));
 		createQuery.setMaxResults(limit);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 
 		return list;
@@ -113,6 +112,7 @@ public class AddInvoiceDAO {
 				+ productName + "' or i.manufacturer='" + manufacturer + "')";
 
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 
 		return list;
@@ -122,6 +122,7 @@ public class AddInvoiceDAO {
 	public List<Object[]> viewVendorInvoiceBySkuid() {
 		String query = "select i.productName,i.packageType,i.skuid,sum(quantity) from com.rxmitra.bean.AddInvoice i group by i.skuid";
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
+		@SuppressWarnings("unchecked")
 		List<Object[]> list = createQuery.list();
 
 		return list;
@@ -136,6 +137,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		createQuery.setFirstResult((pageid - 1));
 		createQuery.setMaxResults(limit);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 		return list;
 	}
@@ -148,6 +150,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		createQuery.setFirstResult((pageid - 1));
 		createQuery.setMaxResults(limit);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 		return list;
 	}
@@ -192,6 +195,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		createQuery.setFirstResult((pageid - 1));
 		createQuery.setMaxResults(total);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 
 		return list;
@@ -204,6 +208,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		// createQuery.setFirstResult((pageid - 1));
 		// createQuery.setMaxResults(total);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 
 		return list;
@@ -216,6 +221,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		createQuery.setFirstResult((pageid - 1));
 		createQuery.setMaxResults(total);
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 
 		return list;
@@ -305,6 +311,7 @@ public class AddInvoiceDAO {
 		Query createQuery = template.getSessionFactory().openSession().createQuery(query);
 		createQuery.setParameter("keyword", "%" + productName + "%");
 
+		@SuppressWarnings("unchecked")
 		List<String> list = createQuery.list();
 
 		return list;
@@ -320,6 +327,7 @@ public class AddInvoiceDAO {
 		createQuery.setParameter("keyword", "%" + productName + "%");
 		createQuery.setParameter("published", publish);
 
+		@SuppressWarnings("unchecked")
 		List<AddInvoice> list = createQuery.list();
 
 		return list;

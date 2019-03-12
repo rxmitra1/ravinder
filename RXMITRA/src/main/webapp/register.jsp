@@ -917,7 +917,7 @@ function yesnoCheck() {
 							<div class="ml-lg-auto cr_links">
 								<ul class="cr_list">
 									<p style="color: #e2e0e0;">
-										Devloped & Maintained By <a href="http://kosurisoft.com/"
+										Copyright © 2019 Kosuri RxMitra. Devloped & Maintained By <a href="http://kosurisoft.com/"
 											target="_blank"
 											style="background: #565353; color: #fff; font-size: 15px; text-decoration: none;">
 											kosurisoft.com</a>

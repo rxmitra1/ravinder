@@ -7,7 +7,6 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rxmitra.bean.AddInvoice;
 import com.rxmitra.bean.DistributorInvoice;
 
 @Repository

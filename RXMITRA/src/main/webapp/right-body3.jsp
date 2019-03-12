@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--inner block end here-->
  <div class="copyrights">
-	 <p>© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by  <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a> </p>
+	 <p>Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed by  <a href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a> </p>
 </div>
 
 <!--slider menu-->

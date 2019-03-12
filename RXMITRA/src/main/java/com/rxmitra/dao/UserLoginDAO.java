@@ -3,7 +3,6 @@ package com.rxmitra.dao;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +86,7 @@ public class UserLoginDAO {
 		return hashMap;
 	}
 
+	@SuppressWarnings("static-access")
 	public String verifyMailLogin(String email) {
 		// TODO Auto-generated method stub
 
@@ -98,6 +98,7 @@ public class UserLoginDAO {
 		return "verified";
 	}
 
+	@SuppressWarnings({ "unchecked", "static-access" })
 	public String getUserEmail(String username) {
 		// TODO Auto-generated method stub
 		String existEmail = null, message = "no", existMobileNo = null;

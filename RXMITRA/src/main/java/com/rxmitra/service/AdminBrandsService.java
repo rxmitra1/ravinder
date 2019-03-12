@@ -15,6 +15,7 @@ public class AdminBrandsService {
 	@Autowired
 	private AdminBrandsDAO adminBrandsDAO;
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private HibernateTemplate template;
 	

@@ -12,17 +12,7 @@
 
 </head>
 <body>
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
+	
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
 
@@ -40,9 +30,7 @@
 
 						<div class="panel panel-orange" style="padding: 2px 13px;">
 							<div class="">
-								<%
-									String shopid = (String) request.getParameter("shopid");
-								%>
+								
 								<form action="/RXMITRA/DisplayVendorsToInsertProducts"
 									method="post">
 									<div colspan="12"
@@ -128,7 +116,7 @@
 
 			<div class="copyrights">
 				<p>
-					© 2017 Kosuri Rythu Mitra. All Rights Reserved | Designed by <a
+				Copyright © 2019 Kosuri RxMitra. All Rights Reserved | Designed by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>

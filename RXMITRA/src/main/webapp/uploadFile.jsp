@@ -182,93 +182,6 @@
   
   </form>
   
-  
-  
-  <%-- <%
-  int i=0;
-  
-  %>
-   <c:forEach items="${productDetails }" var="productDetails">
-  <div class="row">
-	<div class="col-md-2"></div>
-	<div class="col-md-8 tabb0" id="my2">
-	<h4></h4>
-	</div>
-	
-	
-	
-	<div class="col-md-2"></div>
-	</div>
-	
-	
-	 <form action="./removeCart" method="post">
-	<div class="row">
-	<div class="col-md-2"></div>
-	<div class="col-md-3 tabb9" id="my2">
-	<h4><c:out value="${productDetails.productName}"></c:out></h4>
-	<h5>PARACETAMOL(ACETAMINOPHEN) <c:out value="${productDetails.packageType}"></c:out></h5>
-	<h6>By <c:out value="${productDetails.manufacturer }"></c:out></h6>
-	<p>Price :<c:out value="${productDetails.sellingPrice }"></c:out> (per unit)</p>
-	</div>
-	
-	<div class="col-md-2 tabb9" id="my2">
-	<h4>Order Quantity</h4>
-	<h5>${productDetails.cartQuantity }</h5>
-	
-	</div>
-	
-	<div class="col-md-2 tabb9" id="my2">
-	<h4>Total Price</h4>
-	<h5>${quantityproductDetails.cartQuantity }</h5>
-	<p>Price : ${productDetails.cartPrice }</p>
-	</div>
-	<div>
-	
-	<!-- <input type="submit"  class="btn btn-success btn-block" id="we6" value="Remove"/ -->
-	<!-- <button type="button" class="btn btn-success" id="we6"> <i class="fa fa-trash-o" aria-hidden="true"> </i></button> -->
-	<a href="./removeCart?cartId=<%=i++ %>" class="btn btn-success" id="we6"><i class="fa fa-trash-o" aria-hidden="true"> </i></a>
-	</div>
-	
-	<div class="col-md-2"></div>
-	</div>
-	</form>
-	 </c:forEach>
-	 
-	  <div class="row">
-	  	<div class="col-md-5"></div>
-	
-	
-	<div class="col-md-4 tabb0" id="my2">
-	<h4></h4>
-	</div>
-	
-	</div>
-	 <div class="row">
-	<div class="col-md-5"></div>
-	<div class="col-md-2">
-	<h4>Total Price</h4>
-	</div>
-	<div class="col-md-4">
-	<h4>${totalPrice}</h4>
-	</div>
-	<div class="col-md-2"></div>
-	</div>
-	 
-	 
-	 
-	<div class="row">
-	<div class="col-md-7"></div>
-	<div class="col-md-2">
-	<br>
-	<button type="button" class="btn btn-success btn-block" id="we5">Pay Now</button>
-	<br>
-	<br>
-	</div>
-	<div class="col-md-2"></div>
-	</div>
-	
-	</div>
-	</div> --%>
 	<!--======= end search section =========-->
    <p><br></br></p> 
       <div class="clearfix"> </div>
@@ -303,33 +216,6 @@
 				</div>			
 				</div>
 
-				<!--<div class="col-lg-3 footer_col">
-				<div class="footer_section footer_links">
-				<div class="footer_title">Site Links</div>
-				<div class="footer_links_container">
-				<ul>
-				<li><a href="index.html"><i class="fa fa-arrow-right"></i> Home</a></li>
-				<li><a href="about.html"><i class="fa fa-arrow-right"></i> About</a></li>
-				<li><a href="#"><i class="fa fa-arrow-right"></i> Services</a></li>
-				<li><a href="contact.html"><i class="fa fa-arrow-right"></i> Contact</a></li>
-				</ul>
-				</div>
-				</div>			
-				</div> -->
-
-				<!--<div class="col-lg-3 footer_col clearfix">
-				<div class="footer_section footer_links">
-				<div class="footer_title">Our Parteners</div>
-				<div class="footer_links_container">
-				<ul>
-				<li><a href="index.html"><i class="fa fa-arrow-right"></i> Campusguide</a></li>
-				<li><a href="about.html"><i class="fa fa-arrow-right"></i> Rythumitra</a></li>
-				<li><a href="#"><i class="fa fa-arrow-right"></i> Frytemate</a></li>
-				<li><a href="contact.html"><i class="fa fa-arrow-right"></i> Zorocabs</a></li>
-				</ul>
-				</div>
-				</div>		
-				</div> -->
 				
 				<div class="col-lg-3 footer_col">
 				<div class="footer_section footer_contact">

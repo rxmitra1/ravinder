@@ -11,17 +11,6 @@
 </head>
 <body>
 
-	<%
-		String from = null;
-		try {
-			from = request.getParameter("from");
-			if (from == null) {
-				from = request.getAttribute("from").toString();
-			}
-		} catch (Exception e) {
-
-		}
-	%>
 
 	<section style="background-color:#febf10; height:3px;"></section>
 	<jsp:include page="./Employee_top.jsp" />
@@ -30,7 +19,7 @@
 
 		<div class="sidebar-menu">
 			<jsp:include page="./EmployeeMenu.jsp">
-				<jsp:param value="<%=from%>" name="from" />
+				
 			</jsp:include></div>
 
 		<div class="rightsidebar-menu"></div>
@@ -46,12 +35,7 @@
 							<div class="for4">
 
 								<div class="col-lg-12">
-									<%--   <jsp:include page="./User.jsp"></jsp:include>
- --%>
-									<%
-										String shopid = (String) request.getAttribute("shopid");
-										int noofpages = 0, page1 = 0, maxrowsperpage = 0;
-									%>
+									
 									<form method="post" action="./viewVendorInvoiceDetails?update=yes&pageid=1"
 										class="form-horizontal">
                                       <div colspan="12" style="padding: 5px;background: #5aa320;color:#fff;text-align: center;font-size: 20px;border-bottom: 2px solid #febf10;">
@@ -247,7 +231,7 @@
 
 			<div class="copyrights">
 				<p>
-					© 2017 Kosur Rythu Mitra. All Rights Reserved | Design by <a
+					copyright © 2019 Kosuri RxMitra. All Rights Reserved | Design by <a
 						href="#" target="_blank">Kosuri Soft Labs Pvt Ltd</a>
 				</p>
 			</div>
